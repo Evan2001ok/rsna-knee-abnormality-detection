@@ -1,0 +1,948 @@
+{
+  "scope": "Static source plus prior saved execution logs; no new GPU forward, tensor binary loading, training or submission.",
+  "models": {
+    "conv": {
+      "dataset_url": "https://www.kaggle.com/datasets/minminandy/distillstage1conv384",
+      "dataset_version_identifier": "20697207",
+      "run_root": "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven",
+      "checkpoint_paths": [
+        "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold3/fold0_final.pt"
+      ],
+      "model_name": "convnext_tiny.fb_in22k_ft_in1k_384",
+      "feature_dim": 768,
+      "architecture_metadata": "shared_convnext_tiny_graycopy_5expert_labelwise_spatiotemporal_attention_v3",
+      "cache_size": 384,
+      "model_input_size": 384,
+      "crop_mm": 130.0,
+      "central_fraction": 0.8,
+      "cached_slices_per_slot": 24,
+      "token_mode": "overlap_window3_stride2",
+      "tokens_per_slot": 11,
+      "targets": [
+        "ACL",
+        "MCL",
+        "Medial Meniscus",
+        "Lateral Meniscus",
+        "Medial OA",
+        "Lateral OA",
+        "PF OA",
+        "Effusion",
+        "Synovitis",
+        "Baker's",
+        "Contusion",
+        "Fracture"
+      ],
+      "slots": [
+        [
+          "SAG_FLUID_FS",
+          "Sagittal",
+          true,
+          true
+        ],
+        [
+          "COR_FLUID_FS",
+          "Coronal",
+          true,
+          true
+        ],
+        [
+          "AX_FLUID_FS",
+          "Axial",
+          true,
+          true
+        ],
+        [
+          "COR_T1",
+          "Coronal",
+          false,
+          false
+        ],
+        [
+          "SAG_T1",
+          "Sagittal",
+          false,
+          false
+        ]
+      ],
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "normalization_evidence": "printed after strict checkpoint state_dict loading in saved submitted run",
+      "resize": "no second resize",
+      "fold_ensemble": "equal logit mean then sigmoid",
+      "tta_angles": [
+        -12.0,
+        0.0,
+        12.0
+      ],
+      "tta_evidence": "saved submitted inference source and log",
+      "inference_source": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-vlm-convnextv2t?scriptVersionId=358171615",
+      "existing_inference_actual_run_root": "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven",
+      "checkpoint_binary_loaded_in_this_audit": false,
+      "training_source": "https://www.kaggle.com/code/minminandy/conv-of-fork-of-rsna-train-cd4e8a",
+      "training_config": {
+        "model_name": "\"convnext_tiny.fb_in22k_ft_in1k_384\"",
+        "img_size": "384",
+        "crop_mm": "130.0",
+        "slices_per_slot": "24",
+        "gru_hidden": "256",
+        "gru_layers": "1",
+        "attn_hidden": "128",
+        "vlm_weight": "0.7",
+        "v1_weight": "0.7"
+      }
+    },
+    "eff": {
+      "dataset_url": "https://www.kaggle.com/datasets/minminandy/distillstage1effs384",
+      "dataset_version_identifier": "20678490",
+      "run_root": "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven",
+      "checkpoint_paths": [
+        "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold3/fold0_final.pt"
+      ],
+      "model_name": "tf_efficientnetv2_s.in21k_ft_in1k",
+      "feature_dim": 1280,
+      "architecture_metadata": "shared_convnext_tiny_graycopy_5expert_labelwise_spatiotemporal_attention_v3",
+      "cache_size": 384,
+      "model_input_size": 384,
+      "crop_mm": 130.0,
+      "central_fraction": 0.8,
+      "cached_slices_per_slot": 24,
+      "token_mode": "overlap_window3_stride2",
+      "tokens_per_slot": 11,
+      "targets": [
+        "ACL",
+        "MCL",
+        "Medial Meniscus",
+        "Lateral Meniscus",
+        "Medial OA",
+        "Lateral OA",
+        "PF OA",
+        "Effusion",
+        "Synovitis",
+        "Baker's",
+        "Contusion",
+        "Fracture"
+      ],
+      "slots": [
+        [
+          "SAG_FLUID_FS",
+          "Sagittal",
+          true,
+          true
+        ],
+        [
+          "COR_FLUID_FS",
+          "Coronal",
+          true,
+          true
+        ],
+        [
+          "AX_FLUID_FS",
+          "Axial",
+          true,
+          true
+        ],
+        [
+          "COR_T1",
+          "Coronal",
+          false,
+          false
+        ],
+        [
+          "SAG_T1",
+          "Sagittal",
+          false,
+          false
+        ]
+      ],
+      "mean": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "std": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "normalization_evidence": "printed after strict checkpoint state_dict loading in saved submitted run",
+      "resize": "no second resize",
+      "fold_ensemble": "equal logit mean then sigmoid",
+      "tta_angles": [
+        -12.0,
+        0.0,
+        12.0
+      ],
+      "tta_evidence": "saved submitted inference source and log",
+      "inference_source": "https://www.kaggle.com/code/minminandy/rsna-inference-vlm-efficientnetv2s?scriptVersionId=358023770",
+      "existing_inference_actual_run_root": "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven",
+      "checkpoint_binary_loaded_in_this_audit": false,
+      "training_source": "https://www.kaggle.com/code/minminandy/eff-of-fork-of-rsna-train-cd4e8a",
+      "training_config": {
+        "model_name": "\"tf_efficientnetv2_s.in21k_ft_in1k\"",
+        "img_size": "384",
+        "crop_mm": "130.0",
+        "slices_per_slot": "24",
+        "gru_hidden": "256",
+        "gru_layers": "1",
+        "attn_hidden": "128",
+        "vlm_weight": "0.7",
+        "v1_weight": "0.7"
+      }
+    },
+    "dino": {
+      "dataset_url": "https://www.kaggle.com/datasets/zhuyifanss/distillstage1dinov2s384",
+      "dataset_version_identifier": "20712330",
+      "run_root": "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9",
+      "checkpoint_paths": [
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold3/fold0_final.pt"
+      ],
+      "model_name": "vit_small_patch14_dinov2.lvd142m",
+      "feature_dim": 384,
+      "architecture_metadata": "shared_dinov2s_2p5d_5expert_labelwise_spatiotemporal_attention",
+      "cache_size": 384,
+      "model_input_size": 392,
+      "crop_mm": 130.0,
+      "central_fraction": 0.8,
+      "cached_slices_per_slot": 24,
+      "token_mode": "overlap_window3_stride2",
+      "tokens_per_slot": 11,
+      "targets": [
+        "ACL",
+        "MCL",
+        "Medial Meniscus",
+        "Lateral Meniscus",
+        "Medial OA",
+        "Lateral OA",
+        "PF OA",
+        "Effusion",
+        "Synovitis",
+        "Baker's",
+        "Contusion",
+        "Fracture"
+      ],
+      "slots": [
+        [
+          "SAG_FLUID_FS",
+          "Sagittal",
+          true,
+          true
+        ],
+        [
+          "COR_FLUID_FS",
+          "Coronal",
+          true,
+          true
+        ],
+        [
+          "AX_FLUID_FS",
+          "Axial",
+          true,
+          true
+        ],
+        [
+          "COR_T1",
+          "Coronal",
+          false,
+          false
+        ],
+        [
+          "SAG_T1",
+          "Sagittal",
+          false,
+          false
+        ]
+      ],
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "normalization_evidence": "printed after strict checkpoint state_dict loading in saved submitted run",
+      "resize": "cv2.INTER_LINEAR 384->392 per uint8 slice before model/TTA",
+      "fold_ensemble": "equal logit mean then sigmoid",
+      "tta_angles": [
+        -12.0,
+        0.0,
+        12.0
+      ],
+      "tta_evidence": "saved submitted inference source and log",
+      "inference_source": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-vlm-dino?scriptVersionId=358277003",
+      "existing_inference_actual_run_root": "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9",
+      "checkpoint_binary_loaded_in_this_audit": false,
+      "training_source": "https://www.kaggle.com/code/zhuyifanss/dino-of-fork-of-rsna-train-cd4e8a",
+      "training_config": {
+        "model_name": "\"vit_small_patch14_dinov2.lvd142m\"",
+        "img_size": "392",
+        "cache_img_size": "384",
+        "crop_mm": "130.0",
+        "slices_per_slot": "24",
+        "gru_hidden": "256",
+        "gru_layers": "1",
+        "attn_hidden": "128",
+        "vlm_weight": "0.7",
+        "v1_weight": "0.7"
+      }
+    },
+    "dino3": {
+      "dataset_url": "https://www.kaggle.com/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a",
+      "dataset_version_identifier": "20728663",
+      "run_root": "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr",
+      "checkpoint_paths": [
+        "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold3/fold0_final.pt"
+      ],
+      "model_name": "convnext_tiny.dinov3_lvd1689m",
+      "feature_dim": 768,
+      "architecture_metadata": "shared_dinov3_convnext_tiny_2p5d11_oai58_42_labelwise_spatiotemporal_attention_v3",
+      "cache_size": 384,
+      "model_input_size": 384,
+      "crop_mm": 130.0,
+      "central_fraction": 0.8,
+      "cached_slices_per_slot": 24,
+      "token_mode": "overlap_window3_stride2",
+      "tokens_per_slot": 11,
+      "targets": [
+        "ACL",
+        "MCL",
+        "Medial Meniscus",
+        "Lateral Meniscus",
+        "Medial OA",
+        "Lateral OA",
+        "PF OA",
+        "Effusion",
+        "Synovitis",
+        "Baker's",
+        "Contusion",
+        "Fracture"
+      ],
+      "slots": [
+        [
+          "SAG_FLUID_FS",
+          "Sagittal",
+          true,
+          true
+        ],
+        [
+          "COR_FLUID_FS",
+          "Coronal",
+          true,
+          true
+        ],
+        [
+          "AX_FLUID_FS",
+          "Axial",
+          true,
+          true
+        ],
+        [
+          "COR_T1",
+          "Coronal",
+          false,
+          false
+        ],
+        [
+          "SAG_T1",
+          "Sagittal",
+          false,
+          false
+        ]
+      ],
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "normalization_evidence": "printed after strict checkpoint state_dict loading in saved submitted run",
+      "resize": "no second resize",
+      "fold_ensemble": "equal logit mean then sigmoid",
+      "tta_angles": [
+        0.0
+      ],
+      "tta_evidence": "saved submitted inference source and log",
+      "inference_source": "https://www.kaggle.com/code/lihu6666/dinov3-conv-lihu-fork-of-rsna-train-cd4e8a?scriptVersionId=358404247",
+      "existing_inference_actual_run_root": "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr",
+      "checkpoint_binary_loaded_in_this_audit": false,
+      "training_source_status": "Dataset provenance displays Private Notebook; not read. Submitted inference and strict-load execution log inspected."
+    },
+    "rad": {
+      "dataset_url": "https://www.kaggle.com/datasets/zhuyifanss/distillstage1radimageresnet224",
+      "dataset_version_identifier": "20708093",
+      "run_root": "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24",
+      "checkpoint_paths": [
+        "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold3/fold0_final.pt"
+      ],
+      "model_name": "radimagenet_resnet50",
+      "feature_dim": 2048,
+      "architecture_metadata": "shared_convnext_tiny_graycopy_5expert_labelwise_spatiotemporal_attention_v3",
+      "cache_size": 384,
+      "model_input_size": 224,
+      "crop_mm": 130.0,
+      "central_fraction": 0.8,
+      "cached_slices_per_slot": 24,
+      "token_mode": "grayscale_copy3",
+      "tokens_per_slot": 24,
+      "targets": [
+        "ACL",
+        "MCL",
+        "Medial Meniscus",
+        "Lateral Meniscus",
+        "Medial OA",
+        "Lateral OA",
+        "PF OA",
+        "Effusion",
+        "Synovitis",
+        "Baker's",
+        "Contusion",
+        "Fracture"
+      ],
+      "slots": [
+        [
+          "SAG_FLUID_FS",
+          "Sagittal",
+          true,
+          true
+        ],
+        [
+          "COR_FLUID_FS",
+          "Coronal",
+          true,
+          true
+        ],
+        [
+          "AX_FLUID_FS",
+          "Axial",
+          true,
+          true
+        ],
+        [
+          "COR_T1",
+          "Coronal",
+          false,
+          false
+        ],
+        [
+          "SAG_T1",
+          "Sagittal",
+          false,
+          false
+        ]
+      ],
+      "mean": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "std": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "normalization_evidence": "printed after strict checkpoint state_dict loading in saved submitted run",
+      "resize": "torch bilinear, align_corners=False, antialias=True; 384->224 after optional 384 rotation",
+      "fold_ensemble": "equal logit mean then sigmoid",
+      "tta_angles": [
+        -12.0,
+        0.0,
+        12.0
+      ],
+      "tta_evidence": "saved submitted inference source and log",
+      "inference_source": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-vlm-radimageresnet?scriptVersionId=358244727",
+      "existing_inference_actual_run_root": "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24",
+      "checkpoint_binary_loaded_in_this_audit": false,
+      "training_source": "https://www.kaggle.com/code/zhuyifanss/radimagenetresnet-of-fork-of-rsna-train-cd4e8a",
+      "training_config": {
+        "model_name": "\"radimagenet_resnet50\"",
+        "img_size": "384",
+        "model_img_size": "224",
+        "crop_mm": "130.0",
+        "slices_per_slot": "24",
+        "gru_hidden": "256",
+        "gru_layers": "1",
+        "attn_hidden": "128",
+        "vlm_weight": "0.7",
+        "v1_weight": "0.7"
+      }
+    },
+    "tiny": {
+      "dataset_url": "https://www.kaggle.com/datasets/minminandy/distillstage1tinyvit384",
+      "dataset_version_identifier": "20697665",
+      "run_root": "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven",
+      "checkpoint_paths": [
+        "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold3/fold0_final.pt"
+      ],
+      "model_name": "tiny_vit_21m_384.dist_in22k_ft_in1k",
+      "feature_dim": 576,
+      "architecture_metadata": "shared_tinyvit21m_2p5d_11tokens_5expert_labelwise_spatiotemporal_attention_v3",
+      "cache_size": 384,
+      "model_input_size": 384,
+      "crop_mm": 130.0,
+      "central_fraction": 0.8,
+      "cached_slices_per_slot": 24,
+      "token_mode": "overlap_window3_stride2",
+      "tokens_per_slot": 11,
+      "targets": [
+        "ACL",
+        "MCL",
+        "Medial Meniscus",
+        "Lateral Meniscus",
+        "Medial OA",
+        "Lateral OA",
+        "PF OA",
+        "Effusion",
+        "Synovitis",
+        "Baker's",
+        "Contusion",
+        "Fracture"
+      ],
+      "slots": [
+        [
+          "SAG_FLUID_FS",
+          "Sagittal",
+          true,
+          true
+        ],
+        [
+          "COR_FLUID_FS",
+          "Coronal",
+          true,
+          true
+        ],
+        [
+          "AX_FLUID_FS",
+          "Axial",
+          true,
+          true
+        ],
+        [
+          "COR_T1",
+          "Coronal",
+          false,
+          false
+        ],
+        [
+          "SAG_T1",
+          "Sagittal",
+          false,
+          false
+        ]
+      ],
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "normalization_evidence": "printed after strict checkpoint state_dict loading in saved submitted run",
+      "resize": "no second resize",
+      "fold_ensemble": "equal logit mean then sigmoid",
+      "tta_angles": [
+        -12.0,
+        0.0,
+        12.0
+      ],
+      "tta_evidence": "saved submitted inference source and log",
+      "inference_source": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-vlm-tinyvit?scriptVersionId=358172023",
+      "existing_inference_actual_run_root": "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven",
+      "checkpoint_binary_loaded_in_this_audit": false,
+      "training_source": "https://www.kaggle.com/code/minminandy/vit-of-fork-of-rsna-train-cd4e8a",
+      "training_config": {
+        "model_name": "\"tiny_vit_21m_384.dist_in22k_ft_in1k\"",
+        "img_size": "384",
+        "crop_mm": "130.0",
+        "slices_per_slot": "24",
+        "gru_hidden": "256",
+        "gru_layers": "1",
+        "attn_hidden": "128",
+        "vlm_weight": "0.7",
+        "v1_weight": "0.7"
+      }
+    },
+    "conv_new": {
+      "dataset_url": "https://www.kaggle.com/datasets/zhuyifanss/distillstage1conv-difflabel384",
+      "dataset_version_identifier": "20741949",
+      "run_root": "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven",
+      "checkpoint_paths": [
+        "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold3/fold0_final.pt"
+      ],
+      "model_name": "convnext_tiny.fb_in22k_ft_in1k_384",
+      "feature_dim": 768,
+      "architecture_metadata": "shared_convnext_tiny_graycopy_5expert_labelwise_spatiotemporal_attention_v3",
+      "cache_size": 384,
+      "model_input_size": 384,
+      "crop_mm": 130.0,
+      "central_fraction": 0.8,
+      "cached_slices_per_slot": 24,
+      "token_mode": "overlap_window3_stride2",
+      "tokens_per_slot": 11,
+      "targets": [
+        "ACL",
+        "MCL",
+        "Medial Meniscus",
+        "Lateral Meniscus",
+        "Medial OA",
+        "Lateral OA",
+        "PF OA",
+        "Effusion",
+        "Synovitis",
+        "Baker's",
+        "Contusion",
+        "Fracture"
+      ],
+      "slots": [
+        [
+          "SAG_FLUID_FS",
+          "Sagittal",
+          true,
+          true
+        ],
+        [
+          "COR_FLUID_FS",
+          "Coronal",
+          true,
+          true
+        ],
+        [
+          "AX_FLUID_FS",
+          "Axial",
+          true,
+          true
+        ],
+        [
+          "COR_T1",
+          "Coronal",
+          false,
+          false
+        ],
+        [
+          "SAG_T1",
+          "Sagittal",
+          false,
+          false
+        ]
+      ],
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "normalization_evidence": "same model implementation; verify new checkpoint mean/std buffers at runtime",
+      "resize": "no second resize",
+      "fold_ensemble": "equal logit mean then sigmoid",
+      "tta_angles": [
+        -12.0,
+        0.0,
+        12.0
+      ],
+      "tta_evidence": "inherit corresponding original inference implementation; no dedicated submitted run inspected",
+      "inference_source": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-vlm-convnextv2t?scriptVersionId=358171615",
+      "existing_inference_actual_run_root": null,
+      "checkpoint_binary_loaded_in_this_audit": false,
+      "training_source": "https://www.kaggle.com/code/zhuyifanss/difflabel-of-conv-of-fork-of-rsna-train",
+      "training_config": {
+        "model_name": "\"convnext_tiny.fb_in22k_ft_in1k_384\"",
+        "img_size": "384",
+        "crop_mm": "130.0",
+        "slices_per_slot": "24",
+        "gru_hidden": "256",
+        "gru_layers": "1",
+        "attn_hidden": "128",
+        "vlm_weight": "0.7",
+        "v1_weight": "0.7"
+      }
+    },
+    "dino_new": {
+      "dataset_url": "https://www.kaggle.com/datasets/zhuyifanss/distillstage1dino-difflabel394",
+      "dataset_version_identifier": "20741958",
+      "run_root": "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9",
+      "checkpoint_paths": [
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold3/fold0_final.pt"
+      ],
+      "model_name": "vit_small_patch14_dinov2.lvd142m",
+      "feature_dim": 384,
+      "architecture_metadata": "shared_dinov2s_2p5d_5expert_labelwise_spatiotemporal_attention",
+      "cache_size": 384,
+      "model_input_size": 392,
+      "crop_mm": 130.0,
+      "central_fraction": 0.8,
+      "cached_slices_per_slot": 24,
+      "token_mode": "overlap_window3_stride2",
+      "tokens_per_slot": 11,
+      "targets": [
+        "ACL",
+        "MCL",
+        "Medial Meniscus",
+        "Lateral Meniscus",
+        "Medial OA",
+        "Lateral OA",
+        "PF OA",
+        "Effusion",
+        "Synovitis",
+        "Baker's",
+        "Contusion",
+        "Fracture"
+      ],
+      "slots": [
+        [
+          "SAG_FLUID_FS",
+          "Sagittal",
+          true,
+          true
+        ],
+        [
+          "COR_FLUID_FS",
+          "Coronal",
+          true,
+          true
+        ],
+        [
+          "AX_FLUID_FS",
+          "Axial",
+          true,
+          true
+        ],
+        [
+          "COR_T1",
+          "Coronal",
+          false,
+          false
+        ],
+        [
+          "SAG_T1",
+          "Sagittal",
+          false,
+          false
+        ]
+      ],
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "normalization_evidence": "same model implementation; verify new checkpoint mean/std buffers at runtime",
+      "resize": "cv2.INTER_LINEAR 384->392 per uint8 slice before model/TTA",
+      "fold_ensemble": "equal logit mean then sigmoid",
+      "tta_angles": [
+        -12.0,
+        0.0,
+        12.0
+      ],
+      "tta_evidence": "inherit corresponding original inference implementation; no dedicated submitted run inspected",
+      "inference_source": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-vlm-dino?scriptVersionId=358277003",
+      "existing_inference_actual_run_root": null,
+      "checkpoint_binary_loaded_in_this_audit": false,
+      "training_source": "https://www.kaggle.com/code/zhuyifanss/difflabel-of-dino-of-fork-of-rsna-train-cd4e8a",
+      "training_config": {
+        "model_name": "\"vit_small_patch14_dinov2.lvd142m\"",
+        "img_size": "392",
+        "cache_img_size": "384",
+        "crop_mm": "130.0",
+        "slices_per_slot": "24",
+        "gru_hidden": "256",
+        "gru_layers": "1",
+        "attn_hidden": "128",
+        "vlm_weight": "0.5",
+        "v1_weight": "0.7"
+      }
+    }
+  },
+  "new_label_pair_comparison": {
+    "conv": {
+      "changed_fields": [
+        "scored_path"
+      ],
+      "all_remaining_python_ast_identical": true
+    },
+    "dino": {
+      "changed_fields": [
+        "scored_path",
+        "vlm_weight"
+      ],
+      "all_remaining_python_ast_identical": true
+    }
+  },
+  "common_preprocessing_function_comparison": {
+    "load_series_csv": {
+      "all_six_ast_identical": true,
+      "sha256_by_model": {
+        "conv": "2eb50173f685d7b3ede28724bccddf168e0c65f835a748d85798d7e001a59cdb",
+        "eff": "2eb50173f685d7b3ede28724bccddf168e0c65f835a748d85798d7e001a59cdb",
+        "dino": "2eb50173f685d7b3ede28724bccddf168e0c65f835a748d85798d7e001a59cdb",
+        "dino3": "2eb50173f685d7b3ede28724bccddf168e0c65f835a748d85798d7e001a59cdb",
+        "rad": "2eb50173f685d7b3ede28724bccddf168e0c65f835a748d85798d7e001a59cdb",
+        "tiny": "2eb50173f685d7b3ede28724bccddf168e0c65f835a748d85798d7e001a59cdb"
+      }
+    },
+    "sorted_dicom_files": {
+      "all_six_ast_identical": true,
+      "sha256_by_model": {
+        "conv": "a91f4edbb8258c7b3f9caa2b53d2934faee310ea6a0a3e72e5ac05ce56f0b2e7",
+        "eff": "a91f4edbb8258c7b3f9caa2b53d2934faee310ea6a0a3e72e5ac05ce56f0b2e7",
+        "dino": "a91f4edbb8258c7b3f9caa2b53d2934faee310ea6a0a3e72e5ac05ce56f0b2e7",
+        "dino3": "a91f4edbb8258c7b3f9caa2b53d2934faee310ea6a0a3e72e5ac05ce56f0b2e7",
+        "rad": "a91f4edbb8258c7b3f9caa2b53d2934faee310ea6a0a3e72e5ac05ce56f0b2e7",
+        "tiny": "a91f4edbb8258c7b3f9caa2b53d2934faee310ea6a0a3e72e5ac05ce56f0b2e7"
+      }
+    },
+    "probe_series": {
+      "all_six_ast_identical": true,
+      "sha256_by_model": {
+        "conv": "ed2189da8784c4f742af0773024c52489a9c6fcadd1fb30930c082b3967a3cf2",
+        "eff": "ed2189da8784c4f742af0773024c52489a9c6fcadd1fb30930c082b3967a3cf2",
+        "dino": "ed2189da8784c4f742af0773024c52489a9c6fcadd1fb30930c082b3967a3cf2",
+        "dino3": "ed2189da8784c4f742af0773024c52489a9c6fcadd1fb30930c082b3967a3cf2",
+        "rad": "ed2189da8784c4f742af0773024c52489a9c6fcadd1fb30930c082b3967a3cf2",
+        "tiny": "ed2189da8784c4f742af0773024c52489a9c6fcadd1fb30930c082b3967a3cf2"
+      }
+    },
+    "resolve_laterality": {
+      "all_six_ast_identical": true,
+      "sha256_by_model": {
+        "conv": "dcd2ba6e69e38f596379736337981bb762a984dfe2cb3fb70ceaba33b91f98d4",
+        "eff": "dcd2ba6e69e38f596379736337981bb762a984dfe2cb3fb70ceaba33b91f98d4",
+        "dino": "dcd2ba6e69e38f596379736337981bb762a984dfe2cb3fb70ceaba33b91f98d4",
+        "dino3": "dcd2ba6e69e38f596379736337981bb762a984dfe2cb3fb70ceaba33b91f98d4",
+        "rad": "dcd2ba6e69e38f596379736337981bb762a984dfe2cb3fb70ceaba33b91f98d4",
+        "tiny": "dcd2ba6e69e38f596379736337981bb762a984dfe2cb3fb70ceaba33b91f98d4"
+      }
+    },
+    "attach_side": {
+      "all_six_ast_identical": true,
+      "sha256_by_model": {
+        "conv": "5ad74f9e0f9ba0b056423ec3985a82ee7f7c7c9d4bde362a5af1c4407f37c2a4",
+        "eff": "5ad74f9e0f9ba0b056423ec3985a82ee7f7c7c9d4bde362a5af1c4407f37c2a4",
+        "dino": "5ad74f9e0f9ba0b056423ec3985a82ee7f7c7c9d4bde362a5af1c4407f37c2a4",
+        "dino3": "5ad74f9e0f9ba0b056423ec3985a82ee7f7c7c9d4bde362a5af1c4407f37c2a4",
+        "rad": "5ad74f9e0f9ba0b056423ec3985a82ee7f7c7c9d4bde362a5af1c4407f37c2a4",
+        "tiny": "5ad74f9e0f9ba0b056423ec3985a82ee7f7c7c9d4bde362a5af1c4407f37c2a4"
+      }
+    },
+    "pick_slots": {
+      "all_six_ast_identical": true,
+      "sha256_by_model": {
+        "conv": "971b9b2e9f133323f327021739a0c13c9598a9acb071f50431624dac00ee1594",
+        "eff": "971b9b2e9f133323f327021739a0c13c9598a9acb071f50431624dac00ee1594",
+        "dino": "971b9b2e9f133323f327021739a0c13c9598a9acb071f50431624dac00ee1594",
+        "dino3": "971b9b2e9f133323f327021739a0c13c9598a9acb071f50431624dac00ee1594",
+        "rad": "971b9b2e9f133323f327021739a0c13c9598a9acb071f50431624dac00ee1594",
+        "tiny": "971b9b2e9f133323f327021739a0c13c9598a9acb071f50431624dac00ee1594"
+      }
+    },
+    "_sample_indices": {
+      "all_six_ast_identical": true,
+      "sha256_by_model": {
+        "conv": "eeda3f704e6bb34002ba9393c8ef26f2d28b17da45594a948021ec4d01fb0d42",
+        "eff": "eeda3f704e6bb34002ba9393c8ef26f2d28b17da45594a948021ec4d01fb0d42",
+        "dino": "eeda3f704e6bb34002ba9393c8ef26f2d28b17da45594a948021ec4d01fb0d42",
+        "dino3": "eeda3f704e6bb34002ba9393c8ef26f2d28b17da45594a948021ec4d01fb0d42",
+        "rad": "eeda3f704e6bb34002ba9393c8ef26f2d28b17da45594a948021ec4d01fb0d42",
+        "tiny": "eeda3f704e6bb34002ba9393c8ef26f2d28b17da45594a948021ec4d01fb0d42"
+      }
+    },
+    "_read_volume": {
+      "all_six_ast_identical": true,
+      "sha256_by_model": {
+        "conv": "1955e7b690e764d76f2ba1bec9d4ac6e4a502b13d7e709425719f07363fc71f6",
+        "eff": "1955e7b690e764d76f2ba1bec9d4ac6e4a502b13d7e709425719f07363fc71f6",
+        "dino": "1955e7b690e764d76f2ba1bec9d4ac6e4a502b13d7e709425719f07363fc71f6",
+        "dino3": "1955e7b690e764d76f2ba1bec9d4ac6e4a502b13d7e709425719f07363fc71f6",
+        "rad": "1955e7b690e764d76f2ba1bec9d4ac6e4a502b13d7e709425719f07363fc71f6",
+        "tiny": "1955e7b690e764d76f2ba1bec9d4ac6e4a502b13d7e709425719f07363fc71f6"
+      }
+    },
+    "_crop_mm": {
+      "all_six_ast_identical": true,
+      "sha256_by_model": {
+        "conv": "99043b40e623e20d23617f0b50841ba5eed7cdf029681e55e9384b4eb000b0a9",
+        "eff": "99043b40e623e20d23617f0b50841ba5eed7cdf029681e55e9384b4eb000b0a9",
+        "dino": "99043b40e623e20d23617f0b50841ba5eed7cdf029681e55e9384b4eb000b0a9",
+        "dino3": "99043b40e623e20d23617f0b50841ba5eed7cdf029681e55e9384b4eb000b0a9",
+        "rad": "99043b40e623e20d23617f0b50841ba5eed7cdf029681e55e9384b4eb000b0a9",
+        "tiny": "99043b40e623e20d23617f0b50841ba5eed7cdf029681e55e9384b4eb000b0a9"
+      }
+    },
+    "_to_uint8": {
+      "all_six_ast_identical": true,
+      "sha256_by_model": {
+        "conv": "173f700a515459fb9de6fa79c7cbff2751107452167a0d28299981beb286e2bd",
+        "eff": "173f700a515459fb9de6fa79c7cbff2751107452167a0d28299981beb286e2bd",
+        "dino": "173f700a515459fb9de6fa79c7cbff2751107452167a0d28299981beb286e2bd",
+        "dino3": "173f700a515459fb9de6fa79c7cbff2751107452167a0d28299981beb286e2bd",
+        "rad": "173f700a515459fb9de6fa79c7cbff2751107452167a0d28299981beb286e2bd",
+        "tiny": "173f700a515459fb9de6fa79c7cbff2751107452167a0d28299981beb286e2bd"
+      }
+    },
+    "_canonicalize_side": {
+      "all_six_ast_identical": true,
+      "sha256_by_model": {
+        "conv": "23688eb2c07c0e34ed2be47f7ea9cd7602c41e608bbc61fd66eafe759be649b3",
+        "eff": "23688eb2c07c0e34ed2be47f7ea9cd7602c41e608bbc61fd66eafe759be649b3",
+        "dino": "23688eb2c07c0e34ed2be47f7ea9cd7602c41e608bbc61fd66eafe759be649b3",
+        "dino3": "23688eb2c07c0e34ed2be47f7ea9cd7602c41e608bbc61fd66eafe759be649b3",
+        "rad": "23688eb2c07c0e34ed2be47f7ea9cd7602c41e608bbc61fd66eafe759be649b3",
+        "tiny": "23688eb2c07c0e34ed2be47f7ea9cd7602c41e608bbc61fd66eafe759be649b3"
+      }
+    }
+  },
+  "important_findings": [
+    "EfficientNet original inference hardcodes an obsolete mix4 root, but saved execution resolved the current seven-target root. Use explicit audited root in combined inference.",
+    "DINOv2 actual size 392, not dataset slug 384 or 394. RadImageNet actual encoder size 224 with 24 grayscale-copy tokens.",
+    "Architecture strings and comments are partly stale/reused. Check model_name, feature_dim, input_mode, tensor shapes and strict state_dict, not architecture string alone.",
+    "Per-model original fold/TTA combination is logit mean then sigmoid. Cross-model A/B fusion is probability mean. Preserve this distinction.",
+    "DINOv3 training Notebook is private in dataset provenance; full original training source not independently read."
+  ]
+}

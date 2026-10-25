@@ -1,0 +1,686 @@
+{
+  "checked_date": "2026-10-25",
+  "scope": "Historical224/384 input catalog; original Kaggle visibility unchanged; seven RSNA label snapshots published separately in this GitHub branch",
+  "status_legend": {
+    "private_owner_approval": "Explicit Private header; ask the resource owner for authorized sharing; no public download",
+    "public_download_not_independently_verified": "Signed-in page accessible, anonymous visibility/download not independently established; do not assume public",
+    "public_upstream_file_listing": "Upstream file listing accessible anonymously; full binary download and equivalence to old mirrors not tested"
+  },
+  "official_data": [
+    {
+      "name": "RSNA competition MRI and official tables",
+      "url": "https://www.kaggle.com/competitions/rsna-knee-abnormality-detection/data",
+      "access": "kaggle_account_and_competition_terms",
+      "rules_url": "https://www.kaggle.com/competitions/rsna-knee-abnormality-detection/rules"
+    },
+    {
+      "name": "OAI original MRI, reading tables and image03 metadata",
+      "url": "https://nda.nih.gov/oai/",
+      "access": "nda_account_and_oai_access_requirements",
+      "request_url": "https://nda.nih.gov/user/dashboard/data_permissions"
+    }
+  ],
+  "upstream_initial_weights": [
+    {
+      "model": "ConvNeXt-Tiny",
+      "url": "https://huggingface.co/timm/convnext_tiny.fb_in22k_ft_in1k_384/tree/main",
+      "file": "pytorch_model.bin",
+      "access": "public_upstream_file_listing",
+      "checked_date": "2026-10-25",
+      "evidence": "Anonymous web inspection shows file listing and named weight file; full binary not downloaded; not hash-matched to historical Kaggle mirror"
+    },
+    {
+      "model": "EfficientNetV2-S",
+      "url": "https://huggingface.co/timm/tf_efficientnetv2_s.in21k_ft_in1k/tree/main",
+      "file": "pytorch_model.bin",
+      "access": "public_upstream_file_listing",
+      "checked_date": "2026-10-25",
+      "evidence": "Anonymous web inspection shows file listing and named weight file; full binary not downloaded; not hash-matched to historical Kaggle mirror"
+    },
+    {
+      "model": "DINOv2-S",
+      "url": "https://huggingface.co/timm/vit_small_patch14_dinov2.lvd142m/tree/main",
+      "file": "pytorch_model.bin",
+      "access": "public_upstream_file_listing",
+      "checked_date": "2026-10-25",
+      "evidence": "Anonymous web inspection shows file listing and named weight file; full binary not downloaded; not hash-matched to historical Kaggle mirror"
+    },
+    {
+      "model": "TinyViT-21M-384",
+      "url": "https://huggingface.co/timm/tiny_vit_21m_384.dist_in22k_ft_in1k/tree/main",
+      "file": "pytorch_model.bin",
+      "access": "public_upstream_file_listing",
+      "checked_date": "2026-10-25",
+      "evidence": "Anonymous web inspection shows file listing and named weight file; full binary not downloaded; not hash-matched to historical Kaggle mirror"
+    },
+    {
+      "model": "DINOv3-ConvNeXt-Tiny",
+      "url": "https://huggingface.co/timm/convnext_tiny.dinov3_lvd1689m/tree/main",
+      "file": "model.safetensors",
+      "access": "public_upstream_file_listing",
+      "checked_date": "2026-10-25",
+      "evidence": "Anonymous web inspection shows file listing and named weight file; full binary not downloaded; not hash-matched to historical Kaggle mirror"
+    }
+  ],
+  "radimagenet_upstream": {
+    "url": "https://github.com/BMEII-AI/RadImageNet",
+    "pytorch_weights_url": "https://drive.google.com/file/d/1RHt2GnuOYlc_gcoTETtBDSW73mFyRAtR/view",
+    "access": "public_repository_instructions_provider_login_may_be_required",
+    "evidence": "Official README links PyTorch archive; anonymous Drive page showed sign-in; exact ResNet50.pt equivalence not tested"
+  },
+  "original_mount_resources": [
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/oai-baseline-2399-384px-images",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "cache_or_search_directory"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/oai-baseline-2399-384px-images"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv_gray384.py",
+        "conv_new.py",
+        "dino.py",
+        "dino3.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/oai-soft-labels-2399-v3",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "label_csv"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/oai-soft-labels-2399-v3/OAI_soft_labels_2399_v3.csv"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "conv_new.py",
+        "dino.py",
+        "dino3.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/oai-followup-6250-384px-images",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "cache_or_search_directory"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/oai-followup-6250-384px-images"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv_gray384.py",
+        "conv_new.py",
+        "dino.py",
+        "dino3.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/oai-soft-followup6250-v3",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "label_csv"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/oai-soft-followup6250-v3/OAI_soft_followup6250_v3.csv"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "conv_new.py",
+        "dino.py",
+        "dino3.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/vlm-score",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "label_csv"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/vlm-score/labels_vlm_imgrep.csv"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "dino.py",
+        "dino3.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/llm-scored",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "label_csv"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/llm-scored/train_scored.csv"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "conv_new.py",
+        "dino.py",
+        "dino3.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/llm-scorev2",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "label_csv"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/llm-scorev2/labels_gold_override.csv"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "conv_new.py",
+        "dino.py",
+        "dino3.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/code/zhuyifanss/convnext-tiny",
+      "access": "public_download_not_independently_verified",
+      "checked_date": "2026-10-25",
+      "evidence": "Signed-in notebook page accessible; anonymous public download not established",
+      "kinds": [
+        "pretrained_weight"
+      ],
+      "mount_paths": [
+        "/kaggle/input/notebooks/zhuyifanss/convnext-tiny/convnext_tiny/pytorch_model.bin"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "conv_new.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/code/zhuyifanss/dataprepare-of-rsnav5part1",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "\u00b7  17 views  \u00b7  Private",
+      "kinds": [
+        "cache_or_search_directory"
+      ],
+      "mount_paths": [
+        "/kaggle/input/notebooks/zhuyifanss/dataprepare-of-rsnav5part1/knee_v5_384px_24sl_central80_crop130_physicalsort_part0"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv_gray384.py",
+        "conv_new.py",
+        "dino.py",
+        "dino3.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/code/zhuyifanss/dataprepare-of-rsnav5part2",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "\u00b7  7 views  \u00b7  Private",
+      "kinds": [
+        "cache_or_search_directory"
+      ],
+      "mount_paths": [
+        "/kaggle/input/notebooks/zhuyifanss/dataprepare-of-rsnav5part2/knee_v5_384px_24sl_central80_crop130_physicalsort_part1"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv_gray384.py",
+        "conv_new.py",
+        "dino.py",
+        "dino3.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/code/minminandy/dataprepare-of-rsnav5part3",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "\u00b7  4 views  \u00b7  Private",
+      "kinds": [
+        "cache_or_search_directory"
+      ],
+      "mount_paths": [
+        "/kaggle/input/notebooks/minminandy/dataprepare-of-rsnav5part3/knee_v5_384px_24sl_central80_crop130_physicalsort_part2"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv_gray384.py",
+        "conv_new.py",
+        "dino.py",
+        "dino3.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/code/minminandy/dataprepare-of-rsnav5part4",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "\u00b7  4 views  \u00b7  Private",
+      "kinds": [
+        "cache_or_search_directory"
+      ],
+      "mount_paths": [
+        "/kaggle/input/notebooks/minminandy/dataprepare-of-rsnav5part4/knee_v5_384px_24sl_central80_crop130_physicalsort_part3"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv_gray384.py",
+        "conv_new.py",
+        "dino.py",
+        "dino3.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/rsna-file",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "label_csv"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/rsna-file/train.csv"
+      ],
+      "used_by": [
+        "conv.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "conv_new.py",
+        "dino.py",
+        "dino3.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/vlm-score-opus",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "label_csv"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/vlm-score-opus/labels_vlm_opus_imgrep.csv"
+      ],
+      "used_by": [
+        "conv_new.py",
+        "dino_new.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/code/minminandy/dinov2s",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Notebook header: 7 views \u00b7 Private",
+      "kinds": [
+        "pretrained_weight"
+      ],
+      "mount_paths": [
+        "/kaggle/input/notebooks/minminandy/dinov2s/vit_small_patch14_dinov2.lvd142m/pytorch_model.bin"
+      ],
+      "used_by": [
+        "dino.py",
+        "dino_new.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/code/minminandy/efficientv2-s",
+      "access": "public_download_not_independently_verified",
+      "checked_date": "2026-10-25",
+      "evidence": "Signed-in notebook page accessible; anonymous public download not established",
+      "kinds": [
+        "pretrained_weight"
+      ],
+      "mount_paths": [
+        "/kaggle/input/notebooks/minminandy/efficientv2-s/tf_efficientnetv2_s_in21k_ft_in1k.pth"
+      ],
+      "used_by": [
+        "eff.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/models/dew389/radimagenet50/pytorch/default/1",
+      "access": "public_download_not_independently_verified",
+      "checked_date": "2026-10-25",
+      "evidence": "Page checked in an authorized signed-in session; anonymous public download not established",
+      "kinds": [
+        "pretrained_weight"
+      ],
+      "mount_paths": [
+        "/kaggle/input/models/dew389/radimagenet50/pytorch/default/1/ResNet50.pt"
+      ],
+      "used_by": [
+        "rad.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/code/minminandy/tiny-vit-21m-384",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Notebook header: 5 views \u00b7 Private",
+      "kinds": [
+        "pretrained_weight"
+      ],
+      "mount_paths": [
+        "/kaggle/input/notebooks/minminandy/tiny-vit-21m-384/tiny_vit_21m_384.dist_in22k_ft_in1k/pytorch_model.bin"
+      ],
+      "used_by": [
+        "tiny.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/distillstage1conv384",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "trained_checkpoint"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold3/fold0_final.pt"
+      ],
+      "used_by": [
+        "conv"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/distillstage1effs384",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "trained_checkpoint"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold3/fold0_final.pt"
+      ],
+      "used_by": [
+        "eff"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/zhuyifanss/distillstage1dinov2s384",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "trained_checkpoint"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold3/fold0_final.pt"
+      ],
+      "used_by": [
+        "dino"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "trained_checkpoint"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold3/fold0_final.pt"
+      ],
+      "used_by": [
+        "dino3"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/zhuyifanss/distillstage1radimageresnet224",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "trained_checkpoint"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold3/fold0_final.pt"
+      ],
+      "used_by": [
+        "rad"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/distillstage1tinyvit384",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "trained_checkpoint"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold3/fold0_final.pt"
+      ],
+      "used_by": [
+        "tiny"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/zhuyifanss/distillstage1conv-difflabel384",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "trained_checkpoint"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold3/fold0_final.pt"
+      ],
+      "used_by": [
+        "conv_new"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/zhuyifanss/distillstage1dino-difflabel394",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "trained_checkpoint"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold0/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold1/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold2/fold0_final.pt",
+        "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold3/fold0_final.pt"
+      ],
+      "used_by": [
+        "dino_new"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/oai-baseline-2399-224px-images",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "cache_or_search_directory"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/oai-baseline-2399-224px-images"
+      ],
+      "used_by": [
+        "conv224.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/minminandy/oai-followup-6250-224px-images",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Dataset header explicitly displays Private",
+      "kinds": [
+        "cache_or_search_directory"
+      ],
+      "mount_paths": [
+        "/kaggle/input/datasets/minminandy/oai-followup-6250-224px-images"
+      ],
+      "used_by": [
+        "conv224.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/code/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part1",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "\u00b7  27 views  \u00b7  Private",
+      "kinds": [
+        "cache_or_search_directory"
+      ],
+      "mount_paths": [
+        "/kaggle/input/notebooks/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part1/knee_v5_224px_24sl_central80_crop160_physicalsort_part0"
+      ],
+      "used_by": [
+        "conv224.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/code/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part2",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "\u00b7  10 views  \u00b7  Private",
+      "kinds": [
+        "cache_or_search_directory"
+      ],
+      "mount_paths": [
+        "/kaggle/input/notebooks/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part2/knee_v5_224px_24sl_central80_crop160_physicalsort_part1"
+      ],
+      "used_by": [
+        "conv224.py"
+      ]
+    },
+    {
+      "url": "https://www.kaggle.com/code/lihu6666/dinvo3convnext-timm",
+      "access": "private_owner_approval",
+      "checked_date": "2026-10-25",
+      "evidence": "Notebook header: 3 views \u00b7 Private",
+      "kinds": [
+        "pretrained_weights"
+      ],
+      "mount_paths": [
+        "/kaggle/input/notebooks/lihu6666/dinvo3convnext-timm/dinov3_convnext_tiny_pretrained/model.safetensors"
+      ],
+      "used_by": [
+        "dino3.py"
+      ]
+    }
+  ],
+  "unpublished": [
+    "Historical results/splits.csv and OOF tables: not published in this source repository; request an authorized snapshot from the authors; no public URL verified"
+  ],
+  "prerequisites": "Private sharing does not replace official competition or OAI access requirements. Upstream initialization weights are not trained competition checkpoints.",
+  "published_rsna_labels": {
+    "url": "https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/codex/our-pipeline/labels/rsna",
+    "manifest": "labels/rsna/manifest.json",
+    "files": [
+      "rsna_llm_v1_original.csv",
+      "rsna_llm_v2_original.csv",
+      "rsna_vlm_original.csv",
+      "rsna_vlm_opus_original.csv",
+      "conv_labels_used.csv",
+      "conv_new_labels_used.csv",
+      "dino_new_labels_used.csv"
+    ],
+    "access": "public_github",
+    "original_kaggle_visibility_unchanged": true
+  }
+}

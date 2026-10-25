@@ -1,0 +1,46 @@
+{
+  "scope": "Recovered metadata/cohort source only; no participant data included",
+  "files": [
+    {
+      "file": "code/oai/verify_cohort_scope.py",
+      "original_source": "Original working source: oai/verify_cohort_scope.py",
+      "original_sha256": "6bcf7a657e19e1de31b6afea420fbdfe480dc7717476273e9d6c32b87b9f1953",
+      "published_sha256": "4a9f644fcacc02c1cac4e78592819106e09a78b76bddd46ccba41ffc56ea751d",
+      "edit": "Create output parent; configure baseline package inventory ID"
+    },
+    {
+      "file": "code/oai/investigate_followup.py",
+      "original_source": "Original working source: oai/investigate_followup.py",
+      "original_sha256": "ced99b9f7f4ed9d1c6fa91ec1ec620867c4ec56dad0d8f64bba8a365dc156aa2",
+      "published_sha256": "ced99b9f7f4ed9d1c6fa91ec1ec620867c4ec56dad0d8f64bba8a365dc156aa2",
+      "edit": "Unchanged original source"
+    },
+    {
+      "file": "code/oai/match_followup_indices.py",
+      "original_source": "Original working source: oai/match_followup_indices.py",
+      "original_sha256": "db90bf9aa6852d79e65ae6d6ae1ef51382efe0660668e36d5d76170a1f1fe0cb",
+      "published_sha256": "87f6182989464c8de39821b88dd42e0edc4adbac8826614da27eb73bd7ef85e5",
+      "edit": "Use package IDs from index status instead of historical account IDs"
+    },
+    {
+      "file": "code/oai/deduplicate_followup.py",
+      "original_source": "Original working source: oai/deduplicate_followup.py",
+      "original_sha256": "55993821c8b55ba29648fc7f4cac08504c0d5b52807fa8e06199f0b382dddab5",
+      "published_sha256": "55993821c8b55ba29648fc7f4cac08504c0d5b52807fa8e06199f0b382dddab5",
+      "edit": "Unchanged original source"
+    },
+    {
+      "file": "code/oai/download_followup_indices.py",
+      "original_source": "Original working source: oai/download_followup_indices.py",
+      "original_sha256": "cd58f7e86a14bf33ba91dc8b44e923bab8b8dd1a5283ae8da35fd2370cc38784",
+      "published_sha256": "b56027455d4914bf604ed5b86a826879ad17d0576293379f164317e3150b5325",
+      "edit": "Require caller package map, preserve chronological visit order, create status parent and accept caller username env"
+    }
+  ],
+  "additional_tools": [
+    "tools/init_workspace.py",
+    "tools/check_reproduction.py",
+    "tools/prepare_oai_download_manifest.py"
+  ],
+  "input_model_prompt_changes": false
+}

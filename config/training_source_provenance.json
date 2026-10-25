@@ -1,0 +1,38 @@
+{
+  "source_notebook": "RSNA_Knee (4).ipynb",
+  "source_notebook_sha256": "ff2e3302561524e17a355f213ffb62bc29a3f5d21195e8c4301309e3ca93d317",
+  "notebook_cells_zero_based": true,
+  "gray_duplicate_programs_ast_identical": true,
+  "gray_deduplicated_source_matches_first_program": true,
+  "dino3_fixed_version_url": "https://www.kaggle.com/code/lihu6666/dinov3-conv-lihu-of-fork-of-rsna-train-cd4e8a?scriptVersionId=358232793",
+  "dino3_version": 3,
+  "dino3_training_page_status": "Save & Run All, successful, fourfold; rendered source recovered",
+  "files": [
+    {
+      "file": "code/train/conv224.py",
+      "source": "RSNA_Knee (4).ipynb#cell=19",
+      "change": "Exact notebook cell; no computational changes",
+      "sha256": "b32011f31db32fddb66cde3cd4d21dc740e3ae267f2f31ee30b00f420b73b91f",
+      "bytes": 104766
+    },
+    {
+      "file": "code/train/conv_gray384.py",
+      "source": "RSNA_Knee (4).ipynb#cell=8",
+      "change": "Keep first complete program; remove second AST-identical duplicate and its boundary header comment only",
+      "sha256": "2c85056bfd5372bdb9d96afee6cdf9f3758ddceaeff604cb7d5bf46d5efe45a3",
+      "bytes": 103803
+    },
+    {
+      "file": "code/train/dino3.py",
+      "source": "https://www.kaggle.com/code/lihu6666/dinov3-conv-lihu-of-fork-of-rsna-train-cd4e8a?scriptVersionId=358232793",
+      "change": "Exact rendered executed training cell from Version3; not reconstructed from inference",
+      "sha256": "38dd9a4fbf1e46c9da5b719807867672519e85178bee76017181bb3a7166080a",
+      "bytes": 103344
+    }
+  ],
+  "limits": [
+    "No GPU training, remote scoring, MRI conversion or new inference executed.",
+    "These entries do not replace historical ensemble member specifications or stored OOF.",
+    "Final team inference remains outside this October15 standalone-ensemble package."
+  ]
+}

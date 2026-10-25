@@ -1,0 +1,14 @@
+# Dependency names only, not a tested environment lock
+numpy
+pandas
+pydicom
+torch
+torchvision
+timm
+scikit-learn
+tqdm
+Pillow
+opencv-python
+scipy
+matplotlib
+nda-tools

@@ -1,0 +1,111 @@
+label promptV2
+Score twelve findings from this knee MRI report. The report may be in English, Spanish, French, Dutch, German, Turkish, Croatian, Greek, or Bulgarian.
+
+What the number means. Each study was labelled by two subspecialty musculoskeletal radiologists
+reading the images, with a third adjudicating disagreements, to give one consensus yes/no per
+finding. Your grade is NOT a severity rating -- it is your probability that this consensus came
+back POSITIVE. 0.85 means "almost certainly both readers said yes"; 0.15 means "almost certainly
+both said no"; 0.50 means you genuinely cannot tell. Severity matters only insofar as it changes
+that probability.
+
+The reference label was assigned by a radiologist reading the IMAGES, with a stricter threshold than the reporting radiologist. Score by clinical emphasis, not simple keyword presence.
+
+"Intact / normal / within limits / no abnormality" is evidence of ABSENCE. A structure not mentioned is usually absent, but only weakly so.
+
+Return only JSON with these twelve keys, each as:
+{"grade": 0.00-1.00, "stated": true/false, "evidence": shortest verbatim span or null}
+
+Keys:
+ACL, MCL, Medial Meniscus, Lateral Meniscus, Medial OA, Lateral OA, PF OA, Effusion, Synovitis, Baker's, Contusion, Fracture
+
+Default anchors:
+tear / complete = 0.85
+partial / severe / high-grade = 0.70
+present = 0.50
+mild / small / trace = 0.45
+degeneration without tear = 0.35
+not mentioned = 0.15
+intact / normal / none = 0.10
+
+These are defaults. Override them when structure-specific meaning clearly requires it.
+Apply severity words only after identifying the target abnormality they describe.
+
+RESOLUTION. Report every grade to two decimals, and do NOT simply copy an anchor value.
+The anchors are landmarks on a continuum, not a menu. Interpolate between them according to
+how strong the evidence actually is, so that two reports supporting the same finding with
+different confidence receive different grades.
+Example: "tiny bone bruise" and "extensive bone contusion" both support Contusion, but they
+must not both score 0.50 -- weight the weaker one down and the stronger one up.
+Ties are a failure mode: if several findings in this report land on exactly the same number,
+re-read the evidence and separate them.
+
+1. NUMERIC GRADES
+
+MENISCUS:
+grade 3 = signal reaching an articular surface = tear → 0.85
+grade 1-2 = intrasubstance degeneration, not tear → 0.25
+
+LIGAMENT:
+grade 1 = stretch/sprain → 0.45
+grade 2 = partial tear → 0.70
+grade 3 = complete rupture → 0.85
+
+CARTILAGE (ICRS / Outerbridge):
+grade 1 = softening → 0.35
+grade 2 = <50% thickness loss → 0.50
+grade 3 = >50% thickness loss → 0.70
+grade 4 = full-thickness loss / exposed bone → 0.85
+
+2. OA SCOPING
+
+OA may be described as cartilage loss, chondrosis, chondropathy, joint-space narrowing, or osteophytes.
+
+medial femoral condyle / medial tibial plateau → Medial OA
+lateral femoral condyle / lateral tibial plateau → Lateral OA
+patella / trochlea → PF OA
+tricompartmental / gonarthrose / gonartroz / γονάρθρωση → all three
+
+Do not overcall OA from an isolated mild focal cartilage abnormality. Mild focal chondrosis or a small partial-thickness defect should remain near mild/degenerative scores. High-grade or diffuse cartilage loss, osteophytes, joint-space narrowing, or multiple degenerative findings support higher OA scores.
+
+3. NEGATION
+
+A negator applies only to what it actually negates.
+
+Example:
+"insufficiency fracture of the medial tibial plateau WITHOUT articular collapse"
+still asserts Fracture.
+
+Normality phrases such as:
+"sin alteraciones", "ohne Auffälligkeiten", "geen afwijkingen", "χωρίς αλλοιώσεις"
+mean normal, not unmentioned.
+
+Plural normal statements apply to each included structure:
+"ligamentos cruzados y colaterales normales" → ACL 0.10, MCL 0.10.
+
+4. SYNOVITIS
+
+If synovitis is explicitly named, grade normally.
+
+If it is not named, infer conservatively from effusion, Hoffa fat-pad oedema/inflammatory change, distended bursa, or plica, with stated=false.
+
+These are indirect signs, not proof of synovitis. Do not let weak isolated indirect findings outweigh explicit normal or absent findings.
+
+5. CONTUSION VS FRACTURE
+
+Bone bruise, osseous contusion, or traumatic marrow oedema supports Contusion.
+
+Bone marrow oedema alone does NOT establish Contusion or Fracture.
+This applies to subchondral or degenerative marrow oedema with no stated traumatic cause:
+score it low, not 0.50.
+
+Marrow signal that is not an injury does NOT support Contusion. In particular, red/yellow
+marrow reconversion (e.g. "zone rekonverzije koštane srži", "marrow reconversion") is a
+normal variant and is evidence of ABSENCE, not of contusion.
+
+Strong Fracture evidence includes explicit:
+fracture, insufficiency fracture, occult fracture, trabecular fracture, fracture line, or cortical disruption.
+
+Do not suppress Contusion merely because Fracture is absent, and allow both when the report explicitly supports both.
+
+REPORT:
+{report}

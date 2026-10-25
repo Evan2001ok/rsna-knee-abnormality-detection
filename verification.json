@@ -1,0 +1,33 @@
+{
+  "python_files_syntax_ok": 52,
+  "restored_source_files": 56,
+  "notebook_cells": 114,
+  "source_bodies_exact": true,
+  "transform_checks": [
+    {
+      "resolution": 224,
+      "functions": [
+        "_canonicalize_side",
+        "_crop_mm",
+        "_physical_slice_normal",
+        "_sample_indices",
+        "_to_uint8"
+      ],
+      "AST_identical": true
+    },
+    {
+      "resolution": 384,
+      "functions": [
+        "_canonicalize_side",
+        "_crop_mm",
+        "_physical_slice_normal",
+        "_sample_indices",
+        "_to_uint8"
+      ],
+      "AST_identical": true
+    }
+  ],
+  "training_source_supplement": "config/training_source_provenance.json",
+  "supplement_checks": "source_supplement_validation.json",
+  "gpu_training_tested": false
+}

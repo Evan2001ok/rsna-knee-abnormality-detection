@@ -1,0 +1,24 @@
+{
+  "inference": {
+    "conv": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-vlm-convnextv2t?scriptVersionId=358171615",
+    "eff": "https://www.kaggle.com/code/minminandy/rsna-inference-vlm-efficientnetv2s?scriptVersionId=358023770",
+    "dino": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-vlm-dino?scriptVersionId=358277003",
+    "dino3": "https://www.kaggle.com/code/lihu6666/dinov3-conv-lihu-fork-of-rsna-train-cd4e8a?scriptVersionId=358404247",
+    "rad": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-vlm-radimageresnet?scriptVersionId=358244727",
+    "tiny": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-vlm-tinyvit?scriptVersionId=358172023"
+  },
+  "training": {
+    "conv": "https://www.kaggle.com/code/minminandy/conv-of-fork-of-rsna-train-cd4e8a",
+    "conv_new": "https://www.kaggle.com/code/zhuyifanss/difflabel-of-conv-of-fork-of-rsna-train",
+    "dino": "https://www.kaggle.com/code/zhuyifanss/dino-of-fork-of-rsna-train-cd4e8a",
+    "dino_new": "https://www.kaggle.com/code/zhuyifanss/difflabel-of-dino-of-fork-of-rsna-train-cd4e8a",
+    "eff": "https://www.kaggle.com/code/minminandy/eff-of-fork-of-rsna-train-cd4e8a",
+    "tiny": "https://www.kaggle.com/code/minminandy/vit-of-fork-of-rsna-train-cd4e8a",
+    "rad": "https://www.kaggle.com/code/zhuyifanss/radimagenetresnet-of-fork-of-rsna-train-cd4e8a",
+    "dino3": "https://www.kaggle.com/code/lihu6666/dinov3-conv-lihu-of-fork-of-rsna-train-cd4e8a?scriptVersionId=358232793"
+  },
+  "local_notebook_training": {
+    "conv224": "RSNA_Knee (4).ipynb, cell19",
+    "conv_gray384": "RSNA_Knee (4).ipynb, cell8, first complete program"
+  }
+}

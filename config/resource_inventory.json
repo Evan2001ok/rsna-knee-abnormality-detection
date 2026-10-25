@@ -1,0 +1,505 @@
+{
+  "inputs": [
+    {
+      "path": "/kaggle/input/datasets/minminandy/oai-baseline-2399-384px-images",
+      "kind": "cache_or_search_directory",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "dino.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/oai-soft-labels-2399-v3/OAI_soft_labels_2399_v3.csv",
+      "kind": "label_csv",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "dino.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/oai-followup-6250-384px-images",
+      "kind": "cache_or_search_directory",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "dino.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/oai-soft-followup6250-v3/OAI_soft_followup6250_v3.csv",
+      "kind": "label_csv",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "dino.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/vlm-score/labels_vlm_imgrep.csv",
+      "kind": "label_csv",
+      "used_by": [
+        "conv.py",
+        "dino.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/llm-scored/train_scored.csv",
+      "kind": "label_csv",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "dino.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/llm-scorev2/labels_gold_override.csv",
+      "kind": "label_csv",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "dino.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/notebooks/zhuyifanss/convnext-tiny/convnext_tiny/pytorch_model.bin",
+      "kind": "pretrained_weight",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "conv224.py",
+        "conv_gray384.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/notebooks/zhuyifanss/dataprepare-of-rsnav5part1/knee_v5_384px_24sl_central80_crop130_physicalsort_part0",
+      "kind": "cache_or_search_directory",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "dino.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/notebooks/zhuyifanss/dataprepare-of-rsnav5part2/knee_v5_384px_24sl_central80_crop130_physicalsort_part1",
+      "kind": "cache_or_search_directory",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "dino.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/notebooks/minminandy/dataprepare-of-rsnav5part3/knee_v5_384px_24sl_central80_crop130_physicalsort_part2",
+      "kind": "cache_or_search_directory",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "dino.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/notebooks/minminandy/dataprepare-of-rsnav5part4/knee_v5_384px_24sl_central80_crop130_physicalsort_part3",
+      "kind": "cache_or_search_directory",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "dino.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/rsna-file/train.csv",
+      "kind": "label_csv",
+      "used_by": [
+        "conv.py",
+        "conv_new.py",
+        "dino.py",
+        "dino_new.py",
+        "eff.py",
+        "rad.py",
+        "tiny.py",
+        "conv224.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/vlm-score-opus/labels_vlm_opus_imgrep.csv",
+      "kind": "label_csv",
+      "used_by": [
+        "conv_new.py",
+        "dino_new.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/notebooks/minminandy/dinov2s/vit_small_patch14_dinov2.lvd142m/pytorch_model.bin",
+      "kind": "pretrained_weight",
+      "used_by": [
+        "dino.py",
+        "dino_new.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/notebooks/minminandy/efficientv2-s/tf_efficientnetv2_s_in21k_ft_in1k.pth",
+      "kind": "pretrained_weight",
+      "used_by": [
+        "eff.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/models/dew389/radimagenet50/pytorch/default/1/ResNet50.pt",
+      "kind": "pretrained_weight",
+      "used_by": [
+        "rad.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/notebooks/minminandy/tiny-vit-21m-384/tiny_vit_21m_384.dist_in22k_ft_in1k/pytorch_model.bin",
+      "kind": "pretrained_weight",
+      "used_by": [
+        "tiny.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "conv"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "conv"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "conv"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1conv384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold3/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "conv"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "eff"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "eff"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "eff"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1effs384/rsna_effv2s_384_oai8649_mix58_42_seven/fold3/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "eff"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold0/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold1/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold2/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1dinov2s384/rsna_dinov2s_392_oai_mix_unfreeze9/fold3/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold0/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino3"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold1/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino3"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold2/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino3"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/lihu6666/dinov3-convnext-tiny-lihu-of-fork-of-rsna-cd4e8a/rsna_dinov3_convnext_tiny_384_oai8649_mix58_42_seven_16ep_splitlr/fold3/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino3"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold0/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "rad"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold1/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "rad"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold2/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "rad"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1radimageresnet224/rsna_radimagenet50_cache384_input224_oai_graycopy24/fold3/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "rad"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "tiny"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "tiny"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "tiny"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/distillstage1tinyvit384/rsna_tinyvit21m384_oai8649_mix58_42_seven/fold3/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "tiny"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold0/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "conv_new"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold1/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "conv_new"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold2/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "conv_new"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1conv-difflabel384/rsna_convnext_tiny_384_oai8649_mix58_42_seven/fold3/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "conv_new"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold0/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino_new"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold1/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino_new"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold2/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino_new"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/zhuyifanss/distillstage1dino-difflabel394/rsna_dinov2s_392_oai_mix_unfreeze9/fold3/fold0_final.pt",
+      "kind": "trained_checkpoint",
+      "used_by": [
+        "dino_new"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/oai-baseline-2399-224px-images",
+      "kind": "cache_or_search_directory",
+      "used_by": [
+        "conv224.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/datasets/minminandy/oai-followup-6250-224px-images",
+      "kind": "cache_or_search_directory",
+      "used_by": [
+        "conv224.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/notebooks/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part1/knee_v5_224px_24sl_central80_crop160_physicalsort_part0",
+      "kind": "cache_or_search_directory",
+      "used_by": [
+        "conv224.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/notebooks/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part2/knee_v5_224px_24sl_central80_crop160_physicalsort_part1",
+      "kind": "cache_or_search_directory",
+      "used_by": [
+        "conv224.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input",
+      "kind": "cache_or_search_directory",
+      "used_by": [
+        "conv224.py",
+        "conv_gray384.py",
+        "dino3.py"
+      ]
+    },
+    {
+      "path": "/kaggle/input/notebooks/lihu6666/dinvo3convnext-timm/dinov3_convnext_tiny_pretrained/model.safetensors",
+      "kind": "pretrained_weights",
+      "used_by": [
+        "dino3.py"
+      ]
+    }
+  ],
+  "note": "No weights included; original exact mount paths retained. For training preflight subset to its model assets; inference requires only trained checkpoints and competition test DICOM.",
+  "training_sources_supplement": "config/training_source_provenance.json"
+}

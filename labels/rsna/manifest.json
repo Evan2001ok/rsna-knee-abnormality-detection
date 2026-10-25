@@ -1,0 +1,99 @@
+{
+  "release_date": "2026-10-25",
+  "scope": "Seven frozen RSNA label snapshots only; no reports, images, OAI labels, OOF or trained weights",
+  "targets": [
+    "ACL",
+    "MCL",
+    "Medial Meniscus",
+    "Lateral Meniscus",
+    "Medial OA",
+    "Lateral OA",
+    "PF OA",
+    "Effusion",
+    "Synovitis",
+    "Baker's",
+    "Contusion",
+    "Fracture"
+  ],
+  "study_count": 4407,
+  "training_gold_override_count": 58,
+  "files": [
+    {
+      "file": "rsna_llm_v1_original.csv",
+      "rows": 4407,
+      "bytes": 525823,
+      "sha256": "27cacdc2f5a5f0e0f56e6e482688194c5877539a73bf0d1f44447c6c95445285",
+      "origin": "Frozen local handover labels/rsna/rsna_llm_v1_original.csv",
+      "role": "historical label-source snapshot; not raw scoring responses"
+    },
+    {
+      "file": "rsna_llm_v2_original.csv",
+      "rows": 4407,
+      "bytes": 543207,
+      "sha256": "2474c58496645e4ee1b6c24f0e4121eae6ea21d09d96a251300ed0c115d31499",
+      "origin": "Frozen local handover labels/rsna/rsna_llm_v2_original.csv",
+      "role": "historical label-source snapshot; not raw scoring responses"
+    },
+    {
+      "file": "rsna_vlm_original.csv",
+      "rows": 4407,
+      "bytes": 553403,
+      "sha256": "a04afdcbf16e1cb595d720c7eec79ee449134e2a36f9ccda95f519143630d680",
+      "origin": "Frozen local handover labels/rsna/rsna_vlm_original.csv",
+      "role": "historical label-source snapshot; not raw scoring responses"
+    },
+    {
+      "file": "rsna_vlm_opus_original.csv",
+      "rows": 4407,
+      "bytes": 546772,
+      "sha256": "41d297f9daf0179550c96009e61e98e0b68434610dc1c3996a254dd2d3f6320f",
+      "origin": "Frozen local handover labels/rsna/rsna_vlm_opus_original.csv",
+      "role": "historical label-source snapshot; not raw scoring responses"
+    },
+    {
+      "file": "conv_labels_used.csv",
+      "rows": 4407,
+      "bytes": 1053775,
+      "sha256": "e1bcbf1da10685409562f38a2904d38b1a6ce91c15b5353bed7c7cd5982b2b7f",
+      "origin": "Frozen local handover labels/rsna/conv_labels_used.csv",
+      "role": "actual training target snapshot with Gold overrides"
+    },
+    {
+      "file": "conv_new_labels_used.csv",
+      "rows": 4407,
+      "bytes": 952183,
+      "sha256": "536fee86603629cfab46588ae8c376fd41571744cc6a6ac33224ee7ee408a6d5",
+      "origin": "Frozen local handover labels/rsna/conv_new_labels_used.csv",
+      "role": "actual training target snapshot with Gold overrides"
+    },
+    {
+      "file": "dino_new_labels_used.csv",
+      "rows": 4407,
+      "bytes": 862288,
+      "sha256": "227c95021cdc346938b288aa6509c4babee8533c616748c2fe95124074965e74",
+      "origin": "Frozen local handover labels/rsna/dino_new_labels_used.csv",
+      "role": "actual training target snapshot with Gold overrides"
+    }
+  ],
+  "recipes": {
+    "conv_labels_used.csv": {
+      "vlm_source": "rsna_vlm_original.csv",
+      "vlm_weight": 0.7,
+      "llm_blend": "0.7 V1 + 0.3 V2",
+      "gold_override": true
+    },
+    "conv_new_labels_used.csv": {
+      "vlm_source": "rsna_vlm_opus_original.csv",
+      "vlm_weight": 0.7,
+      "llm_blend": "0.7 V1 + 0.3 V2",
+      "gold_override": true
+    },
+    "dino_new_labels_used.csv": {
+      "vlm_source": "rsna_vlm_opus_original.csv",
+      "vlm_weight": 0.5,
+      "llm_blend": "0.7 V1 + 0.3 V2",
+      "gold_override": true
+    }
+  },
+  "checks": "Unique IDs, identical UID sets, finite [0,1] probabilities, exact schemas, 58 consistent Gold overrides and three non-Gold blend equations (tolerance 1e-12). Does not establish clinical correctness."
+}

@@ -1,0 +1,27 @@
+{
+  "prefix_map": {
+    "D:/OAI": "${PACKAGE}/data/oai",
+    "D:": "${PACKAGE}/data",
+    "/kaggle/input/datasets/minminandy/rsna-file/train.csv": "${PACKAGE}/data/rsna/train.csv",
+    "/kaggle/input/competitions/rsna-knee-abnormality-detection": "${PACKAGE}/data/rsna",
+    "/kaggle/input/datasets/minminandy/vlm-score/labels_vlm_imgrep.csv": "${PACKAGE}/labels/rsna/rsna_vlm_original.csv",
+    "/kaggle/input/datasets/minminandy/vlm-score-opus/labels_vlm_opus_imgrep.csv": "${PACKAGE}/labels/rsna/rsna_vlm_opus_original.csv",
+    "/kaggle/input/datasets/minminandy/llm-scored/train_scored.csv": "${PACKAGE}/labels/rsna/rsna_llm_v1_original.csv",
+    "/kaggle/input/datasets/minminandy/llm-scorev2/labels_gold_override.csv": "${PACKAGE}/labels/rsna/rsna_llm_v2_original.csv",
+    "/kaggle/input/datasets/minminandy/oai-soft-labels-2399-v3/OAI_soft_labels_2399_v3.csv": "${PACKAGE}/labels/oai/OAI_soft_labels_2399_v3.csv",
+    "/kaggle/input/datasets/minminandy/oai-soft-followup6250-v3/OAI_soft_followup6250_v3.csv": "${PACKAGE}/labels/oai/OAI_soft_followup6250_v3.csv",
+    "/kaggle/input/datasets/minminandy/oai-baseline-2399-384px-images": "${PACKAGE}/data/oai/kaggle_upload_384",
+    "/kaggle/input/datasets/minminandy/oai-followup-6250-384px-images": "${PACKAGE}/data/oai/kaggle_upload_followup6250_384",
+    "/kaggle/input": "${PACKAGE}/data",
+    "/kaggle/working": "${PACKAGE}/work",
+    "/kaggle/temp": "${PACKAGE}/work/temp",
+    "/kaggle/input/notebooks/zhuyifanss/dataprepare-of-rsnav5part1/knee_v5_384px_24sl_central80_crop130_physicalsort_part0": "${PACKAGE}/work/knee_v5_384px_24sl_central80_crop130_physicalsort_part0",
+    "/kaggle/input/notebooks/zhuyifanss/dataprepare-of-rsnav5part2/knee_v5_384px_24sl_central80_crop130_physicalsort_part1": "${PACKAGE}/work/knee_v5_384px_24sl_central80_crop130_physicalsort_part1",
+    "/kaggle/input/notebooks/minminandy/dataprepare-of-rsnav5part3/knee_v5_384px_24sl_central80_crop130_physicalsort_part2": "${PACKAGE}/work/knee_v5_384px_24sl_central80_crop130_physicalsort_part2",
+    "/kaggle/input/notebooks/minminandy/dataprepare-of-rsnav5part4/knee_v5_384px_24sl_central80_crop130_physicalsort_part3": "${PACKAGE}/work/knee_v5_384px_24sl_central80_crop130_physicalsort_part3",
+    "/kaggle/input/notebooks/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part1/knee_v5_224px_24sl_central80_crop160_physicalsort_part0": "${PACKAGE}/work/knee_v5_224px_24sl_central80_crop160_physicalsort_part0",
+    "/kaggle/input/notebooks/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part2/knee_v5_224px_24sl_central80_crop160_physicalsort_part1": "${PACKAGE}/work/knee_v5_224px_24sl_central80_crop160_physicalsort_part1",
+    "/kaggle/input/datasets/minminandy/oai-baseline-2399-224px-images": "${PACKAGE}/data/oai/kaggle_upload_224",
+    "/kaggle/input/datasets/minminandy/oai-followup-6250-224px-images": "${PACKAGE}/data/oai/kaggle_upload_followup6250_224"
+  }
+}

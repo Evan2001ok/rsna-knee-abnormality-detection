@@ -1,0 +1,628 @@
+{
+  "files": [
+    {
+      "file": ".gitattributes",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+      "bytes": 9
+    },
+    {
+      "file": ".gitignore",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "ae7cece08c99178f858cfbd7bdab2b7411c7e8b5d229a01483905b9dad6673db",
+      "bytes": 1093
+    },
+    {
+      "file": "AI_USAGE.md",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "aaa28f00ed65502f20fe5bda6e1b51ae0f8dcf0338fae10b182134c23f655408",
+      "bytes": 19217
+    },
+    {
+      "file": "code/inference/ensemble6.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\rsna_six_model_inference_A_complete.py",
+      "change": "none",
+      "sha256": "89d2f6bfea8a5973efb33f42f7a70adbb1489ee683675530896afc2da81ed17e",
+      "bytes": 237401
+    },
+    {
+      "file": "code/inference/ensemble8.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\rsna_eight_model_inference_AB_70_30_complete.py",
+      "change": "none",
+      "sha256": "97d6e5505536a3c57c8469b83c7df7ccc9922bb05802fb6e870cf5a8c665d2e3",
+      "bytes": 240055
+    },
+    {
+      "file": "code/labeling/rsna/make_montages.py",
+      "source": "User Notebook cell3 python block1",
+      "change": "Added explicit data/output arguments and portable font fallback; image processing unchanged",
+      "sha256": "8b62dfead316b3d167fce611d411f8b2b59c30e4b031b07f573b144837ef2181",
+      "bytes": 4557
+    },
+    {
+      "file": "code/labeling/rsna/make_tasks.py",
+      "source": "User Notebook cell3 python block2",
+      "change": "Added explicit input/output arguments and non-overwrite check",
+      "sha256": "79a079369c569b432fc5fb29fecbf230934dff2462bbd71fbe64c56b08ada31b",
+      "bytes": 1016
+    },
+    {
+      "file": "code/labeling/rsna/merge_scores.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\tools\\merge_rsna_scores.py",
+      "change": "none",
+      "sha256": "1db581e820143b3b8790dbe4bfaa1cce615647898f587d7054b4069729a52070",
+      "bytes": 2623
+    },
+    {
+      "file": "code/labeling/rsna/report_v1_prompt.txt",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\RSNA_Project_Code_20261015\\extracted_notebook_cells\\01_rsna_report_prompt_v1.txt",
+      "change": "Notebook comment prefix removed only",
+      "sha256": "d1d353e9ea9549654a4f0171fbe61dabb3a375d3984649474e2323d8cc02ff07",
+      "bytes": 3632
+    },
+    {
+      "file": "code/labeling/rsna/report_v2_prompt.txt",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\RSNA_Project_Code_20261015\\extracted_notebook_cells\\02_rsna_report_prompt_v2.txt",
+      "change": "Notebook comment prefix removed only",
+      "sha256": "1a11df748ca4255eba1cf095012c8a85f57dbf4b551e02ea75ba3ec8bfc7fb3f",
+      "bytes": 5132
+    },
+    {
+      "file": "code/labeling/rsna/vlm_image_report_prompt.txt",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\RSNA_Project_Code_20261015\\extracted_notebook_cells\\03_rsna_vlm_image_report_workflow.txt",
+      "change": "Exact prompt text extracted from Notebook workflow",
+      "sha256": "250f2ed5678362c0223a86ffe282c1c0f359d6df3987ba9c1829f6a547dfa035",
+      "bytes": 3739
+    },
+    {
+      "file": "code/oai/audit_scores.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\audit_scores.py",
+      "change": "none",
+      "sha256": "7340b6ac0f6b1430d47e868c5bd45f42b06d8ab9a3426d129e85456a11bb3307",
+      "bytes": 5038
+    },
+    {
+      "file": "code/oai/check_completed_downloads.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\check_completed_downloads.py",
+      "change": "none",
+      "sha256": "6c8090fa5d38d8988ec713f8057af3a45a7f3da502421a14c99e09bf2da39bcf",
+      "bytes": 7802
+    },
+    {
+      "file": "code/oai/check_followup_downloads.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\check_followup_downloads.py",
+      "change": "none",
+      "sha256": "bc0538422fd5ca53cde539d72ce6c796158c76c57ac7fb756d371992fb5d0ced",
+      "bytes": 9828
+    },
+    {
+      "file": "code/oai/deduplicate_followup.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "55993821c8b55ba29648fc7f4cac08504c0d5b52807fa8e06199f0b382dddab5",
+      "bytes": 4219
+    },
+    {
+      "file": "code/oai/download_followup_indices.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "b56027455d4914bf604ed5b86a826879ad17d0576293379f164317e3150b5325",
+      "bytes": 3011
+    },
+    {
+      "file": "code/oai/download_followup_MRI.py",
+      "source": "Original download_followup_MRI.py",
+      "change": "Removed personal username/package assumptions; require recipient NDA identity/package map",
+      "sha256": "e0302b3b83b2530d49e7b2978a7047873e9d45435be60bbd32dd56250bf75c37",
+      "bytes": 4100
+    },
+    {
+      "file": "code/oai/generate_labels_v1.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\generate_labels_v1.py",
+      "change": "none",
+      "sha256": "576348548404c137db598df0485982ceb1ca5056bf3c786feaefb9782625cea7",
+      "bytes": 12046
+    },
+    {
+      "file": "code/oai/investigate_followup.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "ced99b9f7f4ed9d1c6fa91ec1ec620867c4ec56dad0d8f64bba8a365dc156aa2",
+      "bytes": 4145
+    },
+    {
+      "file": "code/oai/match_followup_indices.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "87f6182989464c8de39821b88dd42e0edc4adbac8826614da27eb73bd7ef85e5",
+      "bytes": 5893
+    },
+    {
+      "file": "code/oai/merge_soft_full2399_v3.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\merge_soft_full2399_v3.py",
+      "change": "none",
+      "sha256": "cc5be22870a328d56fb1b0f7be62da0f652e6c96c77999b2252643f40ec6a9e3",
+      "bytes": 6164
+    },
+    {
+      "file": "code/oai/oai_vlm_soft_mapping_prompt_v3_seven_targets.txt",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\oai_vlm_soft_mapping_prompt_v3_seven_targets.txt",
+      "change": "none",
+      "sha256": "55b51631e521a309bff1ee9222f8ffcdbca91a5edce040da66679ed7a6e216e4",
+      "bytes": 8769
+    },
+    {
+      "file": "code/oai/pack_followup_caches.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\pack_followup_caches.py",
+      "change": "none",
+      "sha256": "7fb6783d69258e203c3695d9c443dbd4f45653a7ece8b88fca9d6ba1ef446275",
+      "bytes": 9017
+    },
+    {
+      "file": "code/oai/pack_kaggle_images.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\pack_kaggle_images.py",
+      "change": "none",
+      "sha256": "d3b2089665675feeb9da9f5097afcf67ca4a84065bf9cdc9c004be4ec5885195",
+      "bytes": 8809
+    },
+    {
+      "file": "code/oai/pack_kaggle_images_384.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\pack_kaggle_images_384.py",
+      "change": "none",
+      "sha256": "b9fb5305c3d0109a0fed84b4c4ccf04ae3e753dc2812f6fdd477c9a571e2fdf0",
+      "bytes": 8862
+    },
+    {
+      "file": "code/oai/prepare_final_followup_label_rows.py",
+      "source": "Original final followup exporter",
+      "change": "Added missing CSV writer; seven-target probability/mask values unchanged",
+      "sha256": "160a4fae9accc2e452e5175dcc63a7efe45da90836da55a4c07e380a1b4a0cd1",
+      "bytes": 3453
+    },
+    {
+      "file": "code/oai/prepare_followup_soft_tasks.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\prepare_followup_soft_tasks.py",
+      "change": "none",
+      "sha256": "6c17dd32acf57d8c788c21a650b495a46db1fa785c3039b8c772bf891b5568fc",
+      "bytes": 8139
+    },
+    {
+      "file": "code/oai/prepare_soft_full2399_v3.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\prepare_soft_full2399_v3.py",
+      "change": "none",
+      "sha256": "4fe50a994111f2fe6e2e4698e89912125baea0f8b26976a1d1de8d06c1dbcfd9",
+      "bytes": 6081
+    },
+    {
+      "file": "code/oai/preprocess_downloads.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\preprocess_downloads.py",
+      "change": "Absolute Codex attachment dependency replaced with bundled transforms; pixel function AST unchanged",
+      "sha256": "1a3877a1b909922e9584ca089a9c8700879d04d3050a9c6b45425e183c9ad932",
+      "bytes": 10111
+    },
+    {
+      "file": "code/oai/preprocess_downloads_384.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\preprocess_downloads_384.py",
+      "change": "Absolute Codex attachment dependency replaced with bundled transforms; pixel function AST unchanged",
+      "sha256": "2205ce56644d80da96233959632b5431796f8aa6560cd71a1ee722ac7c7518c3",
+      "bytes": 10115
+    },
+    {
+      "file": "code/oai/score_dictionary.csv",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\score_dictionary.csv",
+      "change": "none",
+      "sha256": "df8806f7e2f6e23d75d1ef60c5d2dbc312c3eaba554926f5e76edc8f1448a11e",
+      "bytes": 24360
+    },
+    {
+      "file": "code/oai/transforms/source224.py",
+      "source": "C:\\Users\\yzz01\\.codex\\attachments\\c01f23a2-308c-4604-8967-0ea5116ade50\\已粘贴的文本.txt",
+      "change": "Only the five original functions extracted; AST unchanged",
+      "sha256": "5094e32382aba29eed8182efff636df828c521780d4f4119393cb7951563a76f",
+      "bytes": 4431
+    },
+    {
+      "file": "code/oai/transforms/source384.py",
+      "source": "C:\\Users\\yzz01\\.codex\\attachments\\228d4530-09b4-4cf3-bf12-0fcfb6426e4a\\已粘贴的文本.txt",
+      "change": "Only the five original functions extracted; AST unchanged",
+      "sha256": "5094e32382aba29eed8182efff636df828c521780d4f4119393cb7951563a76f",
+      "bytes": 4431
+    },
+    {
+      "file": "code/oai/validate_followup_soft_results.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\validate_followup_soft_results.py",
+      "change": "none",
+      "sha256": "28bada50ed53dbb9242446eb901625cdd848f90974c921989c7e6b56a0af5853",
+      "bytes": 5666
+    },
+    {
+      "file": "code/oai/verify_cohort_scope.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "4a9f644fcacc02c1cac4e78592819106e09a78b76bddd46ccba41ffc56ea751d",
+      "bytes": 5709
+    },
+    {
+      "file": "code/oai/watch_followup_dual_cache.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\watch_followup_dual_cache.py",
+      "change": "Two absolute attachment dependencies replaced with bundled transforms",
+      "sha256": "f740b83fe7c7b6cc08d2414a7ef444a34f450e78cfcfdcf945eac2c4da474c92",
+      "bytes": 6299
+    },
+    {
+      "file": "code/oai_manifest.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai_manifest.py",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "31a19c5fd600bdf06bc652e2b638f94a14ceee13086fdf1883d49960046b93d9",
+      "bytes": 3552
+    },
+    {
+      "file": "code/rsna/cache224.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\RSNA_Project_Code_20261015\\extracted_notebook_cells\\17_rsna_cache224_crop160_2parts.py",
+      "change": "none",
+      "sha256": "edabc1d39776d620e7831b38b99376ee2470bcfa4b4c240fbc64f98f5e9219d6",
+      "bytes": 33739
+    },
+    {
+      "file": "code/rsna/cache384.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\RSNA_Project_Code_20261015\\extracted_notebook_cells\\06_rsna_cache384_crop130_4parts.py",
+      "change": "none",
+      "sha256": "4bb4973dd5273f464b92d53bb76ff21c1082d5bbb9b2e06ab25fcc439a1e1bc3",
+      "bytes": 33861
+    },
+    {
+      "file": "code/train/conv.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\inference_config_audit\\conv_train.py",
+      "change": "Restored original Notebook leaderboard-score comment; executable code unchanged",
+      "sha256": "9db338ceac91f7686f48fe7efae8dabe1583f60905568808fe258f9e517c5baa",
+      "bytes": 106139
+    },
+    {
+      "file": "code/train/conv224.py",
+      "source": "RSNA_Knee (4).ipynb#cell=19",
+      "change": "Exact notebook cell; no computational changes",
+      "sha256": "b32011f31db32fddb66cde3cd4d21dc740e3ae267f2f31ee30b00f420b73b91f",
+      "bytes": 104766
+    },
+    {
+      "file": "code/train/conv_gray384.py",
+      "source": "RSNA_Knee (4).ipynb#cell=8",
+      "change": "Keep first complete program; remove second AST-identical duplicate and its boundary header comment only",
+      "sha256": "2c85056bfd5372bdb9d96afee6cdf9f3758ddceaeff604cb7d5bf46d5efe45a3",
+      "bytes": 103803
+    },
+    {
+      "file": "code/train/conv_new.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\inference_config_audit\\conv_new_train.py",
+      "change": "none",
+      "sha256": "72c89d68f40d2bc1c724838086f31c75317ceb767242df7d4badd6867c453fcc",
+      "bytes": 103754
+    },
+    {
+      "file": "code/train/dino.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\inference_config_audit\\dino_train.py",
+      "change": "Restored original Notebook leaderboard-score comment; executable code unchanged",
+      "sha256": "f028ad05d60f7fc19a13809ba6f848c44e7bd6f058a32bcf28b3545318a6faa7",
+      "bytes": 107412
+    },
+    {
+      "file": "code/train/dino3.py",
+      "source": "https://www.kaggle.com/code/lihu6666/dinov3-conv-lihu-of-fork-of-rsna-train-cd4e8a?scriptVersionId=358232793",
+      "change": "Exact rendered executed training cell from Version3; not reconstructed from inference",
+      "sha256": "38dd9a4fbf1e46c9da5b719807867672519e85178bee76017181bb3a7166080a",
+      "bytes": 103344
+    },
+    {
+      "file": "code/train/dino_new.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\inference_config_audit\\dino_new_train.py",
+      "change": "none",
+      "sha256": "8a9973ff1853817422a22fa866f487a7f58e1ef330828e00a4aeb52c9a68ce3b",
+      "bytes": 105009
+    },
+    {
+      "file": "code/train/eff.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\inference_config_audit\\eff_train.py",
+      "change": "Restored original Notebook leaderboard-score comment; executable code unchanged",
+      "sha256": "ef09b2581baa7c5fc8eed7f173604e9a00ce44a9b4d1c84894b41100da975101",
+      "bytes": 106472
+    },
+    {
+      "file": "code/train/rad.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\inference_config_audit\\rad_train.py",
+      "change": "Restored original Notebook leaderboard-score comment; executable code unchanged",
+      "sha256": "404756d552680f520dc76e9acd5d2440cb2d4759f6448140f56b4e3b5a145938",
+      "bytes": 107814
+    },
+    {
+      "file": "code/train/tiny.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\inference_config_audit\\tiny_train.py",
+      "change": "Restored original Notebook leaderboard-score comment; executable code unchanged",
+      "sha256": "3e603b600230695341db090332a0f4f08e7175228efd4dde07d16d502efbf248",
+      "bytes": 106444
+    },
+    {
+      "file": "config/eight_model_manifest.json",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\inference_config_audit\\eight_model_manifest.json",
+      "change": "none",
+      "sha256": "726870ee1f80b11b5c3a2600be36495658ba7a3c4476450287a542978c5ee3a5",
+      "bytes": 35338
+    },
+    {
+      "file": "config/external_resources.json",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "a606c5d684faaa7af5d1a52ea906eed5a0d6c35af845dfd1533db4da9429406a",
+      "bytes": 25860
+    },
+    {
+      "file": "config/nda_packages.example.json",
+      "source": "Recipient-specific example",
+      "change": "Fill your own available NDA package IDs; no credentials",
+      "sha256": "513b2bac0830dd2bb03a27a241a935d077aa13f293b97eed5e5ead2646f81988",
+      "bytes": 67
+    },
+    {
+      "file": "config/paths.example.json",
+      "source": "Runtime path mapping template",
+      "change": "Copy to paths.json and add cache/model mount mappings; original formulas unchanged; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "73580196b746ab448f62864da2c846086e5e36c05425a5b81ed7b5ba4425de45",
+      "bytes": 2942
+    },
+    {
+      "file": "config/reproduction_source_provenance.json",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "99b7575b37b7b9c3bd3ef12f9e5e4fe786a77091a8353c0480a755ee5c54677c",
+      "bytes": 2370
+    },
+    {
+      "file": "config/resource_inventory.json",
+      "source": "AST path inspection plus audited checkpoint manifest",
+      "change": "External required assets inventory; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "61ef00455a38d7a85560b930ceb2eee9410e6ace57c579d7b85a5c27b0371357",
+      "bytes": 15409
+    },
+    {
+      "file": "config/source_urls.json",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\inference_config_audit\\source_urls.json",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "0ae7d8b9f528fad3cf5f858d74dd1e0cbe44bfb55e9f98a3a88fe6640052d438",
+      "bytes": 1669
+    },
+    {
+      "file": "config/training_source_provenance.json",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "54b08d7af65bc92acd1137d6cba3021d22a7bccfe075f97015011776276794a0",
+      "bytes": 1874
+    },
+    {
+      "file": "docs/OAI_PROMPT_ENGLISH_REFERENCE.md",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\docs\\OAI_PROMPT_ENGLISH_REFERENCE.md",
+      "change": "none",
+      "sha256": "976e2193863a4ef75b01c50284c3e259aa1124bb045a1d0d1603df88548d135d",
+      "bytes": 10317
+    },
+    {
+      "file": "ENVIRONMENT.md",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\docs\\ENVIRONMENT.md",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "afa2b5388961db94b679fd471f7b5472ae3287253686300c6c257ca6636cda3c",
+      "bytes": 3378
+    },
+    {
+      "file": "labels/rsna/conv_labels_used.csv",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "e1bcbf1da10685409562f38a2904d38b1a6ce91c15b5353bed7c7cd5982b2b7f",
+      "bytes": 1053775
+    },
+    {
+      "file": "labels/rsna/conv_new_labels_used.csv",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "536fee86603629cfab46588ae8c376fd41571744cc6a6ac33224ee7ee408a6d5",
+      "bytes": 952183
+    },
+    {
+      "file": "labels/rsna/dino_new_labels_used.csv",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "227c95021cdc346938b288aa6509c4babee8533c616748c2fe95124074965e74",
+      "bytes": 862288
+    },
+    {
+      "file": "labels/rsna/manifest.json",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "a606c5714a959c3eb98e8f676c820e09eb24138ccaf20411108fe2bc922df03c",
+      "bytes": 3625
+    },
+    {
+      "file": "labels/rsna/README.md",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "9d1ca74ee79dae312b83f3b01dd37771373121e4668854eff07016a14ab29a04",
+      "bytes": 3920
+    },
+    {
+      "file": "labels/rsna/rsna_llm_v1_original.csv",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "27cacdc2f5a5f0e0f56e6e482688194c5877539a73bf0d1f44447c6c95445285",
+      "bytes": 525823
+    },
+    {
+      "file": "labels/rsna/rsna_llm_v2_original.csv",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "2474c58496645e4ee1b6c24f0e4121eae6ea21d09d96a251300ed0c115d31499",
+      "bytes": 543207
+    },
+    {
+      "file": "labels/rsna/rsna_vlm_opus_original.csv",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "41d297f9daf0179550c96009e61e98e0b68434610dc1c3996a254dd2d3f6320f",
+      "bytes": 546772
+    },
+    {
+      "file": "labels/rsna/rsna_vlm_original.csv",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "a04afdcbf16e1cb595d720c7eec79ee449134e2a36f9ccda95f519143630d680",
+      "bytes": 553403
+    },
+    {
+      "file": "our_pipeline.ipynb",
+      "source": "Essential code files in this package",
+      "change": "writefile restoration cells only; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "ed500ec33f6a37703bf6f1ecf0dada64ed650c1589e9a8c7f7d94b6d476ab09c",
+      "bytes": 2242339
+    },
+    {
+      "file": "PUBLIC_RELEASE.md",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "b321e8e6b0f2416da9e732cdebb3c871bf3ac3ddd3eb95c96b4349364cbaf5af",
+      "bytes": 4878
+    },
+    {
+      "file": "README.md",
+      "source": "Reviewed detailed trick explanations with concise package navigation",
+      "change": "Full improvement/labeling explanations retained; code package remains minimal; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "1489ed9d97d4b9ad4b119c15817611f828083ad5ab407849a32e3e0d8fdc8a59",
+      "bytes": 48119
+    },
+    {
+      "file": "REPRODUCE.md",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\docs\\REPRODUCE.md",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "789539dc6f9976a1c58ac735a588e102cf3759765d2f26551990db4d1a946f83",
+      "bytes": 20361
+    },
+    {
+      "file": "REPRODUCIBILITY_AUDIT.md",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "34eced3093975b7ed780e57b9961d6c5555dcc982059633cdd4f1fa8d1f83fe4",
+      "bytes": 5257
+    },
+    {
+      "file": "requirements/nda.txt",
+      "source": "Recorded NDA Tools version",
+      "change": "Separate download environment",
+      "sha256": "042a74e22cba4b8b1f5d54b47d9a0fea6da2c3174949e9ad90e8f40204ac1ef2",
+      "bytes": 18
+    },
+    {
+      "file": "requirements/pipeline.txt",
+      "source": "Source import audit + saved inference log",
+      "change": "Torch/torchvision installed separately as a matching pair; only observed timm version pinned; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "fb7e46d93dc3e31173a437eb81d011e9e9fdec9efcf6dc91ce85dbf3d18c60e5",
+      "bytes": 106
+    },
+    {
+      "file": "requirements_reference.txt",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\RSNA_Project_Code_20261015\\requirements_reference.txt",
+      "change": "none",
+      "sha256": "fce0621229739fcee3355b57595597d692a9b4ad04c48e77ac3b38b8d965c54e",
+      "bytes": 179
+    },
+    {
+      "file": "source_supplement_validation.json",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "1152ce2e5fe0d3875ca4663af8f1ece2a91e4c5e658256e5179c1681160e3ec4",
+      "bytes": 1705
+    },
+    {
+      "file": "tools/check_reproduction.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "ea50662ce0458251d8975d939bae3b49d85e3c4684a306e3f50a6f6607f91369",
+      "bytes": 14547
+    },
+    {
+      "file": "tools/init_workspace.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "8adbc22a7ba60924712c899e0b4d30291f75ffbe194459f0d1bf935112552d75",
+      "bytes": 1458
+    },
+    {
+      "file": "tools/merge_oai_scores.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\tools\\merge_oai_scores.py",
+      "change": "none",
+      "sha256": "cd162a22709916522105cbe7f709b5084f230e85c2f4a6ad7ce661d4274d793a",
+      "bytes": 4310
+    },
+    {
+      "file": "tools/merge_rsna_scores.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\tools\\merge_rsna_scores.py",
+      "change": "none",
+      "sha256": "1db581e820143b3b8790dbe4bfaa1cce615647898f587d7054b4069729a52070",
+      "bytes": 2623
+    },
+    {
+      "file": "tools/preflight.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\tools\\preflight.py",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "eb0f8722b1444d04a7ae7649308cd3985ead8d8e90a896e4d73eb286d2f33176",
+      "bytes": 8160
+    },
+    {
+      "file": "tools/prepare_oai_download_manifest.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "37b9fbcdeedc01ebb1b3157324d1886782e887cff1da08b91326ebc1ea70718a",
+      "bytes": 3281
+    },
+    {
+      "file": "tools/prepare_report_tasks.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\tools\\prepare_report_tasks.py",
+      "change": "none",
+      "sha256": "6b262c7764c71efdaaa7142d0a711738858737155e2c76364fa95a7a37ceea48",
+      "bytes": 1353
+    },
+    {
+      "file": "tools/refresh_bundle.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "0403c1d96de513c6e93bc8f59df8e8fe74257f17830c476fa6c8240ab7786042",
+      "bytes": 7914
+    },
+    {
+      "file": "tools/run_pipeline.py",
+      "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\tools\\run_pipeline.py",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "03688be41cd5699ef155698c012171a0f8ceda47263d5eac92bf67d21c2432bb",
+      "bytes": 6547
+    },
+    {
+      "file": "tools/validate_rsna_labels.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "261e4eac3c67076e8587e0b9e85ff52d397f2db1ea6c647623977cbd717cc97e",
+      "bytes": 8286
+    },
+    {
+      "file": "tools/validate_training_sources.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "9ad3b4bf21d96abdb8efad4b561f37f6102f75709b4e184e143359e86f0abc3a",
+      "bytes": 5425
+    },
+    {
+      "file": "verification.json",
+      "source": "Static source checks; no pipeline execution",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "97ed8d99bae59bbbb7b5124338e1131fcae4fa01ead44e7926d5b4c631660cbc",
+      "bytes": 801
+    }
+  ],
+  "scope": "public pipeline with seven frozen RSNA label snapshots; OAI labels, OOF, splits, cohort manifests and trained weights excluded; final team inference excluded"
+}
