@@ -6,11 +6,11 @@ These are the actual seven historical CSV snapshots from our local handover, cop
 |---|---|
 | [rsna_llm_v1_original.csv](rsna_llm_v1_original.csv) | First report-based label snapshot. |
 | [rsna_llm_v2_original.csv](rsna_llm_v2_original.csv) | Second report-based label snapshot; historical source filename `labels_gold_override.csv`. |
-| [rsna_vlm_original.csv](rsna_vlm_original.csv) | Original image/report VLM snapshot. |
-| [rsna_vlm_opus_original.csv](rsna_vlm_opus_original.csv) | Alternate Opus image/report VLM snapshot. |
-| [conv_labels_used.csv](conv_labels_used.csv) | Old recipe: 0.7 original VLM + 0.3 L. |
-| [conv_new_labels_used.csv](conv_new_labels_used.csv) | New Conv/C2: 0.7 Opus VLM + 0.3 L. |
-| [dino_new_labels_used.csv](dino_new_labels_used.csv) | New DINO/X1: 0.5 Opus VLM + 0.5 L. |
+| [rsna_vlm_original.csv](rsna_vlm_original.csv) | Original image/report VLM snapshot (VLM-A). |
+| [rsna_vlm_opus_original.csv](rsna_vlm_opus_original.csv) | Alternate image/report VLM snapshot (VLM-B). |
+| [conv_labels_used.csv](conv_labels_used.csv) | Old recipe: 0.7 VLM-A + 0.3 L. |
+| [conv_new_labels_used.csv](conv_new_labels_used.csv) | New Conv/C2: 0.7 VLM-B + 0.3 L. |
+| [dino_new_labels_used.csv](dino_new_labels_used.csv) | New DINO/X1: 0.5 VLM-B + 0.5 L. |
 
 Here `L = 0.7 V1 + 0.3 V2`. The three training snapshots contain 4,349 blended rows and 58 official expert/Gold override rows. Gold values are inherited competition annotations, not model-generated labels. These historical source snapshots are already processed tables, not guaranteed untouched raw LLM/VLM responses. Preserve the original evaluation/fold policy; do not use training targets as an independent evaluation ground truth. Gold cases were not a never-trained external test set in this pipeline.
 
