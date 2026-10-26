@@ -41,7 +41,7 @@ def main():
         task=json.loads((D/'tasks'/f"{c['index']:04d}.json").read_text(encoding='utf-8'))
         assert task['knee_id']==k and task['visit']==task['image_visit']=='V00'
         assert all(Path(im['file']).is_file() for im in task['images'])
-        p['case_index']=c['index'];p['scorer']='current model and 12 delegated agents, in-session visual scoring'
+        p['case_index']=c['index'];p.setdefault('scorer', 'not recorded in source result')
         p['probabilities_calibrated']=False;p['prompt_version']='v3-seven-targets'
         p['definition_version']='user-provided working recipe, not independently verified official criteria'
         row={'knee_id':k,'visit':'V00','src_subject_id':task['subject_id']}
