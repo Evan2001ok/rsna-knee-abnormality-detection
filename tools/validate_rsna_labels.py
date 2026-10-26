@@ -50,7 +50,11 @@ def audit_training_recipes(paths=None, execute_loaders=False):
         import pandas as pd
         reference = pd.read_csv(ROOT / 'labels/rsna/conv_labels_used.csv', dtype={'StudyInstanceUID': str})
         official_fixture = reference[['StudyInstanceUID', *targets]].copy()
-        official_fixture.loc[reference['label_source'] != 'gold', targets] = np.nan
+        # Official Gold labels are not published: the fixture marks the placeholder rows as Gold with
+        # synthetic 0 values (any 0/1 works), and only non-Gold rows are compared below.
+        is_placeholder = reference['label_source'] == manifest['gold_placeholder']['label_source']
+        official_fixture.loc[~is_placeholder, targets] = np.nan
+        official_fixture.loc[is_placeholder, targets] = 0.0
         (ROOT / 'work').mkdir(exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='rsna-label-loaders-', dir=ROOT / 'work') as temporary:
             metadata = Path(temporary) / 'train.csv'
@@ -69,7 +73,8 @@ def audit_training_recipes(paths=None, execute_loaders=False):
                                       train_csv=metadata, n_gold_expected=58, label_desc='audit')
                 actual, gold, _ = namespace['load_vlm_labels'](cfg)
                 saved = pd.read_csv(ROOT / 'labels/rsna' / record['reference_snapshot'], dtype={'StudyInstanceUID': str}).set_index('StudyInstanceUID')
-                delta = float(np.max(np.abs(actual[targets].to_numpy() - saved.reindex(actual.index)[targets].to_numpy())))
+                non_gold = actual.index.difference(gold.index)
+                delta = float(np.max(np.abs(actual.loc[non_gold, targets].to_numpy() - saved.reindex(non_gold)[targets].to_numpy())))
                 assert delta < 1e-12 and len(gold) == 58, (source.name, delta)
                 record['executed_loader_max_error'] = delta
     return dict(passed=True, training_entries=records, original_label_loaders_executed=execute_loaders,
@@ -99,11 +104,12 @@ def audit():
         tables[path.name] = table
     ids = set(next(iter(tables.values())))
     assert all(set(table) == ids for table in tables.values())
+    placeholder = manifest['gold_placeholder']
     for name, recipe in manifest['recipes'].items():
         table = tables[name]
-        gold = {uid for uid, row in table.items() if row['label_source'] == 'gold'}
-        assert len(gold) == manifest['training_gold_override_count'] == 58
-        assert all(row['label_source'] in ('gold', 'vlm07_llm03') for row in table.values())
+        gold = {uid for uid, row in table.items() if row['label_source'] == placeholder['label_source']}
+        assert len(gold) == manifest['training_gold_override_count'] == placeholder['rows'] == 58
+        assert all(row['label_source'] in (placeholder['label_source'], 'vlm07_llm03') for row in table.values())
         if gold_ids is None:
             gold_ids = gold
         assert gold == gold_ids
@@ -114,10 +120,11 @@ def audit():
                 .3 * float(tables['rsna_llm_v2_original.csv'][uid][t]))))
             for uid, row in table.items() if uid not in gold for t in targets)
         assert delta < 1e-12, (name, delta)
-        assert all(float(table[uid][t]) == float(tables['conv_labels_used.csv'][uid][t])
-                   for uid in gold for t in targets)
+        # No official label may appear: every Gold row in every snapshot is the exact placeholder value.
+        assert all(float(tables[n][uid][t]) == placeholder['value']
+                   for n in tables for uid in gold for t in targets), (name, 'Gold row is not a placeholder')
         deltas[name] = delta
-    return dict(passed=True, files=7, studies=4407, targets=12, gold_overrides=58,
+    return dict(passed=True, files=7, studies=4407, targets=12, gold_placeholders=58,
                 max_blend_errors=deltas, clinical_correctness_tested=False)
 
 

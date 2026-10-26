@@ -1,6 +1,6 @@
 # Frozen RSNA soft-label snapshots
 
-These are the actual seven historical CSV snapshots from our local handover, copied byte-for-byte. Each contains 4,407 unique `StudyInstanceUID` values and the same 12 target columns, in the order recorded in [manifest.json](manifest.json). They are experimental training targets, not independently calibrated clinical probabilities.
+These are the seven historical CSV snapshots from our local handover. Every non-Gold row is copied byte-for-byte. Each contains 4,407 unique `StudyInstanceUID` values and the same 12 target columns, in the order recorded in [manifest.json](manifest.json). They are experimental training targets, not independently calibrated clinical probabilities.
 
 | File | Role |
 |---|---|
@@ -12,7 +12,9 @@ These are the actual seven historical CSV snapshots from our local handover, cop
 | [conv_new_labels_used.csv](conv_new_labels_used.csv) | New Conv/C2: 0.7 VLM-B + 0.3 L. |
 | [dino_new_labels_used.csv](dino_new_labels_used.csv) | New DINO/X1: 0.5 VLM-B + 0.5 L. |
 
-Here `L = 0.7 V1 + 0.3 V2`. The three training snapshots contain 4,349 blended rows and 58 official expert/Gold override rows. Gold values are inherited competition annotations, not model-generated labels. These historical source snapshots are already processed tables, not guaranteed untouched raw LLM/VLM responses. Preserve the original evaluation/fold policy; do not use training targets as an independent evaluation ground truth. Gold cases were not a never-trained external test set in this pipeline.
+Here `L = 0.7 V1 + 0.3 V2`. Each file contains 4,349 report/VLM-derived rows and 58 Gold placeholder rows.
+
+**Official Gold labels are not included.** The 58 official expert labels are competition data, so their rows hold placeholders only: every target is `0.5`, and in the three `*_labels_used.csv` files `label_source` is `official_gold_placeholder`. The value carries no annotation. Training is unaffected, because every training entry overrides these rows with the official values from your own competition `train.csv` (`load_vlm_labels`: `blended.loc[gold.index] = gold`). You therefore need authorized competition access to train. `tools/validate_rsna_labels.py` fails if any Gold row is not an exact placeholder. The placeholders were inserted with `tools/add_gold_placeholders.py`. These historical source snapshots are already processed tables, not guaranteed untouched raw LLM/VLM responses. Preserve the original evaluation/fold policy; do not use training targets as an independent evaluation ground truth. Gold cases were not a never-trained external test set in this pipeline.
 
 The `label_source` string `vlm07_llm03` is retained exactly, including in `dino_new_labels_used.csv`, whose actual blend is 0.5/0.5. Use the documented formula and numerical checks, not that legacy string, to identify a recipe. Do not blend an already mixed training snapshot a second time.
 

@@ -22,7 +22,7 @@
       "file": "rsna_llm_v1_original.csv",
       "rows": 4407,
       "bytes": 525823,
-      "sha256": "27cacdc2f5a5f0e0f56e6e482688194c5877539a73bf0d1f44447c6c95445285",
+      "sha256": "e9652ce5d04023916677b3ae2624c740d7b09fbd0dcf158f7f056c4679224d5f",
       "origin": "Frozen local handover labels/rsna/rsna_llm_v1_original.csv",
       "role": "historical label-source snapshot; not raw scoring responses"
     },
@@ -30,7 +30,7 @@
       "file": "rsna_llm_v2_original.csv",
       "rows": 4407,
       "bytes": 543207,
-      "sha256": "2474c58496645e4ee1b6c24f0e4121eae6ea21d09d96a251300ed0c115d31499",
+      "sha256": "a0f34e62be54b4365c597d9bb5bb4fa6136681e0b47e64ab2c2d71555b065829",
       "origin": "Frozen local handover labels/rsna/rsna_llm_v2_original.csv",
       "role": "historical label-source snapshot; not raw scoring responses"
     },
@@ -38,39 +38,39 @@
       "file": "rsna_vlm_original.csv",
       "rows": 4407,
       "bytes": 553403,
-      "sha256": "a04afdcbf16e1cb595d720c7eec79ee449134e2a36f9ccda95f519143630d680",
+      "sha256": "41b5e074edc3efe80ee3d8b52ab53345f51c9f2c90af613bdb4aa270c76d9ec4",
       "origin": "Frozen local handover labels/rsna/rsna_vlm_original.csv",
       "role": "historical label-source snapshot; not raw scoring responses"
     },
     {
       "file": "rsna_vlm_opus_original.csv",
       "rows": 4407,
-      "bytes": 546772,
-      "sha256": "41d297f9daf0179550c96009e61e98e0b68434610dc1c3996a254dd2d3f6320f",
+      "bytes": 546683,
+      "sha256": "29e1e90116ca6ed572915effac204054e4112498e111436f821f959eab1206f0",
       "origin": "Frozen local handover labels/rsna/rsna_vlm_opus_original.csv",
       "role": "historical label-source snapshot; not raw scoring responses"
     },
     {
       "file": "conv_labels_used.csv",
       "rows": 4407,
-      "bytes": 1053775,
-      "sha256": "e1bcbf1da10685409562f38a2904d38b1a6ce91c15b5353bed7c7cd5982b2b7f",
+      "bytes": 1054993,
+      "sha256": "f015c8fbb763a59c36f2562348ba6e1915937c8630d9294a671e31dc84a1db38",
       "origin": "Frozen local handover labels/rsna/conv_labels_used.csv",
       "role": "actual training target snapshot with Gold overrides"
     },
     {
       "file": "conv_new_labels_used.csv",
       "rows": 4407,
-      "bytes": 952183,
-      "sha256": "536fee86603629cfab46588ae8c376fd41571744cc6a6ac33224ee7ee408a6d5",
+      "bytes": 953401,
+      "sha256": "ffa03dc9b5458539c3c13d2b5087fc47e3a823a401f5d14723b1a322dc33af9f",
       "origin": "Frozen local handover labels/rsna/conv_new_labels_used.csv",
       "role": "actual training target snapshot with Gold overrides"
     },
     {
       "file": "dino_new_labels_used.csv",
       "rows": 4407,
-      "bytes": 862288,
-      "sha256": "227c95021cdc346938b288aa6509c4babee8533c616748c2fe95124074965e74",
+      "bytes": 863506,
+      "sha256": "e06393115ad32afee716f2791d29d237ea3a8c72f33434138ac23d633e0facb7",
       "origin": "Frozen local handover labels/rsna/dino_new_labels_used.csv",
       "role": "actual training target snapshot with Gold overrides"
     }
@@ -95,5 +95,11 @@
       "gold_override": true
     }
   },
-  "checks": "Unique IDs, identical UID sets, finite [0,1] probabilities, exact schemas, 58 consistent Gold overrides and three non-Gold blend equations (tolerance 1e-12). Does not establish clinical correctness."
+  "checks": "Unique IDs, identical UID sets, finite [0,1] probabilities, exact schemas, 58 consistent Gold overrides and three non-Gold blend equations (tolerance 1e-12). Does not establish clinical correctness.",
+  "gold_placeholder": {
+    "value": 0.5,
+    "label_source": "official_gold_placeholder",
+    "rows": 58,
+    "note": "The 58 official expert/Gold labels are competition data and are not published. Their rows hold placeholders only; training overrides them from your own official train.csv."
+  }
 }

@@ -143,9 +143,9 @@
     {
       "file": "code/oai/merge_soft_full2399_v3.py",
       "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\oai\\merge_soft_full2399_v3.py",
-      "change": "none",
-      "sha256": "cc5be22870a328d56fb1b0f7be62da0f652e6c96c77999b2252643f40ec6a9e3",
-      "bytes": 6164
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "3feb64e65133c652ceadb0c982f4262bb6eee4ecf892a0474cc79ae6ff842ded",
+      "bytes": 6135
     },
     {
       "file": "code/oai/oai_vlm_soft_mapping_prompt_v3_seven_targets.txt",
@@ -416,72 +416,72 @@
     {
       "file": "labels/rsna/conv_labels_used.csv",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance",
-      "sha256": "e1bcbf1da10685409562f38a2904d38b1a6ce91c15b5353bed7c7cd5982b2b7f",
-      "bytes": 1053775
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "f015c8fbb763a59c36f2562348ba6e1915937c8630d9294a671e31dc84a1db38",
+      "bytes": 1054993
     },
     {
       "file": "labels/rsna/conv_new_labels_used.csv",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance",
-      "sha256": "536fee86603629cfab46588ae8c376fd41571744cc6a6ac33224ee7ee408a6d5",
-      "bytes": 952183
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "ffa03dc9b5458539c3c13d2b5087fc47e3a823a401f5d14723b1a322dc33af9f",
+      "bytes": 953401
     },
     {
       "file": "labels/rsna/dino_new_labels_used.csv",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance",
-      "sha256": "227c95021cdc346938b288aa6509c4babee8533c616748c2fe95124074965e74",
-      "bytes": 862288
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "e06393115ad32afee716f2791d29d237ea3a8c72f33434138ac23d633e0facb7",
+      "bytes": 863506
     },
     {
       "file": "labels/rsna/manifest.json",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance",
-      "sha256": "a606c5714a959c3eb98e8f676c820e09eb24138ccaf20411108fe2bc922df03c",
-      "bytes": 3625
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "265bc959d0ce3d8510bd4a69ec9afea68575de8ab746f5d50b7a01d8738aca39",
+      "bytes": 3929
     },
     {
       "file": "labels/rsna/README.md",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "59f7577375fd941fb00f16b8061c632ec2a302a135b62423a815974b69288a0c",
-      "bytes": 3918
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "5bc5fa518b6a73e6740cd59e7574a8df1f49c620e5f68d2719fb8823e715e190",
+      "bytes": 4518
     },
     {
       "file": "labels/rsna/rsna_llm_v1_original.csv",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance",
-      "sha256": "27cacdc2f5a5f0e0f56e6e482688194c5877539a73bf0d1f44447c6c95445285",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "e9652ce5d04023916677b3ae2624c740d7b09fbd0dcf158f7f056c4679224d5f",
       "bytes": 525823
     },
     {
       "file": "labels/rsna/rsna_llm_v2_original.csv",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance",
-      "sha256": "2474c58496645e4ee1b6c24f0e4121eae6ea21d09d96a251300ed0c115d31499",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "a0f34e62be54b4365c597d9bb5bb4fa6136681e0b47e64ab2c2d71555b065829",
       "bytes": 543207
     },
     {
       "file": "labels/rsna/rsna_vlm_opus_original.csv",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance",
-      "sha256": "41d297f9daf0179550c96009e61e98e0b68434610dc1c3996a254dd2d3f6320f",
-      "bytes": 546772
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "29e1e90116ca6ed572915effac204054e4112498e111436f821f959eab1206f0",
+      "bytes": 546683
     },
     {
       "file": "labels/rsna/rsna_vlm_original.csv",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance",
-      "sha256": "a04afdcbf16e1cb595d720c7eec79ee449134e2a36f9ccda95f519143630d680",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "41b5e074edc3efe80ee3d8b52ab53345f51c9f2c90af613bdb4aa270c76d9ec4",
       "bytes": 553403
     },
     {
       "file": "our_pipeline.ipynb",
       "source": "Essential code files in this package",
-      "change": "writefile restoration cells only; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "ed500ec33f6a37703bf6f1ecf0dada64ed650c1589e9a8c7f7d94b6d476ab09c",
-      "bytes": 2242339
+      "change": "writefile restoration cells only; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "a74b2bcc55bc8a9a3c5982c9c7a73a7e896da08d513d7bb07381f81f478fdf26",
+      "bytes": 2249789
     },
     {
       "file": "PUBLIC_RELEASE.md",
@@ -493,9 +493,9 @@
     {
       "file": "README.md",
       "source": "Reviewed detailed trick explanations with concise package navigation",
-      "change": "Full improvement/labeling explanations retained; code package remains minimal; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "d72fd7afd99e732014f9319a714cfb0a9a4603b48ddfc38387d58d6fa5ae8f41",
-      "bytes": 48413
+      "change": "Full improvement/labeling explanations retained; code package remains minimal; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "480474ff5d53ad5fd83ce671c6f94dc3bfca7802835b86c9b5c77ed17f740176",
+      "bytes": 48657
     },
     {
       "file": "REPRODUCE.md",
@@ -507,9 +507,9 @@
     {
       "file": "REPRODUCIBILITY_AUDIT.md",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "34eced3093975b7ed780e57b9961d6c5555dcc982059633cdd4f1fa8d1f83fe4",
-      "bytes": 5257
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "97cacd171110ddef50b2fcb7abfa2a446ea3502681aaed18da56148b69603ae2",
+      "bytes": 5347
     },
     {
       "file": "requirements/nda.txt",
@@ -538,6 +538,13 @@
       "change": "Added operational documentation, validation or source provenance",
       "sha256": "1152ce2e5fe0d3875ca4663af8f1ece2a91e4c5e658256e5179c1681160e3ec4",
       "bytes": 1705
+    },
+    {
+      "file": "tools/add_gold_placeholders.py",
+      "source": "October25 source supplement / package support",
+      "change": "Added operational documentation, validation or source provenance",
+      "sha256": "a5d799ba907b636eb20b96057d352671c3e0018348c2dbd7977cb293ada9cd7f",
+      "bytes": 5275
     },
     {
       "file": "tools/check_reproduction.py",
@@ -605,9 +612,9 @@
     {
       "file": "tools/validate_rsna_labels.py",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "261e4eac3c67076e8587e0b9e85ff52d397f2db1ea6c647623977cbd717cc97e",
-      "bytes": 8286
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "303e04daeb16f1890b7352fc7167c7886eefcaf7fa1742e84c91b39f7a7ab121",
+      "bytes": 8952
     },
     {
       "file": "tools/validate_training_sources.py",
@@ -619,8 +626,8 @@
     {
       "file": "verification.json",
       "source": "Static source checks; no pipeline execution",
-      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "97ed8d99bae59bbbb7b5124338e1131fcae4fa01ead44e7926d5b4c631660cbc",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "951663deb4c2410fc316138f6284cafe32f9e8f34b0549080d5ead934e8a633f",
       "bytes": 801
     }
   ],
