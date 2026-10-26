@@ -62,7 +62,7 @@ OAI image-package sharing is subject to the owner's decision and applicable sour
 | [RSNA report labels V1](labels/rsna/rsna_llm_v1_original.csv) | **Public in this repository** | Frozen `rsna_llm_v1_original.csv`; original private Kaggle filename `train_scored.csv`. |
 | [RSNA report labels V2](labels/rsna/rsna_llm_v2_original.csv) | **Public in this repository** | Frozen `rsna_llm_v2_original.csv`; historical source filename `labels_gold_override.csv`. |
 | [RSNA original image/report VLM labels](labels/rsna/rsna_vlm_original.csv) | **Public in this repository** | Frozen `rsna_vlm_original.csv`; original filename `labels_vlm_imgrep.csv`. |
-| [RSNA alternate Opus VLM labels](labels/rsna/rsna_vlm_opus_original.csv) | **Public in this repository** | Frozen `rsna_vlm_opus_original.csv`; used by `conv_new` / `dino_new`. |
+| [RSNA alternate image-report VLM labels](labels/rsna/rsna_vlm_opus_original.csv) | **Public in this repository** | Frozen `rsna_vlm_opus_original.csv`; used by `conv_new` / `dino_new`. |
 | [Three actual mixed training snapshots](labels/rsna/README.md) | **Public in this repository** | `conv_labels_used.csv`, `conv_new_labels_used.csv`, `dino_new_labels_used.csv`; 4,349 mixed + 58 Gold override rows each. |
 | [OAI baseline v3 labels](https://www.kaggle.com/datasets/minminandy/oai-soft-labels-2399-v3) | **Private** | `OAI_soft_labels_2399_v3.csv`; seven probabilities, validity masks and identity metadata. |
 | [OAI follow-up v3 labels](https://www.kaggle.com/datasets/minminandy/oai-soft-followup6250-v3) | **Private** | `OAI_soft_followup6250_v3.csv`; retain visit as well as knee identity. |
@@ -75,13 +75,13 @@ The seven CSVs each contain 4,407 unique studies. See [label documentation](labe
 
 **Use source labels, mix exactly once.** The unchanged training entries read VLM, V1 and V2 and compute the mixture internally. The three `*_labels_used.csv` files are reference outputs only; do not map any of the three source inputs to them. The documented `tools/run_pipeline.py` entry refuses mixed-target CSVs (including renamed exports retaining `label_source`) and duplicate source-file mappings before importing the model. Do not bypass this wrapper for the documented reproduction path.
 
-Let `L = 0.7 V1 + 0.3 V2`:
+Let `L = 0.7 V1 + 0.3 V2`; `VLM-A` denotes the original image-report source and `VLM-B` the alternate source:
 
 | Training entry | VLM input | Internal target before Gold override | Reference output only |
 |---|---|---|---|
-| `conv`, `conv224`, `conv_gray384`, `eff`, `dino`, `dino3`, `rad`, `tiny` | `rsna_vlm_original.csv` | `0.7 VLM + 0.3 L` = `0.7 VLM + 0.21 V1 + 0.09 V2` | `conv_labels_used.csv` |
-| `conv_new` | `rsna_vlm_opus_original.csv` | `0.7 Opus + 0.3 L` = `0.7 Opus + 0.21 V1 + 0.09 V2` | `conv_new_labels_used.csv` |
-| `dino_new` | `rsna_vlm_opus_original.csv` | `0.5 Opus + 0.5 L` = `0.5 Opus + 0.35 V1 + 0.15 V2` | `dino_new_labels_used.csv` |
+| `conv`, `conv224`, `conv_gray384`, `eff`, `dino`, `dino3`, `rad`, `tiny` | `rsna_vlm_original.csv` | `0.7 VLM-A + 0.3 L` = `0.7 VLM-A + 0.21 V1 + 0.09 V2` | `conv_labels_used.csv` |
+| `conv_new` | `rsna_vlm_opus_original.csv` | `0.7 VLM-B + 0.3 L` = `0.7 VLM-B + 0.21 V1 + 0.09 V2` | `conv_new_labels_used.csv` |
+| `dino_new` | `rsna_vlm_opus_original.csv` | `0.5 VLM-B + 0.5 L` = `0.5 VLM-B + 0.35 V1 + 0.15 V2` | `dino_new_labels_used.csv` |
 
 Every recipe then overrides the same 58 complete official Gold rows from the separately obtained competition `train.csv`. `label_source=vlm07_llm03` is a legacy export string, not the actual new-DINO ratio. The code's label ratio is separate from the RSNA/OAI sample ratio and any ensemble weights. A label-path check alone does not supply MRI, OAI inputs or initialization weights.
 
@@ -288,16 +288,18 @@ The notebook records a 58-Gold labeling comparison of approximately **0.903 for 
 
 Report labels retain information from the clinical narrative; VLM labels add image evidence and competition-definition alignment. Sampled montages can also omit slices or be unclear. Keeping both sources is useful without assuming either is always correct.
 
+Here `VLM-A` is the original image-report label source and `VLM-B` is the alternate image-report label source. These neutral names do not change the historical source files or provenance records.
+
 The old recipe is:
 
 `L = 0.7 × V1 + 0.3 × V2`
 
-`Y_old = 0.7 × original VLM + 0.3 × L = 0.7 × original VLM + 0.21 × V1 + 0.09 × V2`
+`Y_old = 0.7 × VLM-A + 0.3 × L = 0.7 × VLM-A + 0.21 × V1 + 0.09 × V2`
 
 The two new recipes are:
 
-- **New Conv / C2:** `0.7 × Opus + 0.3 × L`.
-- **New DINO / X1:** `0.5 × Opus + 0.5 × L`.
+- **New Conv / C2:** `0.7 × VLM-B + 0.3 × L`.
+- **New DINO / X1:** `0.5 × VLM-B + 0.5 × L`.
 
 Official Gold targets override matching UIDs. Mixtures always align the same study and target columns. Artifact filenames may still contain `vlm07_llm03` after recipe changes; establish the actual recipe from code and CSV contents, not the filename.
 
@@ -377,7 +379,7 @@ Use the cache → labels → training → inference sequence. Historical failed 
 
 Our split has **4,407 studies and four folds**. The 58 Gold studies are held out in their assigned fold but may enter training/checkpoint selection in other folds; they are not a never-trained external test set. The DINOv3 training source has now been recovered from executed Kaggle Version3 (scriptVersionId358232793); its original source, inference and configuration are included; historical OOF is external. New training runs were not executed during recovery.
 
-MRI, original scores, caches and weights must be supplied separately. Configure local/Kaggle paths and install dependencies. The five original OAI pixel-conversion functions are bundled with identical ASTs; their former Codex-attachment dependencies now use package-local paths. These packaging changes do not alter model recipes.
+MRI, original scores, caches and weights must be supplied separately. Configure local/Kaggle paths and install dependencies. The five original OAI pixel-conversion functions are bundled with identical ASTs; their original workstation attachment dependencies now use package-local paths. These packaging changes do not alter model recipes.
 
 ## 9. Running and checking the package
 

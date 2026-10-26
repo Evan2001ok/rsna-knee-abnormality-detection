@@ -18,8 +18,8 @@
       "file": "AI_USAGE.md",
       "source": "October25 source supplement / package support",
       "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "aaa28f00ed65502f20fe5bda6e1b51ae0f8dcf0338fae10b182134c23f655408",
-      "bytes": 19217
+      "sha256": "5f3035bb7256680806cd608eb91954f8d9e24caa52aeea35540c4d1caa2aa982",
+      "bytes": 19225
     },
     {
       "file": "code/inference/ensemble6.py",
@@ -445,8 +445,8 @@
       "file": "labels/rsna/README.md",
       "source": "October25 source supplement / package support",
       "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "9d1ca74ee79dae312b83f3b01dd37771373121e4668854eff07016a14ab29a04",
-      "bytes": 3920
+      "sha256": "59f7577375fd941fb00f16b8061c632ec2a302a135b62423a815974b69288a0c",
+      "bytes": 3918
     },
     {
       "file": "labels/rsna/rsna_llm_v1_original.csv",
@@ -494,15 +494,15 @@
       "file": "README.md",
       "source": "Reviewed detailed trick explanations with concise package navigation",
       "change": "Full improvement/labeling explanations retained; code package remains minimal; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "1489ed9d97d4b9ad4b119c15817611f828083ad5ab407849a32e3e0d8fdc8a59",
-      "bytes": 48119
+      "sha256": "d72fd7afd99e732014f9319a714cfb0a9a4603b48ddfc38387d58d6fa5ae8f41",
+      "bytes": 48413
     },
     {
       "file": "REPRODUCE.md",
       "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\docs\\REPRODUCE.md",
       "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "789539dc6f9976a1c58ac735a588e102cf3759765d2f26551990db4d1a946f83",
-      "bytes": 20361
+      "sha256": "db913aaf8c2d52574f5a288be40e74181fcc7508e5ff073291cf4488e887176d",
+      "bytes": 20370
     },
     {
       "file": "REPRODUCIBILITY_AUDIT.md",

@@ -84,7 +84,7 @@ python tools/merge_rsna_scores.py --train-csv data/rsna/train.csv --results work
 python tools/merge_rsna_scores.py --train-csv data/rsna/train.csv --results work/report_v2_results --output labels/rsna/rsna_llm_v2_original.csv
 ```
 
-The merger rejects missing/unknown/duplicate IDs and invalid scores; official Gold overrides matching UIDs. An evidence JSONL is saved alongside the CSV. For an alternate VLM source, use its own review outputs and the configured Opus CSV path. Blending is done inside the selected training source; do not preblend an already mixed target.
+The merger rejects missing/unknown/duplicate IDs and invalid scores; official Gold overrides matching UIDs. An evidence JSONL is saved alongside the CSV. For an alternate VLM source, use its own review outputs and the configured alternate VLM CSV path. Blending is done inside the selected training source; do not preblend an already mixed target.
 
 ## 4. OAI: existing packages or optional raw-data rebuild
 

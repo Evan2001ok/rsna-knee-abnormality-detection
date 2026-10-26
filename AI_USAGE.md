@@ -76,7 +76,7 @@ Slot order: SAG_FLUID_FS, COR_FLUID_FS, AX_FLUID_FS, COR_T1, SAG_T1. Missing ima
 | `tiny.py` |384 /384 |11 overlapping2.5D tokens |Original TinyViT-21M recipe |
 | `dino.py` |384 /392 |11 overlapping2.5D tokens |Original DINOv2-S recipe,16 epochs |
 | `rad.py` |384 /224 |24 grayscale-copy tokens |RadImageNet ResNet50; Cfg.img_size describes cache, not actual model input |
-| `conv_new.py` |384 /384 |Original2.5D representation |Alternate Opus label-source recipe; not the grayscale model |
+| `conv_new.py` |384 /384 |Original2.5D representation |Alternate image-report label-source recipe; not the grayscale model |
 | `dino_new.py` |384 /392 |Original2.5D representation |Alternate label source and mixture; not DINOv3 |
 | `dino3.py` |384 /384 |11 overlapping2.5D tokens |Recovered fourfold DINOv3-ConvNeXt-Tiny;16 epochs; backbone LR2e-5, heads2e-4 |
 
