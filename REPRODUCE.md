@@ -88,7 +88,7 @@ The merger rejects missing/unknown/duplicate IDs and invalid scores; official Go
 
 ## 4. OAI: existing packages or optional raw-data rebuild
 
-For ordinary reproduction, supply the existing native-resolution caches and frozen v3 labels from authorized sources, then skip to Section5. OAI participant manifests, original scores, images and package inventories are external. No individual data are embedded in the source below.
+For ordinary reproduction, supply the existing native-resolution caches and frozen v3 labels from authorized sources, then skip to Section5. OAI participant manifests, original scores, images and package inventories are external. No individual data are embedded in the source below. Work that uses OAI data must carry the OAI acknowledgement and dataset identifiers; see [README: Acknowledgements and Data Access](README.md#acknowledgements-and-data-access).
 
 ### 4.1 Rebuild baseline metadata and the candidate queue
 

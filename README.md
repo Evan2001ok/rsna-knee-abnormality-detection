@@ -389,6 +389,18 @@ The audit added baseline QC, cohort/queue generation source, strict label mergin
 
 Documentation and notebook narrative are in English. Original operational prompts and code comments are preserved to avoid silently changing the experiment. An English reading translation of the OAI prompt is provided in `docs/OAI_PROMPT_ENGLISH_REFERENCE.md`; the original remains the reproduction reference.
 
+## Acknowledgements and Data Access
+
+### Osteoarthritis Initiative (OAI)
+
+We used knee MRI and expert readings from the Osteoarthritis Initiative (OAI) for external supervision. This repository contains the multi-backbone branch, which uses NDA Collection 2343; NDA Study S3430; DOI: [10.15154/vgnc-0x45](https://doi.org/10.15154/vgnc-0x45). The team's separate CoAtNet branch, which is not included in this repository, has its own NDA Study DOI: [10.15154/wfxg-g926](https://doi.org/10.15154/wfxg-g926).
+
+> Data and/or research tools used in the preparation of this manuscript were obtained and analyzed from the controlled access datasets distributed from the Osteoarthritis Initiative (OAI), a data repository housed within the NIMH Data Archive (NDA). OAI is a collaborative informatics system created by the National Institute of Mental Health and the National Institute of Arthritis, Musculoskeletal and Skin Diseases (NIAMS) to provide a worldwide resource to quicken the pace of biomarker identification, scientific investigation and OA drug development. Dataset identifier(s): NDA Collection 2343; NDA Study S3430; DOI: 10.15154/vgnc-0x45 (multi-backbone branch); DOI: 10.15154/wfxg-g926 (CoAtNet branch).
+
+The OAI acknowledgement follows the official NDA wording. It is the same text as Section 6.2 of our [10th-place solution write-up](https://www.kaggle.com/competitions/rsna-knee-abnormality-detection/writeups/10th-place-solution).
+
+OAI images and participant-level data are not redistributed in this repository. Users must obtain access independently through the [official OAI portal](https://nda.nih.gov/oai/) and comply with the terms applicable to their access. See [External downloads and access](#external-downloads-and-access) and [REPRODUCE.md, Section 4](REPRODUCE.md#4-oai-existing-packages-or-optional-raw-data-rebuild).
+
 ## Source supplement: October25,2026
 
 Read [AI_USAGE.md](AI_USAGE.md) for the module-by-module workflow. The supplement adds `code/train/conv224.py`, `conv_gray384.py` and `dino3.py`. The224 entry is exact source from Notebook4 cell19. The grayscale entry retains one complete program from cell8 after confirming the two copies have identical executable ASTs. DINOv3 is exact recovered training source from [Kaggle Version3](https://www.kaggle.com/code/lihu6666/dinov3-conv-lihu-of-fork-of-rsna-train-cd4e8a?scriptVersionId=358232793), not an inference-derived approximation.
