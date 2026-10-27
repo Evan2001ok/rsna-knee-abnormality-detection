@@ -26,3 +26,7 @@ The branch contains the CoAtNet path: iterative label distillation with report l
 
 - [Branch overview and instructions](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/coatnet-pipeline/README.md)
 - [Detailed write-up of the CoAtNet path](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/coatnet-pipeline/docs/WRITEUP.md)
+
+## Thanks
+
+Thank you to everyone on Team MEJAL (Evan zhu, LP, minmin andy, Jak ma and Max) for the long hours and hard work that went into this result: supervision and prompt design, model training and tuning, the CoAtNet path, inference speed-ups, the final ensemble, and the clean-up that made this public release possible. Each part of this solution was built together.
