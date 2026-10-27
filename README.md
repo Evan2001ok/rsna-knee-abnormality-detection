@@ -6,17 +6,17 @@ The source code is on two branches, one per development path:
 
 | Branch | Path |
 |---|---|
-| **[codex/our-pipeline](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/codex/our-pipeline)** | Multi-source soft supervision and the multi-backbone, multi-sequence models |
+| **[multibackbone-pipeline](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/multibackbone-pipeline)** | Multi-source soft supervision and the multi-backbone, multi-sequence models |
 | **[coatnet-pipeline](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/coatnet-pipeline)** | Iterative label distillation and the CoAtNet-2 window-level MIL models |
 
-## codex/our-pipeline
+## multibackbone-pipeline
 
 The branch contains 224/384 MRI preprocessing, shared-encoder model training, RSNA LLM/VLM labeling prompts and tools, OAI v3 soft-label mapping and preprocessing, and historical six/eight-suite ensemble inference.
 
-- [Method and experiment notes](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/codex/our-pipeline/README.md)
-- [Reproduction workflow](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/codex/our-pipeline/REPRODUCE.md)
-- [AI module usage guide](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/codex/our-pipeline/AI_USAGE.md)
-- [Public release scope and external assets](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/codex/our-pipeline/PUBLIC_RELEASE.md)
+- [Method and experiment notes](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/multibackbone-pipeline/README.md)
+- [Reproduction workflow](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/multibackbone-pipeline/REPRODUCE.md)
+- [AI module usage guide](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/multibackbone-pipeline/AI_USAGE.md)
+- [Public release scope and external assets](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/multibackbone-pipeline/PUBLIC_RELEASE.md)
 
 This is a source-only release. MRI, participant/cohort manifests, patient/study label tables, OOF predictions, trained weights and credentials are not distributed here. The final combined team inference is outside this branch. Historical scores in the documentation describe the recorded experiments, not a new independent reproduction.
 
