@@ -250,7 +250,7 @@ OAI acknowledgement: Data and/or research tools used in the preparation of this 
 ## Code, weights and sources
 
 - **Training and inference code:** [this branch](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/coatnet-pipeline), under CC BY-NC 4.0; parts adapted from the Raptor notebooks keep their Apache-2.0 licence
-- **Weights:** a public Kaggle dataset of the four fine-tuned seeds, to be added
+- **Weights:** [a public Kaggle dataset](https://www.kaggle.com/datasets/max6296/knee-coatnet-consensus-all-ftall-w56-bundle) of the four fine-tuned seeds, with the inference code the team blend submission used
 - **Inference notebook:** a public version of the final team notebook (submission 57456685), to be added
 
 The final configs read a training folder that is not in git. It holds the final labels, the 2,398 OAI knees, the 58 expert studies and the splits. To rebuild it:

@@ -22,8 +22,8 @@ of this repository.
 - The team's write-up on Kaggle (both halves):
   [10th place solution](https://www.kaggle.com/competitions/rsna-knee-abnormality-detection/writeups/10th-place-solution)
 - Our detailed write-up of this half: [docs/WRITEUP.md](docs/WRITEUP.md)
-- Weights of our four final models: to be added. The competition's prize conditions ask winners to share their
-  final models publicly, and we will do so as a public Kaggle dataset.
+- Weights of our four final models, with their inference code: [Kaggle dataset](https://www.kaggle.com/datasets/max6296/knee-coatnet-consensus-all-ftall-w56-bundle)
+  (CC BY-NC 4.0). It is the exact version the team blend submission used.
 - Public Kaggle notebook of the final team blend: to be added.
 
 ## Words used in this README
