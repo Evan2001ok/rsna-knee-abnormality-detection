@@ -10,14 +10,14 @@
     {
       "file": ".gitignore",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "ae7cece08c99178f858cfbd7bdab2b7411c7e8b5d229a01483905b9dad6673db",
       "bytes": 1093
     },
     {
       "file": "AI_USAGE.md",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "5f3035bb7256680806cd608eb91954f8d9e24caa52aeea35540c4d1caa2aa982",
       "bytes": 19225
     },
@@ -367,7 +367,7 @@
     {
       "file": "config/paths.example.json",
       "source": "Runtime path mapping template",
-      "change": "Copy to paths.json and add cache/model mount mappings; original formulas unchanged; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "Copy to paths.json and add cache/model mount mappings; original formulas unchanged; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "73580196b746ab448f62864da2c846086e5e36c05425a5b81ed7b5ba4425de45",
       "bytes": 2942
     },
@@ -444,7 +444,7 @@
     {
       "file": "labels/rsna/README.md",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "5bc5fa518b6a73e6740cd59e7574a8df1f49c620e5f68d2719fb8823e715e190",
       "bytes": 4518
     },
@@ -479,35 +479,35 @@
     {
       "file": "our_pipeline.ipynb",
       "source": "Essential code files in this package",
-      "change": "writefile restoration cells only; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "a74b2bcc55bc8a9a3c5982c9c7a73a7e896da08d513d7bb07381f81f478fdf26",
-      "bytes": 2249789
+      "change": "writefile restoration cells only; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "21952e1381be07f9a7effa0748921fff65a5604532e56c134e043f3a11b84211",
+      "bytes": 2250021
     },
     {
       "file": "PUBLIC_RELEASE.md",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "b321e8e6b0f2416da9e732cdebb3c871bf3ac3ddd3eb95c96b4349364cbaf5af",
       "bytes": 4878
     },
     {
       "file": "README.md",
       "source": "Reviewed detailed trick explanations with concise package navigation",
-      "change": "Full improvement/labeling explanations retained; code package remains minimal; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "Full improvement/labeling explanations retained; code package remains minimal; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "657ee05b219dd2570c3a522f9b76f6b610bbee3dfb2f67eb21eed0167f851fee",
       "bytes": 51461
     },
     {
       "file": "REPRODUCE.md",
       "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\docs\\REPRODUCE.md",
-      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "f041dee6b129dca7823ddf3fc334a8f5378b21ac5c7d2bc0e138dc5eae819669",
       "bytes": 20546
     },
     {
       "file": "REPRODUCIBILITY_AUDIT.md",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "97cacd171110ddef50b2fcb7abfa2a446ea3502681aaed18da56148b69603ae2",
       "bytes": 5347
     },
@@ -577,7 +577,7 @@
     {
       "file": "tools/preflight.py",
       "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\tools\\preflight.py",
-      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "eb0f8722b1444d04a7ae7649308cd3985ead8d8e90a896e4d73eb286d2f33176",
       "bytes": 8160
     },
@@ -598,21 +598,21 @@
     {
       "file": "tools/refresh_bundle.py",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "0403c1d96de513c6e93bc8f59df8e8fe74257f17830c476fa6c8240ab7786042",
-      "bytes": 7914
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "0e6cc613e603c8d7b1f513b0792b4ff0c55d33fc7b713c84261a1fa914c20bed",
+      "bytes": 8119
     },
     {
       "file": "tools/run_pipeline.py",
       "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\tools\\run_pipeline.py",
-      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "03688be41cd5699ef155698c012171a0f8ceda47263d5eac92bf67d21c2432bb",
       "bytes": 6547
     },
     {
       "file": "tools/validate_rsna_labels.py",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "303e04daeb16f1890b7352fc7167c7886eefcaf7fa1742e84c91b39f7a7ab121",
       "bytes": 8952
     },
@@ -626,7 +626,7 @@
     {
       "file": "verification.json",
       "source": "Static source checks; no pipeline execution",
-      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
       "sha256": "951663deb4c2410fc316138f6284cafe32f9e8f34b0549080d5ead934e8a633f",
       "bytes": 801
     }

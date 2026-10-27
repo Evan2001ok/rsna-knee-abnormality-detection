@@ -8,6 +8,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+SUPPLEMENT_NOTE = 'October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata'
 
 
 def eligible(path):
@@ -91,8 +92,10 @@ def main():
         rel = p.relative_to(ROOT).as_posix()
         row = dict(old.get(rel, new_sources.get(rel, dict(file=rel, source='October25 source supplement / package support', change='Added operational documentation, validation or source provenance'))))
         actual = hashlib.sha256(p.read_bytes()).hexdigest()
-        if rel in old and old[rel]['sha256'] != actual:
-            row['change'] = row.get('change', '')+'; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata'
+        notes = list(dict.fromkeys(row.get('change', '').split('; ')))  # also collapses notes repeated by earlier runs
+        if rel in old and old[rel]['sha256'] != actual and SUPPLEMENT_NOTE not in notes:
+            notes.append(SUPPLEMENT_NOTE)
+        row['change'] = '; '.join(notes)
         row.update(file=rel, sha256=actual, bytes=p.stat().st_size)
         records.append(row)
     manifest = dict(files=records, scope='public pipeline with seven frozen RSNA label snapshots; OAI labels, OOF, splits, cohort manifests and trained weights excluded; final team inference excluded')
