@@ -95,7 +95,7 @@ These initialize a backbone; they are **not** the task-trained weights needed by
 | EfficientNetV2-S | [timm files](https://huggingface.co/timm/tf_efficientnetv2_s.in21k_ft_in1k/tree/main) — **Public upstream** | [efficientv2-s](https://www.kaggle.com/code/minminandy/efficientv2-s) — **Unverified** | Source mirror uses `tf_efficientnetv2_s_in21k_ft_in1k.pth`; upstream lists `pytorch_model.bin`. Map the actual compatible torch state-dict file explicitly. |
 | DINOv2-S | [timm files](https://huggingface.co/timm/vit_small_patch14_dinov2.lvd142m/tree/main) — **Public upstream** | [dinov2s](https://www.kaggle.com/code/minminandy/dinov2s) — **Private** | `pytorch_model.bin`; `dino` / `dino_new`, actual model input392. |
 | TinyViT-21M-384 | [timm files](https://huggingface.co/timm/tiny_vit_21m_384.dist_in22k_ft_in1k/tree/main) — **Public upstream** | [tiny-vit-21m-384](https://www.kaggle.com/code/minminandy/tiny-vit-21m-384) — **Private** | `pytorch_model.bin`; `tiny`. |
-| DINOv3-ConvNeXt-Tiny | [timm files](https://huggingface.co/timm/convnext_tiny.dinov3_lvd1689m/tree/main) — **Public upstream; DINOv3 license** | [dinvo3convnext-timm](https://www.kaggle.com/code/lihu6666/dinvo3convnext-timm) — **Private** | `model.safetensors`; `dino3`. Use the linked timm-format source and review its license; other distributors may impose their own access flow. |
+| DINOv3-ConvNeXt-Tiny | [timm files](https://huggingface.co/timm/convnext_tiny.dinov3_lvd1689m/tree/main) — **Public upstream; [DINOv3 License](#dinov3-pretrained-weights)** | [dinvo3convnext-timm](https://www.kaggle.com/code/lihu6666/dinvo3convnext-timm) — **Private** | `model.safetensors`; `dino3`. Use the linked timm-format source and review its license; other distributors may impose their own access flow. |
 | RadImageNet ResNet50 | [Official repository](https://github.com/BMEII-AI/RadImageNet) → [PyTorch archive](https://drive.google.com/file/d/1RHt2GnuOYlc_gcoTETtBDSW73mFyRAtR/view) — **Public instructions; provider login may be needed** | [Kaggle PyTorch model v1](https://www.kaggle.com/models/dew389/radimagenet50/pytorch/default/1) — **Unverified** | Historical mirror file `ResNet50.pt`; anonymous Drive inspection showed sign-in. Verify the extracted PyTorch ResNet50 state dict; do not substitute TensorFlow/H5 weights. Raw RadImageNet images are not needed for this recipe. |
 
 ### Task-trained checkpoints for the historical ensembles
@@ -400,6 +400,12 @@ We used knee MRI and expert readings from the Osteoarthritis Initiative (OAI) fo
 The OAI acknowledgement follows the official NDA wording. It is the same text as Section 6.2 of our [10th-place solution write-up](https://www.kaggle.com/competitions/rsna-knee-abnormality-detection/writeups/10th-place-solution).
 
 OAI images and participant-level data are not redistributed in this repository. Users must obtain access independently through the [official OAI portal](https://nda.nih.gov/oai/) and comply with the terms applicable to their access. See [External downloads and access](#external-downloads-and-access) and [REPRODUCE.md, Section 4](REPRODUCE.md#4-oai-existing-packages-or-optional-raw-data-rebuild).
+
+### DINOv3 pretrained weights
+
+The DINOv3 ConvNeXt-Tiny group (`dino3`) is initialized from [`timm/convnext_tiny.dinov3_lvd1689m`](https://huggingface.co/timm/convnext_tiny.dinov3_lvd1689m), which Meta distributes under the [DINOv3 License](https://ai.meta.com/resources/models-and-libraries/dinov3-license), not Apache-2.0 like the other timm initializations listed in [Initial backbone weights for training](#initial-backbone-weights-for-training). This repository does not include those weights; download them from the upstream source and accept its terms.
+
+Any checkpoint fine-tuned from them is a derivative work of the DINO Materials. If such checkpoints are released, they will be distributed only under the DINOv3 License, with a copy of the license, and not under any other license that applies to this repository. As the license requires, we acknowledge the use of DINOv3 in our write-up and here.
 
 ## Source supplement: October25,2026
 
