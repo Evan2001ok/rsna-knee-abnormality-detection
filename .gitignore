@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Data, caches, runs, work files and weights made by the scripts (never commit these)
+data/
+artifacts/
+runs/
+bundle/
+wheels/
+*.pt
+*.pth
+*.safetensors
+*.npy
+*.npz
+
+# Credentials
+.env

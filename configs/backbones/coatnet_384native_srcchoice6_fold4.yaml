@@ -1,0 +1,101 @@
+# Fold 4 of coatnet_384native_srcchoice6_fold0.yaml (queued on Oct 12); otherwise identical. Fold 0's note follows.
+# Oct 12, 2026: CoAtNet-2, fold 0, on the source-choice v6 labels: report + GPT image readings only, no model
+# predictions (scripts/prepare_source_choice_labels.py --sources report gpt). The five folds' out-of-fold predictions are
+# the model source of the v7 labels (our round-5 labels). Images: 140 mm at 384 px (the "native 384" cache), no OAI.
+# Otherwise as our round-4 CoAtNet fold-0 config on that cache (not included), so with the same encoder it shows what the
+# labels alone change. Gradient checkpointing off (it only saves GPU memory; not needed on our 32 GB GPUs).
+seed: 42
+data:
+  recipe: raptor
+  manifest: data/processed/raptor-dense-384/train/manifest.csv
+  labels: data/labels/source_choice_v6_report_gpt/labels.csv
+  validation_labels: data/labels/severity_gpt_agreement/labels.csv
+  splits: data/splits/baseline/splits.csv
+  fold: 4
+  cache_size: 384
+  image_size: 384
+  raptor_train_windows: 12
+  raptor_eval_windows: 112
+  augmentation:
+    enabled: true
+    rotation_deg: 0
+    translate: 0
+    scale: 0
+    contrast: 0.1
+    brightness: 0
+    noise_std: 0
+  gpu_augmentation:
+    enabled: true
+    mirror_prob: 0.5
+    affine_prob: 0.8
+    rotation_deg: 15
+    zoom_min: 0.9
+    zoom_max: 1.15
+    translate: 0.08
+    intensity_prob: 0.8
+    gamma: 1.4
+    contrast: 0.15
+    bias_field_prob: 0.3
+    bias_field_strength: 0.3
+    noise_prob: 0.3
+    noise_std: 0.03
+    blur_prob: 0.15
+    blur_sigma_max: 1.0
+    lowres_prob: 0.15
+    lowres_factor_max: 2.0
+  raptor_window_sampling: stratified
+  raptor_series_dropout: 0.15
+  raptor_variant: raptor-dense-distinct-384-v1
+model:
+  backbone: coatnet_rmlp_2_rw_384.sw_in12k_ft_in1k
+  input_size: 384
+  pretrained: true
+  pooling: class_attention
+  dropout: 0.2
+  encoder_chunk_size: 48
+  grad_checkpointing: false
+  freeze_encoder: false
+  use_metadata: false
+  use_positions: false
+training:
+  output_dir: runs/coatnet_384native_srcchoice6_fold4
+  epochs: 24
+  batch_size: 4
+  accumulation_steps: 2
+  encoder_lr: 3.0e-05
+  head_lr: 0.001
+  weight_decay: 0.02
+  clip_grad_norm: 3.0
+  target_weighting: observed
+  positive_weighting: fixed
+  fixed_positive_weights:
+    ACL: 4.154963317861956
+    MCL: 7.428396572827418
+    Medial Meniscus: 1.3480069560473287
+    Lateral Meniscus: 3.6501890869800118
+    Medial OA: 2.603726187984091
+    Lateral OA: 4.042398324570525
+    PF OA: 1.7704687185676928
+    Effusion: 2.0876154604968167
+    Synovitis: 1.2390292120802229
+    Baker's: 4.853948822579276
+    Contusion: 3.0558369654847457
+    Fracture: 7.687862730254856
+  schedule: one_cycle
+  one_cycle_warmup_fraction: 0.15
+  average_top_k: 3
+  num_workers: 4
+  precision: bf16
+  device: cuda
+  selection_metric: macro_auc
+  deterministic: false
+  validation_start_epoch: 17
+  compile: true
+  channels_last: true
+monitoring:
+  enabled: true
+  log_every_updates: 10
+  flush_seconds: 10
+  images: true
+  validation_every_updates: 0
+  validation_studies: 32

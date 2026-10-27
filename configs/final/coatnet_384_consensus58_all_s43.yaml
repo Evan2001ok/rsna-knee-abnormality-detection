@@ -1,0 +1,111 @@
+seed: 43
+data:
+  recipe: raptor
+  manifest: data/combined/oai_v00_336_consensus58_4f/manifest.csv
+  labels: data/combined/oai_v00_336_consensus58_4f/labels.csv
+  validation_labels: data/combined/oai_v00_336_consensus58_4f/validation_labels.csv
+  splits: data/combined/oai_v00_336_consensus58_4f/splits_all.csv
+  fold: 6
+  cache_size: 336
+  image_size: 384
+  slices_per_series: 8
+  series_per_plane: 1
+  neighbor_stride: 1
+  raptor_train_windows: 12
+  raptor_eval_windows: 112
+  raptor_variant: raptor-dense-distinct-v1
+  raptor_window_sampling: stratified
+  raptor_series_dropout: 0.15
+  raptor_view: resize
+  raptor_slots: null
+  test_time_mirror: false
+  gpu_augmentation:
+    enabled: true
+    mirror_prob: 0.5
+    affine_prob: 0.8
+    rotation_deg: 15
+    zoom_min: 0.9
+    zoom_max: 1.15
+    translate: 0.08
+    intensity_prob: 0.8
+    gamma: 1.4
+    contrast: 0.15
+    bias_field_prob: 0.3
+    bias_field_strength: 0.3
+    noise_prob: 0.3
+    noise_std: 0.03
+    blur_prob: 0.15
+    blur_sigma_max: 1.0
+    lowres_prob: 0.15
+    lowres_factor_max: 2.0
+  augmentation:
+    enabled: true
+    rotation_deg: 0
+    translate: 0
+    scale: 0
+    contrast: 0.1
+    brightness: 0
+    noise_std: 0
+model:
+  backbone: coatnet_rmlp_2_rw_384.sw_in12k_ft_in1k
+  input_size: 384
+  grad_checkpointing: false
+  pretrained: true
+  pretrained_checkpoint: null
+  pooling: class_attention
+  dropout: 0.2
+  encoder_chunk_size: 48
+  freeze_encoder: false
+  use_metadata: false
+  use_positions: false
+  window_features: none
+  spatial_attention: false
+training:
+  output_dir: runs/coatnet_384_consensus58_all_s43
+  epochs: 24
+  batch_size: 4
+  accumulation_steps: 2
+  encoder_lr: 3.0e-05
+  head_lr: 0.001
+  weight_decay: 0.02
+  warmup_epochs: 1
+  min_lr_ratio: 0.05
+  clip_grad_norm: 3.0
+  num_workers: 4
+  precision: bf16
+  device: cuda
+  selection_metric: macro_auc
+  target_weighting: observed
+  positive_weighting: fixed
+  fixed_positive_weights:
+    ACL: 4.168852670984724
+    MCL: 7.539374937567819
+    Medial Meniscus: 1.342855771895275
+    Lateral Meniscus: 3.6507899747973505
+    Medial OA: 2.596344056807575
+    Lateral OA: 4.028574488521296
+    PF OA: 1.7823212763372467
+    Effusion: 2.0602028482867825
+    Synovitis: 1.222680093934534
+    Baker's: 4.829922894677826
+    Contusion: 3.0772998141453947
+    Fracture: 7.6913504232285534
+  schedule: one_cycle
+  one_cycle_warmup_fraction: 0.15
+  average_top_k: 3
+  ema_decay: 0.0
+  rank_loss_weight: 0.0
+  deterministic: false
+  validation_start_epoch: 22
+  channels_last: true
+  compile: true
+debug:
+  max_train_studies: 0
+  max_val_studies: 0
+monitoring:
+  enabled: true
+  log_every_updates: 10
+  flush_seconds: 10
+  images: true
+  validation_every_updates: 0
+  validation_studies: 32

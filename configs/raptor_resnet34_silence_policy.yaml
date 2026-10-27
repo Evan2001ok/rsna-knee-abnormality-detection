@@ -1,0 +1,76 @@
+# Fold-0 test, Oct 4, 2026: Pilkwang's public yes/no report labels with a per-finding rule for findings a report
+# does not mention: Baker's, Medial/Lateral OA, ACL, MCL, Medial Meniscus and Effusion become 0;
+# Synovitis, Fracture, PF OA, Lateral Meniscus and Contusion stay unknown (excluded from the loss).
+# Positive-term weights are copied from the matched run on the same yes/no labels with every unmentioned finding
+# unknown (config not included), so only the targets change. That run scored 0.857608 (averaged model) / 0.857262
+# (best epoch), and 0.858768 on the 58 expert studies. This test scored 0.0126 lower (see the write-up).
+seed: 42
+data:
+  recipe: raptor
+  manifest: data/processed/raptor/train/manifest.csv
+  labels: data/labels/pilkwang_silence_policy/labels.csv
+  validation_labels: data/labels/baseline/labels.csv
+  splits: data/splits/baseline/splits.csv
+  fold: 0
+  cache_size: 336
+  image_size: 384
+  raptor_train_windows: 12
+  raptor_eval_windows: 42
+  augmentation:
+    enabled: true
+    rotation_deg: 0
+    translate: 0
+    scale: 0
+    contrast: 0.1
+    brightness: 0
+    noise_std: 0
+model:
+  backbone: resnet34
+  input_size: 384
+  pretrained: true
+  pooling: class_attention
+  dropout: 0.2
+  encoder_chunk_size: 48
+  grad_checkpointing: false
+  freeze_encoder: false
+  use_metadata: false
+  use_positions: false
+training:
+  output_dir: runs/raptor_resnet34_silence_policy_fold0
+  epochs: 16
+  batch_size: 4
+  accumulation_steps: 2
+  encoder_lr: 3.0e-05
+  head_lr: 0.001
+  weight_decay: 0.02
+  clip_grad_norm: 3.0
+  target_weighting: observed
+  positive_weighting: fixed
+  schedule: one_cycle
+  one_cycle_warmup_fraction: 0.15
+  average_top_k: 3
+  num_workers: 4
+  precision: bf16
+  device: cuda
+  selection_metric: macro_auc
+  deterministic: false
+  fixed_positive_weights:
+    ACL: 2.3570680628272247
+    MCL: 4.2316666666666665
+    Medial Meniscus: 1.0
+    Lateral Meniscus: 2.5887743413516606
+    Medial OA: 1.0203442879499218
+    Lateral OA: 1.7281213535589264
+    PF OA: 1.0
+    Effusion: 1.0
+    Synovitis: 1.0
+    Baker's: 1.143344709897611
+    Contusion: 1.730426164519326
+    Fracture: 5.4025423728813555
+monitoring:
+  enabled: true
+  log_every_updates: 10
+  flush_seconds: 10
+  images: true
+  validation_every_updates: 0
+  validation_studies: 32

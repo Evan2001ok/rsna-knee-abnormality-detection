@@ -1,0 +1,82 @@
+# Teacher fold 1 for the teacher-student round, written by scripts/choose_teacher_recipe.py from configs/followup/dense_combined_long.yaml.
+# Teacher fold 1, with the settings of the fold-0 follow-up test: the every-slice image cache combined with all augmentations at 24 epochs; the two best
+# single changes of earlier tests (their configs are not included), never tested together.
+seed: 42
+data:
+  recipe: raptor
+  manifest: data/processed/raptor-dense/train/manifest.csv
+  labels: data/labels/raptor/labels.csv
+  validation_labels: data/labels/baseline/labels.csv
+  splits: data/splits/baseline/splits.csv
+  fold: 1
+  cache_size: 336
+  image_size: 384
+  raptor_train_windows: 12
+  raptor_eval_windows: 112
+  augmentation:
+    enabled: true
+    rotation_deg: 0
+    translate: 0
+    scale: 0
+    contrast: 0.1
+    brightness: 0
+    noise_std: 0
+  gpu_augmentation:
+    enabled: true
+    mirror_prob: 0.5
+    affine_prob: 0.8
+    rotation_deg: 15
+    zoom_min: 0.9
+    zoom_max: 1.15
+    translate: 0.08
+    intensity_prob: 0.8
+    gamma: 1.4
+    contrast: 0.15
+    bias_field_prob: 0.3
+    bias_field_strength: 0.3
+    noise_prob: 0.3
+    noise_std: 0.03
+    blur_prob: 0.15
+    blur_sigma_max: 1.0
+    lowres_prob: 0.15
+    lowres_factor_max: 2.0
+  raptor_window_sampling: stratified
+  raptor_series_dropout: 0.15
+  raptor_variant: raptor-dense-distinct-v1
+model:
+  backbone: resnet34
+  input_size: 384
+  pretrained: true
+  pooling: class_attention
+  dropout: 0.2
+  encoder_chunk_size: 48
+  grad_checkpointing: false
+  freeze_encoder: false
+  use_metadata: false
+  use_positions: false
+training:
+  output_dir: runs/teacher_dense_combined_long_fold1
+  epochs: 24
+  batch_size: 4
+  accumulation_steps: 2
+  encoder_lr: 3.0e-05
+  head_lr: 0.001
+  weight_decay: 0.02
+  clip_grad_norm: 3.0
+  target_weighting: observed
+  positive_weighting: raptor
+  schedule: one_cycle
+  one_cycle_warmup_fraction: 0.15
+  average_top_k: 3
+  num_workers: 4
+  precision: bf16
+  device: cuda
+  selection_metric: macro_auc
+  deterministic: false
+monitoring:
+  enabled: true
+  log_every_updates: 10
+  flush_seconds: 10
+  images: true
+  validation_every_updates: 0
+  validation_studies: 32

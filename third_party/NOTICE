@@ -1,0 +1,14 @@
+Raptor MRI model and image preparation adaptation
+
+Parts of src/rsna_knee_abnormality_detection/models.py and raptor_data.py adapt
+public Kaggle work by dreaddevelopment:
+- Knee MRI: training the twelve-finding model, version 8, script 347608187
+  https://www.kaggle.com/code/dreaddevelopment/knee-mri-training-the-twelve-finding-model?scriptVersionId=347608187
+- Knee MRI: twelve findings from a single model, version 1, script 344173275
+  https://www.kaggle.com/code/dreaddevelopment/knee-mri-twelve-findings-from-a-single-model?scriptVersionId=344173275
+
+Those notebooks are published under the Apache License, Version 2.0. A copy is
+in licenses/Apache-2.0.txt. Changes in this repository include integration with
+our study splits, preserving series boundaries, explicit preparation checks,
+reproducible sampling, and local training/checkpoint infrastructure. This
+attribution does not imply the original author endorses these changes.
