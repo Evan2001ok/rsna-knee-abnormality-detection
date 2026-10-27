@@ -669,7 +669,7 @@
   ],
   "prerequisites": "Private sharing does not replace official competition or OAI access requirements. Upstream initialization weights are not trained competition checkpoints.",
   "published_rsna_labels": {
-    "url": "https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/codex/our-pipeline/labels/rsna",
+    "url": "https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/multibackbone-pipeline/labels/rsna",
     "manifest": "labels/rsna/manifest.json",
     "files": [
       "rsna_llm_v1_original.csv",

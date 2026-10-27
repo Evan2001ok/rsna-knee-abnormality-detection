@@ -11,7 +11,7 @@ This public edition contains essential source and model configuration; seven fro
 ## Start here: public source reproduction
 
 ```bash
-git clone --branch codex/our-pipeline --single-branch https://github.com/Evan2001ok/rsna-knee-abnormality-detection.git
+git clone --branch multibackbone-pipeline --single-branch https://github.com/Evan2001ok/rsna-knee-abnormality-detection.git
 cd rsna-knee-abnormality-detection
 python tools/preflight.py
 python tools/check_reproduction.py

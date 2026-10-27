@@ -354,8 +354,8 @@
       "file": "config/external_resources.json",
       "source": "October25 source supplement / package support",
       "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "a606c5d684faaa7af5d1a52ea906eed5a0d6c35af845dfd1533db4da9429406a",
-      "bytes": 25860
+      "sha256": "b2ec39668e94caccfa1a283b29b2f0adca3c4233f069845db87da139b5e827cf",
+      "bytes": 25864
     },
     {
       "file": "config/nda_packages.example.json",
@@ -487,22 +487,22 @@
       "file": "PUBLIC_RELEASE.md",
       "source": "October25 source supplement / package support",
       "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "73f38eac8a71460826ebeacbe56a5fb287862fe7e467f5431b8634a975b38278",
-      "bytes": 5107
+      "sha256": "9b253789cb9ae242a0b4ae1f08fe9fa224bae9ac75b63ac36390274e92ef3025",
+      "bytes": 5111
     },
     {
       "file": "README.md",
       "source": "Reviewed detailed trick explanations with concise package navigation",
       "change": "Full improvement/labeling explanations retained; code package remains minimal; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "7b0a402712f625eb4d9751a365186d31af6aa102c3c4e8c742514f1d3222867b",
-      "bytes": 51547
+      "sha256": "ae7957688ddc648cfc91ff7bc21673bd6353ac2a02d8f281bf85a6a3eaf384de",
+      "bytes": 51551
     },
     {
       "file": "REPRODUCE.md",
       "source": "C:\\Users\\yzz01\\Documents\\ChatGPT\\rsna\\handover_support\\docs\\REPRODUCE.md",
       "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "f041dee6b129dca7823ddf3fc334a8f5378b21ac5c7d2bc0e138dc5eae819669",
-      "bytes": 20546
+      "sha256": "dd1d1bc008fd955d0f0b8625d1612bc3df77dd606fdb7d18ce25dd1661debd46",
+      "bytes": 20550
     },
     {
       "file": "REPRODUCIBILITY_AUDIT.md",

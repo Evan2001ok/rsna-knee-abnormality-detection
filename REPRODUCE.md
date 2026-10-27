@@ -1,6 +1,6 @@
 # Reproduction workflow
 
-Run commands from the cloned repository root on branch `codex/our-pipeline`. This release includes source and seven frozen RSNA label snapshots: inputs marked **external** are not downloaded or supplied by the repository. The original workstation, attachments and notebook are not required. Exact historical labels/weights and the same environment are required for exact historical experiments; rescoring prompts can change the target snapshot.
+Run commands from the cloned repository root on branch `multibackbone-pipeline`. This release includes source and seven frozen RSNA label snapshots: inputs marked **external** are not downloaded or supplied by the repository. The original workstation, attachments and notebook are not required. Exact historical labels/weights and the same environment are required for exact historical experiments; rescoring prompts can change the target snapshot.
 
 ## 0. Offline checks, first-time paths and dependencies
 

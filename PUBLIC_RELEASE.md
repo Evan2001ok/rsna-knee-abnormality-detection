@@ -2,7 +2,7 @@
 
 ## Scope
 
-This is our side of the RSNA Knee pipeline, on branch `codex/our-pipeline`. The original working folder and private handover are unchanged. The repository contains RSNA 224/384 preprocessing, ten original training entry points, RSNA LLM/VLM prompts and merge scripts, OAI preprocessing and v3 mapping prompts/tools, historical six/eight-suite inference, dependency declarations and an AI usage guide.
+This is our side of the RSNA Knee pipeline, on branch `multibackbone-pipeline`. The original working folder and private handover are unchanged. The repository contains RSNA 224/384 preprocessing, ten original training entry points, RSNA LLM/VLM prompts and merge scripts, OAI preprocessing and v3 mapping prompts/tools, historical six/eight-suite inference, dependency declarations and an AI usage guide.
 
 The team's CoAtNet path is public on the separate [`coatnet-pipeline`](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/coatnet-pipeline) branch, which also holds the script that builds the 50/30/20 team-blend submission. The final selected 70/21/9 team inference is not included in this branch. The recorded leaderboard numbers describe historical experiments under the documented conditions; publishing source is not an independent reproduction.
 
