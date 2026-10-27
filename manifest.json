@@ -494,8 +494,8 @@
       "file": "README.md",
       "source": "Reviewed detailed trick explanations with concise package navigation",
       "change": "Full improvement/labeling explanations retained; code package remains minimal; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "657ee05b219dd2570c3a522f9b76f6b610bbee3dfb2f67eb21eed0167f851fee",
-      "bytes": 51461
+      "sha256": "7b0a402712f625eb4d9751a365186d31af6aa102c3c4e8c742514f1d3222867b",
+      "bytes": 51547
     },
     {
       "file": "REPRODUCE.md",
