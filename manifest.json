@@ -487,8 +487,8 @@
       "file": "PUBLIC_RELEASE.md",
       "source": "October25 source supplement / package support",
       "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "b321e8e6b0f2416da9e732cdebb3c871bf3ac3ddd3eb95c96b4349364cbaf5af",
-      "bytes": 4878
+      "sha256": "73f38eac8a71460826ebeacbe56a5fb287862fe7e467f5431b8634a975b38278",
+      "bytes": 5107
     },
     {
       "file": "README.md",
