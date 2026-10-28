@@ -17,7 +17,7 @@ All model predictions are out of fold; for the 53, which no fold model trained o
 four models are averaged (artifacts/consensus/pred53). The 58 expert rows are copied unchanged from the v7 file, which
 holds the host's expert labels.
 
-Inputs: the teammates' labels file is public on their branch codex/our-pipeline at labels/rsna/conv_labels_used.csv;
+Inputs: the teammates' labels file is public on their branch multibackbone-pipeline at labels/rsna/conv_labels_used.csv;
 put it at data/teammates/labels/rsna/conv_labels_used.csv. Its 58 expert rows are 0.5 placeholders; this script never
 reads them and copies the host's expert labels instead. The teammates' out-of-fold predictions, R7's out-of-fold
 predictions and our GPT readings are not public.

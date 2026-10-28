@@ -16,7 +16,7 @@ that measures how well the scores put studies with a finding above studies witho
 Here "we" means Max and Claude (Anthropic's AI assistant), who built this part together. "The teammates" means the
 other four members of Team MEJAL. They built the other half of the solution, the multi-backbone path (their own
 labels and several model families), which carries half the weight of the team blend. Their code and labels are on the
-[`codex/our-pipeline` branch](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/codex/our-pipeline)
+[`multibackbone-pipeline` branch](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/multibackbone-pipeline)
 of this repository.
 
 - The team's write-up on Kaggle (both halves):
@@ -158,7 +158,7 @@ fixed near the top of a script instead; the script's opening lines say which.
 | Our labels from every round, the GPT image readings, our checking labels and fold lists | One row per competition study, built from competition data; some hold the host's expert labels | Rebuild with the scripts below; exact values need inputs that are not public |
 | Out-of-fold predictions and predictions on the expert studies | Same reason | Not available |
 | OAI images and our OAI labels | OAI's terms: each user requests access | NIMH Data Archive (see below) |
-| Model weights | Too large for git | Public Kaggle dataset, to be added |
+| Model weights | Too large for git | [Public Kaggle dataset](https://www.kaggle.com/datasets/max6296/knee-coatnet-consensus-all-ftall-w56-bundle) |
 | Image caches and training run folders (`data/`, `runs/`) | Made by the scripts; hundreds of GB | Run the scripts |
 | Experiment records, working notes and logs | They hold study IDs, details of our computers and team discussions. A few scripts still write the name of such a record (`experiments/<name>.json`) into their output | The main numbers are in the write-up |
 | The teammates' models, labels and inference code | Their work | Their branch, linked above |
@@ -228,7 +228,7 @@ every round again. The final labels also need the teammates' and R7's out-of-fol
 are not public.
 
 **The teammates' labels.** Source (2) of the final labels is now public:
-[`labels/rsna/conv_labels_used.csv`](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/codex/our-pipeline/labels/rsna/conv_labels_used.csv)
+[`labels/rsna/conv_labels_used.csv`](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/multibackbone-pipeline/labels/rsna/conv_labels_used.csv)
 on the teammates' branch. We checked that its 4,349 non-expert rows are identical to the file we used. Its 58 expert
 rows hold 0.5 placeholders, because the expert labels are competition data. Our scripts never read those rows:
 `prepare_consensus_labels.py` reads only the other rows (marked `vlm07_llm03`), and the expert studies keep the host's
@@ -269,7 +269,7 @@ export code that did not skip unreadable series; this code does.
 
 - the teammates' six-set inference notebook (`--their-notebook`), a Kaggle notebook with one code cell. It is theirs
   and not in this folder. Their branch has the same code as
-  [`code/inference/ensemble6.py`](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/codex/our-pipeline/code/inference/ensemble6.py),
+  [`code/inference/ensemble6.py`](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/multibackbone-pipeline/code/inference/ensemble6.py),
   with one difference: there the EfficientNet set reads `'eff': (0.0,),` (original view only), while the notebook
   we built from had `'eff': (0.0, 12.0),` (plus a view turned by 12°). The builder looks for that line, so set it
   back, and save the code as a one-cell notebook with Unix line endings (the file on their branch has Windows ones);

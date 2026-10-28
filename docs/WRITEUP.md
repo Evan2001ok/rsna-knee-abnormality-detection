@@ -94,7 +94,7 @@ Rounds 1 and 2 are ResNet34 with mirrored predictions; rounds 3 to 8 are CoAtNet
 For the 4,296 cross-validation studies and the 53 studies whose reports name no target finding, each cell is the mean of three sources:
 
 - **S1:** our round-5 labels. For the 53, GPT's image readings stand in.
-- **S2:** the teammates' labels: 0.7 × vision-language model (VLM) + 0.3 × language model (LLM) readings. They are public as `labels/rsna/conv_labels_used.csv` on the teammates' [`codex/our-pipeline`](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/codex/our-pipeline) branch.
+- **S2:** the teammates' labels: 0.7 × vision-language model (VLM) + 0.3 × language model (LLM) readings. They are public as `labels/rsna/conv_labels_used.csv` on the teammates' [`multibackbone-pipeline`](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/multibackbone-pipeline) branch.
 - **S3:** all models' out-of-fold predictions blended by percentile rank per finding: the teammates' nine sets 0.45, our three CoAtNet sets 0.30, R7 0.25. We fitted these weights to our three validation label sets; they beat equal weights by only +0.0001 on held-out halves. The result takes the value scale of (S1 + S2) / 2.
 
 The 58 expert studies keep the host's expert 0/1 labels, and the OAI knees keep their own labels (next section). One more round would have moved labels by only 0.0017 per cell, so we stopped.
