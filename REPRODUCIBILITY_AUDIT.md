@@ -1,4 +1,4 @@
-# Public-source reproducibility audit — October25,2026
+# Public-source reproducibility audit — October 25, 2026
 
 ## Corrections made
 
@@ -12,7 +12,7 @@
 
 ## Fidelity and checks
 
-The ten original training sources, RSNA224/384 builders, OAI pixel transforms, four operational prompts and historical six/eight-suite inference remain unchanged. Edits concern packaging/path utilities, metadata/cohort tools and instructions. Training provenance is in config/training_source_provenance.json; added metadata source provenance is in config/reproduction_source_provenance.json.
+The ten original training sources, RSNA 224/384 builders, OAI pixel transforms, four operational prompts and historical six/eight-suite inference remain unchanged. Edits concern packaging/path utilities, metadata/cohort tools and instructions. Training provenance is in config/training_source_provenance.json; added metadata source provenance is in config/reproduction_source_provenance.json.
 
 ```bash
 python tools/check_reproduction.py
@@ -20,7 +20,7 @@ python tools/validate_training_sources.py
 python tools/preflight.py
 ```
 
-The reproduction check scans direct imports and14 embedded inference sources, checks prompts and documentation links, plans ten training entries, six cache parts and two inference entries, checks actual dynamic OAI paths, and runs synthetic label/queue/configuration tests. It verifies Gold exclusion/override, invalid-score rejection, OAI visit/mask handling, exact-record queue deduplication, snapshot preservation and publication exclusions. Source checks verify recovered hashes and fold selection without importing models.
+The reproduction check scans direct imports and 14 embedded inference sources, checks prompts and documentation links, plans ten training entries, six cache parts and two inference entries, checks actual dynamic OAI paths, and runs synthetic label/queue/configuration tests. It verifies Gold exclusion/override, invalid-score rejection, OAI visit/mask handling, exact-record queue deduplication, snapshot preservation and publication exclusions. Source checks verify recovered hashes and fold selection without importing models.
 
 These are offline checks using synthetic fixtures, not real patient data or a new GPU training run. Dependency names cover direct imports; torch/torchvision are installed separately as a compatible pair. A complete original CUDA/codec lockfile was unavailable and has not been invented.
 
@@ -28,7 +28,7 @@ These are offline checks using synthetic fixtures, not real patient data or a ne
 
 Authorized MRI, original reading/metadata tables, OAI labels, initial weights and trained checkpoints are external. Historical OOF/splits are optional external analysis assets. Remote LLM/VLM access is separately configured; prompts/task exporters/mergers do not imply a scoring service or identical future probabilities.
 
-The final combined team inference and later352 S6 batching code are outside this historical standalone384-cache release. Whole-array384 inference needs about23GB of raw pixels for1300 studies, so no20GB filesystem guarantee is made. Actual GPU/DataLoader execution, DICOM decoding, storage capacity, numerical equivalence, NDA transfers and full-scale processing/training/inference have not been verified by these offline checks. See REPRODUCE.md for stage order and asset contracts.
+The final combined team inference and later 352 S6 batching code are outside this historical standalone 384-cache release. The final team inference is published separately as a public Kaggle notebook; see [README](README.md#final-team-inference-and-public-trained-weights). Whole-array 384 inference needs about 23GB of raw pixels for 1300 studies, so no 20GB filesystem guarantee is made. Actual GPU/DataLoader execution, DICOM decoding, storage capacity, numerical equivalence, NDA transfers and full-scale processing/training/inference have not been verified by these offline checks. See REPRODUCE.md for stage order and asset contracts.
 
 ## Frozen RSNA label release: October 25, 2026
 

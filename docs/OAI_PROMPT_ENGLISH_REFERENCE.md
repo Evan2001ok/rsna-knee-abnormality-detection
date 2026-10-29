@@ -33,7 +33,7 @@ Determine medial/lateral location from verified orientation and anatomical landm
 
 ### 4. Target definitions
 
-Prioritize confirmed definitions supplied in the task's `target_definitions`, recording version and source. The following are working definitions from the user's labeling workflow, not independently verified official rules:
+Prioritize confirmed definitions supplied in the task's `target_definitions`, recording version and source. The following are working definitions from our labeling workflow, not independently verified official rules:
 
 1. **Medial Meniscus / Lateral Meniscus:** a tear in the corresponding meniscus, including tear signal reaching an articular surface on at least two original slices, or qualifying abnormal morphology such as a displaced fragment, root tear, truncation or destruction. Intrasubstance signal alone is not a tear. Consider surgical history.
 2. **Medial OA / Lateral OA:** high-grade cartilage loss in the corresponding tibiofemoral compartment, exceeding 50% thickness loss over approximately at least 1 cm, with or without subchondral changes. Mild cartilage abnormality is not automatically positive.

@@ -1,0 +1,116 @@
+{
+  "metric": "Kaggle displayed ROC AUC, rounded to 3 decimals",
+  "interpretation": "Representative recipe milestones, not controlled per-trick effects or a pure resolution comparison; Private retrospective only.",
+  "sources": [
+    "submission_experiment_review/submissions_all.json",
+    "submission_experiment_review/trick_submission_crosswalk.md"
+  ],
+  "series": [
+    {
+      "name": "224 px · ConvNeXt-Tiny",
+      "points": [
+        {
+          "record": 160,
+          "stage": "Shared encoder / Report labels",
+          "public": 0.938,
+          "private": 0.926,
+          "url": "https://www.kaggle.com/code/minminandy/rsna-inference?scriptVersionId=350535736",
+          "submission_id": "56301585"
+        },
+        {
+          "record": 153,
+          "stage": "Two LLM / label sources",
+          "public": 0.939,
+          "private": 0.927,
+          "url": "https://www.kaggle.com/code/minminandy/rsna-inference?scriptVersionId=351135025",
+          "submission_id": "56368784"
+        },
+        {
+          "record": 151,
+          "stage": "Label-wise / spatial / temporal / attention",
+          "public": 0.943,
+          "private": 0.932,
+          "url": "https://www.kaggle.com/code/minminandy/rsna-inference?scriptVersionId=351183590",
+          "submission_id": "56375293"
+        },
+        {
+          "record": 137,
+          "stage": "Sorting / coverage / Overlapping windows",
+          "public": 0.948,
+          "private": 0.935,
+          "url": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-fixedconvnext?scriptVersionId=353333758",
+          "submission_id": "56612360"
+        },
+        {
+          "record": 101,
+          "stage": "VLM image + / report labels",
+          "public": 0.951,
+          "private": 0.943,
+          "url": "https://www.kaggle.com/code/minminandy/rsna-inference-vlm-efficientnetv2s?scriptVersionId=356306058",
+          "submission_id": "56940099"
+        },
+        {
+          "record": 95,
+          "stage": "VLM / LLM / label blend",
+          "public": 0.953,
+          "private": 0.943,
+          "url": "https://www.kaggle.com/code/minminandy/rsna-inference-vlm-efficientnetv2s?scriptVersionId=356508142",
+          "submission_id": "56967520"
+        },
+        {
+          "record": 72,
+          "stage": "Baseline OAI / 4 targets",
+          "public": 0.956,
+          "private": 0.945,
+          "url": "https://www.kaggle.com/code/minminandy/rsna-inference-vlm-efficientnetv2s?scriptVersionId=357399052",
+          "submission_id": "57079103"
+        },
+        {
+          "record": 62,
+          "stage": "Expanded OAI / 7-target recipe",
+          "public": 0.957,
+          "private": 0.948,
+          "url": "https://www.kaggle.com/code/minminandy/rsna-inference-vlm-efficientnetv2s?scriptVersionId=357804347",
+          "submission_id": "57120885"
+        }
+      ]
+    },
+    {
+      "name": "384 px · EfficientNetV2-S",
+      "points": [
+        {
+          "record": 119,
+          "stage": "Earlier 2.5D / recipe",
+          "public": 0.957,
+          "private": 0.94,
+          "url": "https://www.kaggle.com/code/zhuyifanss/rsna-inference-efficientnets?scriptVersionId=354838700",
+          "submission_id": "56792262"
+        },
+        {
+          "record": 94,
+          "stage": "VLM / LLM / label blend",
+          "public": 0.96,
+          "private": 0.947,
+          "url": "https://www.kaggle.com/code/minminandy/rsna-inference-vlm-efficientnetv2s?scriptVersionId=356560135",
+          "submission_id": "56977114"
+        },
+        {
+          "record": 68,
+          "stage": "Baseline OAI / 4 targets",
+          "public": 0.962,
+          "private": 0.948,
+          "url": "https://www.kaggle.com/code/minminandy/rsna-inference-vlm-efficientnetv2s?scriptVersionId=357503406",
+          "submission_id": "57090672"
+        },
+        {
+          "record": 53,
+          "stage": "Expanded OAI / 7-target recipe",
+          "public": 0.963,
+          "private": 0.95,
+          "url": "https://www.kaggle.com/code/minminandy/rsna-inference-vlm-efficientnetv2s?scriptVersionId=358023770",
+          "submission_id": "57146398"
+        }
+      ]
+    }
+  ]
+}

@@ -41,8 +41,8 @@ def audit_training_recipes(paths=None, execute_loaders=False):
     assert len(records) == 10
     if execute_loaders:
         # Execute the original two label functions, never model imports/training.
-        # The metadata fixture inherits saved Gold values; it is not a new check
-        # against the separately obtained official train.csv or fold metadata.
+        # This is not a new check against the separately obtained official
+        # train.csv or fold metadata.
         import logging
         import tempfile
         from types import SimpleNamespace

@@ -1,6 +1,6 @@
 # RSNA Knee: Shared Improvement Roadmap and Essential Source Handover
 
-> **Public code and RSNA label edition.** This branch includes pipeline source, prompts, configurations and seven frozen RSNA label CSVs in [labels/rsna](labels/rsna/README.md). OAI labels, OOF predictions, split/cohort tables, MRI caches and trained weights remain external. No final team-score reproduction or GPU rerun is claimed. See [PUBLIC_RELEASE.md](PUBLIC_RELEASE.md).
+> **Public code and RSNA label edition.** This branch includes pipeline source, prompts, configurations and seven frozen RSNA label CSVs in [labels/rsna](labels/rsna/README.md). OAI labels, OOF predictions, split/cohort tables, MRI caches and trained weights remain external. Trained multi-backbone checkpoints and the final team inference notebook are published separately; see [Final team inference and public trained weights](#final-team-inference-and-public-trained-weights). No final team-score reproduction or GPU rerun is claimed. See [PUBLIC_RELEASE.md](PUBLIC_RELEASE.md).
 
 The high scores came from improving both what the models see and what they are trained to predict. The work progressed through MRI cropping, slice order and sequence organization; class-specific spatial and temporal evidence selection; report/VLM label blending; and OAI supervision. Different backbones and label recipes then provided complementary predictions.
 
@@ -23,7 +23,7 @@ Use `--layout kaggle` instead of `local` to keep original Kaggle mounts for othe
 
 **Execution order:** configure paths/environment → obtain authorized inputs → build/mount matching RSNA and OAI caches → supply frozen labels or generate/review/merge them → check the selected recipe's assets → train one fold → train the remaining folds → map the selected checkpoints → infer. All ten preserved training recipes use OAI; there is no supplied `--disable-oai` flag. OAI rebuilding is optional when its packaged caches and labels are already available.
 
-For example, after preparing the384 inputs:
+For example, after preparing the 384 inputs:
 
 ```bash
 python tools/preflight.py --dependencies
@@ -36,9 +36,9 @@ The public source is not a self-contained data/weight release. Frozen RSNA label
 
 ## External downloads and access
 
-**Checked October25,2026.** The GitHub source is public; many historical Kaggle input artifacts are still **Private**. Links below identify the exact resources, not a promise that every reader can download them. Seven RSNA label snapshots are now published in this branch; the original private Kaggle resources and all trained-weight visibility remain unchanged.
+**Checked October 25, 2026.** The GitHub source is public; many historical Kaggle input artifacts are still **Private**. Links below identify the exact resources, not a promise that every reader can download them. Seven RSNA label snapshots are now published in this branch; the original private Kaggle resources remain unchanged. Separately, the final team inference notebook and a dataset of trained multi-backbone checkpoints are now public; see [Final team inference and public trained weights](#final-team-inference-and-public-trained-weights).
 
-**Access key:** **Public upstream** = file listing inspected without sign-in; **Account/terms** = provider login and required terms; **Apply** = official OAI access process; **Private** = an explicit Kaggle Private header, requiring the owner's authorized sharing; **Unverified** = accessible in our signed-in session, but public download was not independently established. Full binary downloads were not run for this check.
+**Access key:** **Public upstream** = file listing inspected without sign-in; **Public** = page opens without sign-in (checked October 30, 2026); **Account/terms** = provider login and required terms; **Apply** = official OAI access process; **Private** = an explicit Kaggle Private header, requiring the owner's authorized sharing; **Unverified** = accessible in our signed-in session, but public download was not independently established. Full binary downloads were not run for this check.
 
 ### Data and image caches
 
@@ -46,12 +46,12 @@ The public source is not a self-contained data/weight release. Frozen RSNA label
 |---|---|---|
 | [Official RSNA competition data](https://www.kaggle.com/competitions/rsna-knee-abnormality-detection/data) · [rules](https://www.kaggle.com/competitions/rsna-knee-abnormality-detection/rules) | **Account/terms** | Official MRI, `train.csv`, `train_series.csv`; inference needs available test files and `sample_submission.csv`. Sign in and satisfy the competition's access conditions. Hidden test MRI is supplied by competition reruns, not a public download. |
 | [Original OAI data portal](https://nda.nih.gov/oai/) · [request permissions](https://nda.nih.gov/user/dashboard/data_permissions) | **Apply** | Use your own NDA account and complete current OAI permission/data-use requirements. Obtain MRI archives, `image03` indices, `oai_kmrisemiquant01.txt` and package inventories. Personal package IDs in old experiments are not reusable universal download IDs. |
-| RSNA224 cache outputs: [part0](https://www.kaggle.com/code/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part1), [part1](https://www.kaggle.com/code/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part2) | **Private** | Notebook outputs, not a single Dataset. Need both native224/crop160 shards. Alternatively build them from authorized RSNA MRI with `code/rsna/cache224.py`. |
-| RSNA384 cache outputs: [part0](https://www.kaggle.com/code/zhuyifanss/dataprepare-of-rsnav5part1), [part1](https://www.kaggle.com/code/zhuyifanss/dataprepare-of-rsnav5part2), [part2](https://www.kaggle.com/code/minminandy/dataprepare-of-rsnav5part3), [part3](https://www.kaggle.com/code/minminandy/dataprepare-of-rsnav5part4) | **Private** | Need all four native384/crop130 shards, or rebuild with `code/rsna/cache384.py`. Keep each shard's cache, mask, study IDs and manifest together. |
-| [OAI baseline2399,224](https://www.kaggle.com/datasets/minminandy/oai-baseline-2399-224px-images) | **Private** | Native224 baseline image package for `conv224.py`; no disease labels in this image package. |
-| [OAI follow-up6250,224](https://www.kaggle.com/datasets/minminandy/oai-followup-6250-224px-images) | **Private** | Native224 follow-up package; join by complete knee/visit identity. |
-| [OAI baseline2399,384](https://www.kaggle.com/datasets/minminandy/oai-baseline-2399-384px-images) | **Private** | Native384 baseline package. Retain every shard listed by its manifest, IDs/masks and `knee_index.json`. |
-| [OAI follow-up6250,384](https://www.kaggle.com/datasets/minminandy/oai-followup-6250-384px-images) | **Private** | Native384 follow-up package, manifest and `index.csv`. Other384 training recipes need this resolution even when model input is later resized. |
+| RSNA 224 cache outputs: [part0](https://www.kaggle.com/code/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part1), [part1](https://www.kaggle.com/code/zhuyifanss/fork-of-fork-of-dataprepare-of-rsnav2-part2) | **Private** | Notebook outputs, not a single Dataset. Need both native224/crop160 shards. Alternatively build them from authorized RSNA MRI with `code/rsna/cache224.py`. |
+| RSNA 384 cache outputs: [part0](https://www.kaggle.com/code/zhuyifanss/dataprepare-of-rsnav5part1), [part1](https://www.kaggle.com/code/zhuyifanss/dataprepare-of-rsnav5part2), [part2](https://www.kaggle.com/code/minminandy/dataprepare-of-rsnav5part3), [part3](https://www.kaggle.com/code/minminandy/dataprepare-of-rsnav5part4) | **Private** | Need all four native384/crop130 shards, or rebuild with `code/rsna/cache384.py`. Keep each shard's cache, mask, study IDs and manifest together. |
+| [OAI baseline 2399, 224](https://www.kaggle.com/datasets/minminandy/oai-baseline-2399-224px-images) | **Private** | Native 224 baseline image package for `conv224.py`; no disease labels in this image package. |
+| [OAI follow-up 6250, 224](https://www.kaggle.com/datasets/minminandy/oai-followup-6250-224px-images) | **Private** | Native 224 follow-up package; join by complete knee/visit identity. |
+| [OAI baseline 2399, 384](https://www.kaggle.com/datasets/minminandy/oai-baseline-2399-384px-images) | **Private** | Native 384 baseline package. Retain every shard listed by its manifest, IDs/masks and `knee_index.json`. |
+| [OAI follow-up 6250, 384](https://www.kaggle.com/datasets/minminandy/oai-followup-6250-384px-images) | **Private** | Native 384 follow-up package, manifest and `index.csv`. Other 384 training recipes need this resolution even when model input is later resized. |
 
 OAI image-package sharing is subject to the owner's decision and applicable source access conditions; a Kaggle share does not replace NDA/OAI authorization. If the private packages cannot be shared, follow the authorized raw-data rebuild in [REPRODUCE.md](REPRODUCE.md), rather than treating the links as public.
 
@@ -91,16 +91,16 @@ These initialize a backbone; they are **not** the task-trained weights needed by
 
 | Backbone | Public/upstream weight source | Original Kaggle mirror and checked access | Required file / recipe |
 |---|---|---|---|
-| ConvNeXt-Tiny | [timm files](https://huggingface.co/timm/convnext_tiny.fb_in22k_ft_in1k_384/tree/main) — **Public upstream** | [convnext-tiny](https://www.kaggle.com/code/zhuyifanss/convnext-tiny) — **Unverified** | `pytorch_model.bin`; `conv`, `conv224`, `conv_gray384`, `conv_new`. |
-| EfficientNetV2-S | [timm files](https://huggingface.co/timm/tf_efficientnetv2_s.in21k_ft_in1k/tree/main) — **Public upstream** | [efficientv2-s](https://www.kaggle.com/code/minminandy/efficientv2-s) — **Unverified** | Source mirror uses `tf_efficientnetv2_s_in21k_ft_in1k.pth`; upstream lists `pytorch_model.bin`. Map the actual compatible torch state-dict file explicitly. |
-| DINOv2-S | [timm files](https://huggingface.co/timm/vit_small_patch14_dinov2.lvd142m/tree/main) — **Public upstream** | [dinov2s](https://www.kaggle.com/code/minminandy/dinov2s) — **Private** | `pytorch_model.bin`; `dino` / `dino_new`, actual model input392. |
+| ConvNeXt-Tiny | [timm files](https://huggingface.co/timm/convnext_tiny.fb_in22k_ft_in1k_384/tree/main) — **Public upstream** | [convnext-tiny](https://www.kaggle.com/code/zhuyifanss/convnext-tiny) — **Public** | `pytorch_model.bin`; `conv`, `conv224`, `conv_gray384`, `conv_new`. |
+| EfficientNetV2-S | [timm files](https://huggingface.co/timm/tf_efficientnetv2_s.in21k_ft_in1k/tree/main) — **Public upstream** | [efficientv2-s](https://www.kaggle.com/code/minminandy/efficientv2-s) — **Public** | Source mirror uses `tf_efficientnetv2_s_in21k_ft_in1k.pth`; upstream lists `pytorch_model.bin`. Map the actual compatible torch state-dict file explicitly. |
+| DINOv2-S | [timm files](https://huggingface.co/timm/vit_small_patch14_dinov2.lvd142m/tree/main) — **Public upstream** | [dinov2s](https://www.kaggle.com/code/minminandy/dinov2s) — **Private** | `pytorch_model.bin`; `dino` / `dino_new`, actual model input 392. |
 | TinyViT-21M-384 | [timm files](https://huggingface.co/timm/tiny_vit_21m_384.dist_in22k_ft_in1k/tree/main) — **Public upstream** | [tiny-vit-21m-384](https://www.kaggle.com/code/minminandy/tiny-vit-21m-384) — **Private** | `pytorch_model.bin`; `tiny`. |
 | DINOv3-ConvNeXt-Tiny | [timm files](https://huggingface.co/timm/convnext_tiny.dinov3_lvd1689m/tree/main) — **Public upstream; [DINOv3 License](#dinov3-pretrained-weights)** | [dinvo3convnext-timm](https://www.kaggle.com/code/lihu6666/dinvo3convnext-timm) — **Private** | `model.safetensors`; `dino3`. Use the linked timm-format source and review its license; other distributors may impose their own access flow. |
-| RadImageNet ResNet50 | [Official repository](https://github.com/BMEII-AI/RadImageNet) → [PyTorch archive](https://drive.google.com/file/d/1RHt2GnuOYlc_gcoTETtBDSW73mFyRAtR/view) — **Public instructions; provider login may be needed** | [Kaggle PyTorch model v1](https://www.kaggle.com/models/dew389/radimagenet50/pytorch/default/1) — **Unverified** | Historical mirror file `ResNet50.pt`; anonymous Drive inspection showed sign-in. Verify the extracted PyTorch ResNet50 state dict; do not substitute TensorFlow/H5 weights. Raw RadImageNet images are not needed for this recipe. |
+| RadImageNet ResNet50 | [Official repository](https://github.com/BMEII-AI/RadImageNet) → [PyTorch archive](https://drive.google.com/file/d/1RHt2GnuOYlc_gcoTETtBDSW73mFyRAtR/view) — **Public instructions; provider login may be needed** | [Kaggle PyTorch model v1](https://www.kaggle.com/models/dew389/radimagenet50/pytorch/default/1) — **Public** | Historical mirror file `ResNet50.pt`; anonymous Drive inspection showed sign-in. Verify the extracted PyTorch ResNet50 state dict; do not substitute TensorFlow/H5 weights. Raw RadImageNet images are not needed for this recipe. |
 
 ### Task-trained checkpoints for the historical ensembles
 
-Every linked dataset below currently displays **Private**. Ask its owner for authorized access, or train a new suite with the supplied source and authorized inputs. Public ImageNet/DINO/RadImageNet initialization cannot substitute for these learned competition heads/checkpoints.
+Every linked dataset below currently displays **Private**. Ask its owner for authorized access, or train a new suite with the supplied source and authorized inputs. Public ImageNet/DINO/RadImageNet initialization cannot substitute for these learned competition heads/checkpoints. The public [multi-backbone weights dataset](https://www.kaggle.com/datasets/lihu6666/rsna-knee-model-10th-multi-seed-team) also has weights-only folders named after `distillstage1effs384` and `distillstage1dinov2s384`, and a DINOv3-ConvNeXt folder, with the same run roots as the rows below (four folds each); they have not been matched to these private datasets by hash.
 
 | Suite | Dataset link | Historical run-root folder | Used in |
 |---|---|---|---|
@@ -113,19 +113,29 @@ Every linked dataset below currently displays **Private**. Ask its owner for aut
 | New-label Conv | [distillstage1conv-difflabel384](https://www.kaggle.com/datasets/zhuyifanss/distillstage1conv-difflabel384) | `rsna_convnext_tiny_384_oai8649_mix58_42_seven` | B / eight only |
 | New-label DINOv2 | [distillstage1dino-difflabel394](https://www.kaggle.com/datasets/zhuyifanss/distillstage1dino-difflabel394) | `rsna_dinov2s_392_oai_mix_unfreeze9` | B / eight only |
 
-Inside each run root retain `fold0/fold0_final.pt`, `fold1/fold0_final.pt`, `fold2/fold0_final.pt`, `fold3/fold0_final.pt`: six suites need24 files; eight need32. The `394` in the new DINO dataset slug is a historical name, **not** a new model input size; its audited input is392. Exact mount paths and historical dataset-version identifiers are in [eight_model_manifest.json](config/eight_model_manifest.json). A dataset's latest page can change; verify its contents against that manifest.
+Inside each run root retain `fold0/fold0_final.pt`, `fold1/fold0_final.pt`, `fold2/fold0_final.pt`, `fold3/fold0_final.pt`: six suites need 24 files; eight need 32. The `394` in the new DINO dataset slug is a historical name, **not** a new model input size; its audited input is 392. Exact mount paths and historical dataset-version identifiers are in [eight_model_manifest.json](config/eight_model_manifest.json). A dataset's latest page can change; verify its contents against that manifest.
 
-Dedicated task-trained checkpoints for the recovered `conv224.py` and `conv_gray384.py` entries have no separately verified public download in this catalog. Request the corresponding frozen artifacts or train them; they are not silently substituted for the historical Conv ensemble member.
+Dedicated task-trained checkpoints for the recovered `conv224.py` and `conv_gray384.py` entries have no separately verified public download in this catalog. Request the corresponding frozen artifacts or train them; they are not silently substituted for the historical Conv ensemble member. The public [multi-backbone weights dataset](https://www.kaggle.com/datasets/lihu6666/rsna-knee-model-10th-multi-seed-team) now holds a four-fold ConvNeXt-Tiny run under `rsna_convnext_tiny_384_oai8649_mix58_42_seven_graycopy24`, the run-root name that `conv_gray384.py` writes; this catalog has not verified that those checkpoints came from this exact source.
 
-**Minimum acquisition paths:** cache rebuilding needs official access plus the cache source; retraining additionally needs the selected recipe's OAI packages, label snapshots (or new scoring) and initialization weights; running a trained ensemble needs only its task-trained checkpoints and authorized test inputs. The private snapshots remain a real prerequisite for exact historical reproduction. Later352 S6, R7 and the final combined team models are not dependencies of this branch.
+**Minimum acquisition paths:** cache rebuilding needs official access plus the cache source; retraining additionally needs the selected recipe's OAI packages, label snapshots (or new scoring) and initialization weights; running a trained ensemble needs only its task-trained checkpoints and authorized test inputs. The private snapshots remain a real prerequisite for exact historical reproduction. Later 352 S6, R7 and the final combined team models are not dependencies of this branch.
 
 The machine-readable [external resource catalog](config/external_resources.json) maps every concrete original input path to its resource link, checked access status and consumer. Follow [REPRODUCE.md](REPRODUCE.md) for placement and run order. Public/private checks describe this inspection date; they do not grant access or promise future availability.
+
+### Final team inference and public trained weights
+
+These are separate from this branch and were not part of the October 25 check above. Their access was checked on October 30, 2026.
+
+| Resource and link | Access | What it holds |
+|---|---|---|
+| [RSNA Knee 10th place inference-Final selected team, Version 5](https://www.kaggle.com/code/lihu6666/rsna-knee-10th-place-inference-final-selected-team?scriptVersionId=360860299) | **Public** | Kaggle notebook version that made the team's selected submission (57490913: 70% multi-backbone, 21% CoAtNet-2, 9% R7; 0.967 public / 0.957 private). Later versions are follow-up experiments (the latest adds TinyViT). It mounts private datasets, so it cannot be rerun from public inputs alone. |
+| [lihu-1/rsna-knee-abnormality-detection](https://github.com/lihu-1/rsna-knee-abnormality-detection) | **Public** | GitHub copy of Version 5, with a README listing its blend and Kaggle inputs. |
+| [Multi-backbone model checkpoints](https://www.kaggle.com/datasets/lihu6666/rsna-knee-model-10th-multi-seed-team) | **Public** | Trained checkpoints in weights-only folders: multi-seed DINOv2-S and EfficientNetV2-S runs, a four-fold ConvNeXt-Tiny `graycopy24` run, the four-fold DINOv3-ConvNeXt run, and the four-fold `distillstage1dinov2s384` and `distillstage1effs384` suites. It has no TinyViT checkpoints. Its license is shown on the dataset page; for the DINOv3-ConvNeXt checkpoints, see also [DINOv3 pretrained weights](#dinov3-pretrained-weights). |
 
 ## 1. Results and measurement conventions
 
 ### 1.1 Recorded model-suite results
 
-A “single-model suite” means one architecture and training recipe, potentially containing four fold checkpoints. It does not necessarily mean one checkpoint. These LB results come from the user's notebook and experiment notes.
+A “single-model suite” means one architecture and training recipe, potentially containing four fold checkpoints. It does not necessarily mean one checkpoint. These LB results come from our notebook and experiment notes.
 
 | Model/stage | Input and inference conditions | Recorded LB |
 | --- | --- | ---: |
@@ -143,7 +153,7 @@ There is a RadImageNet version distinction: the experiment note calls this resul
 
 Increments such as `+0.001` and `+0.003` are measurements from their respective experiments. They explain the development process, but they are not a single controlled ablation table with identical conditions. They must not be summed to predict the final LB.
 
-**224 was the main inexpensive experimentation setting; 384 was the transfer setting for the mature recipe.** According to the user's experiments, attention, sampling, label and external-data improvements validated at 224 continued to produce positive gains of a similar magnitude at 384. This motivated screening changes at 224 before transferring the recipe. It does not establish an independently measured, numerically identical 384 gain for every change.
+**224 was the main inexpensive experimentation setting; 384 was the transfer setting for the mature recipe.** According to our experiments, attention, sampling, label and external-data improvements validated at 224 continued to produce positive gains of a similar magnitude at 384. This motivated screening changes at 224 before transferring the recipe. It does not establish an independently measured, numerically identical 384 gain for every change.
 
 The 0.957 and 0.964 endpoints also differ in TTA conditions. Their `+0.007` difference cannot be attributed entirely to resolution. This handover audits source, notes and existing OOF; it does not rerun every experiment or independently recheck every historical submission.
 
@@ -196,7 +206,7 @@ Together these changes form the mature recipe. EfficientNet, ConvNeXt, DINOv2 an
 
 ### 3.1 Fast validation at 224, transfer to 384
 
-224 and 384 are not independently developed pipelines. Most changes were screened at the less expensive 224 setting, and effective preprocessing, attention, sampling, supervision and training settings were transferred to 384. The user's experiments observed positive gains of a comparable magnitude after transfer. Higher-resolution runs also used the appropriate tighter physical crop and pretrained backbone; input construction must still match the checkpoint.
+224 and 384 are not independently developed pipelines. Most changes were screened at the less expensive 224 setting, and effective preprocessing, attention, sampling, supervision and training settings were transferred to 384. Our experiments observed positive gains of a comparable magnitude after transfer. Higher-resolution runs also used the appropriate tighter physical crop and pretrained backbone; input construction must still match the checkpoint.
 
 The correct narrative is “improve the shared recipe, then implement it at higher resolution and across backbones.” Scores such as 0.938, 0.957, 0.963 and 0.964 are measurements at different stages and conditions, not separate methods distinguished by model name. Subtracting endpoints across conditions does not isolate a single change.
 
@@ -246,7 +256,7 @@ These settings come from the audited ConvNeXt configuration. Other versions reta
 
 Ordinary HFlip/VFlip that would change anatomical laterality is not used. bf16, channels-last and backbone chunking primarily improve feasibility and speed; they are not assigned unmeasured LB gains. The audited ConvNeXt configuration uses batch size 4, accumulation 4, AdamW LR 2e-4, weight decay 1e-2 and 12 epochs. DINO and other backbones retain their own freezing and LR choices.
 
-## 5. Labels: the three methods in the user's notebook
+## 5. Labels: the three methods in our notebook
 
 The labeling description follows the three sections of `RSNA_Knee (2).ipynb`: **LLM prompt V1, LLM prompt V2, and the MRI montage plus report VLM workflow**. Their original prompts are in `code/labeling/rsna/`. This is not a substitution of another team's image-only labeling method.
 
@@ -268,7 +278,7 @@ This improves report-to-target interpretation without adding image evidence. The
 
 ### 5.3 VLM: competition definitions, reports and images in one judgment
 
-In the user's workflow, the RSNA annotation criteria supplied for the experiment are included in the VLM task. The model reviews the MRI montages and original report against those criteria rather than extracting keywords alone. Exact thresholds follow the saved notebook prompt; this handover does not introduce new definitions or independently reverify their official source.
+In our workflow, the RSNA annotation criteria supplied for the experiment are included in the VLM task. The model reviews the MRI montages and original report against those criteria rather than extracting keywords alone. Exact thresholds follow the saved notebook prompt; this handover does not introduce new definitions or independently reverify their official source.
 
 The workflow preserves these constraints:
 
@@ -309,7 +319,7 @@ VLM/LLM blending was recorded as approximately `+0.003`. Different label mixture
 
 ### 6.1 Why more data alone was insufficient
 
-OAI scores describe location, type and grade. “Degeneration” or a cartilage grade cannot automatically be treated as competition positivity. When a hard mapping misaligns definitions, increasing OAI exposure can amplify the bias. Label improvements helped in the user's experiments, but unrestricted follow-up expansion, pretraining and distillation did not consistently provide further gains.
+OAI scores describe location, type and grade. “Degeneration” or a cartilage grade cannot automatically be treated as competition positivity. When a hard mapping misaligns definitions, increasing OAI exposure can amplify the bias. Label improvements helped in our experiments, but unrestricted follow-up expansion, pretraining and distillation did not consistently provide further gains.
 
 v3 combines same-visit MRI, original readings and the dictionary to estimate the probability of meeting the target definition, with a separate validity mask. It does not simply divide a grade by its maximum or apply a fixed hard cutoff. Intermediate probabilities express uncertainty; abstention is for insufficient evidence. Missing values are not automatic negatives.
 
@@ -368,7 +378,7 @@ An earlier original-six version with Conv/Eff TTA completed three public test st
 | `code/rsna/` | 224/384 cache generation. |
 | `code/labeling/rsna/` | Original three-method prompts; montage, task and merge scripts. |
 | `code/oai/` | Download checking, dual-resolution caches, sharding and v3 tasks/validation, including necessary parsing/metadata dependencies. |
-| `code/train/` | Ten training entry points: the original five backbones, two label variants, and recovered224 ConvNeXt,384 graycopy24 ConvNeXt and DINOv3 training. |
+| `code/train/` | Ten training entry points: the original five backbones, two label variants, and recovered 224 ConvNeXt, 384 graycopy24 ConvNeXt and DINOv3 training. |
 | `code/inference/` | Standalone six/eight-suite inference with embedded model implementations. |
 | `tools/` | Path adaptation, strict label merging and offline preflight checks. |
 | `config/` | Example path mappings, external input inventory and model/source configuration. `labels/rsna/` includes seven reviewed frozen CSVs; OAI labels and `results/` remain external and ignored. |
@@ -377,7 +387,7 @@ An earlier original-six version with Conv/Eff TTA completed three public test st
 
 Use the cache → labels → training → inference sequence. Historical failed branches and per-case agent/writer scripts remain in the full archive. `code/oai/generate_labels_v1.py` is retained for upstream reading provenance/metadata, not because current training should revert to its historical hard labels.
 
-Our split has **4,407 studies and four folds**. The 58 Gold studies are held out in their assigned fold but may enter training/checkpoint selection in other folds; they are not a never-trained external test set. The DINOv3 training source has now been recovered from executed Kaggle Version3 (scriptVersionId358232793); its original source, inference and configuration are included; historical OOF is external. New training runs were not executed during recovery.
+Our split has **4,407 studies and four folds**. The 58 Gold studies are held out in their assigned fold but may enter training/checkpoint selection in other folds; they are not a never-trained external test set. The DINOv3 training source has now been recovered from executed Kaggle Version 3 (scriptVersionId 358232793); its original source, inference and configuration are included; historical OOF is external. New training runs were not executed during recovery.
 
 MRI, original scores, caches and weights must be supplied separately. Configure local/Kaggle paths and install dependencies. The five original OAI pixel-conversion functions are bundled with identical ASTs; their original workstation attachment dependencies now use package-local paths. These packaging changes do not alter model recipes.
 
@@ -407,8 +417,8 @@ The DINOv3 ConvNeXt-Tiny group (`dino3`) is initialized from [`timm/convnext_tin
 
 Any checkpoint fine-tuned from them is a derivative work of the DINO Materials. If such checkpoints are released, they will be distributed only under the DINOv3 License, with a copy of the license, and not under any other license that applies to this repository. As the license requires, we acknowledge the use of DINOv3 in our write-up and here.
 
-## Source supplement: October25,2026
+## Source supplement: October 25, 2026
 
-Read [AI_USAGE.md](AI_USAGE.md) for the module-by-module workflow. The supplement adds `code/train/conv224.py`, `conv_gray384.py` and `dino3.py`. The224 entry is exact source from Notebook4 cell19. The grayscale entry retains one complete program from cell8 after confirming the two copies have identical executable ASTs. DINOv3 is exact recovered training source from [Kaggle Version3](https://www.kaggle.com/code/lihu6666/dinov3-conv-lihu-of-fork-of-rsna-train-cd4e8a?scriptVersionId=358232793), not an inference-derived approximation.
+Read [AI_USAGE.md](AI_USAGE.md) for the module-by-module workflow. The supplement adds `code/train/conv224.py`, `conv_gray384.py` and `dino3.py`. The 224 entry is exact source from Notebook 4 cell 19. The grayscale entry retains one complete program from cell 8 after confirming the two copies have identical executable ASTs. DINOv3 is exact recovered training source from [Kaggle Version 3](https://www.kaggle.com/code/lihu6666/dinov3-conv-lihu-of-fork-of-rsna-train-cd4e8a?scriptVersionId=358232793) (private notebook), not an inference-derived approximation.
 
-Sources and hashes are in `config/training_source_provenance.json`. The historical six/eight-suite inference recipes are unchanged; their recorded OOF remains external. The final team0.967 pipeline remains outside this package. These additions have source/CLI/static checks, not a newly completed GPU training run.
+Sources and hashes are in `config/training_source_provenance.json`. The historical six/eight-suite inference recipes are unchanged; their recorded OOF remains external. The final team 0.967 pipeline remains outside this package; see [Final team inference and public trained weights](#final-team-inference-and-public-trained-weights). These additions have source/CLI/static checks, not a newly completed GPU training run.
