@@ -15,7 +15,7 @@ Thanks to RSNA and Kaggle for the competition, to our four teammates in team MEJ
 - Competition context: [RSNA Knee Abnormality Detection](https://www.kaggle.com/competitions/rsna-knee-abnormality-detection)
 - Data context: [competition data](https://www.kaggle.com/competitions/rsna-knee-abnormality-detection/data)
 
-Team MEJAL finished 10th on the private leaderboard. In this part, "we", "our" and "us" mean Max and Claude (Anthropic's AI assistant), who built one half of the team's work together: the label distillation rounds and the final labels (which also draw on the teammates' labels and models), four CoAtNet-2 models with their all-window fine-tune, and the assembly and post-processing of one of the team's two final blends. Our four teammates built the multi-backbone half (their own labels and several model families, which carry half the weight of the team blend) and write it up separately. Below, "the teammates" means those four.
+Team MEJAL finished 10th on the private leaderboard. In this part, "we", "our" and "us" mean Max and Claude (Anthropic's AI assistant), who built one half of the team's work together: the label distillation rounds and the final labels (which also draw on the teammates' labels and models), four CoAtNet-2 models with their all-window fine-tune, and the assembly and post-processing of one of the team's two final blends. Our four teammates built the multi-backbone half (their own labels and several model families, which carry half the weight of the team blend) and describe it in Section 2 ("Path One") of the team write-up and on their branch. Below, "the teammates" means those four.
 
 The team had two final picks. One was the blend we assembled (Kaggle submission 57456685): a rank ensemble of the teammates' models (0.5), our four CoAtNet-2 models (0.3) and R7 (0.2). R7 is a public ConvNeXt-small model by Kaggle user heliosli, named after its weights dataset. The blend scored 0.967 public and 0.956 private. The teammates' pick (submission 57490913) scored 0.967 and 0.957, which set the team's place.
 
@@ -241,7 +241,7 @@ Our half trained on one outside image dataset (OAI). Through R7, our team blend 
 | timm `coatnet_rmlp_2_rw_384.sw_in12k_ft_in1k` (ImageNet-12k, then ImageNet-1k; Apache-2.0, from the Hugging Face Hub); torchvision ResNet34 (rounds 1 and 2) | Starting weights | Free |
 | dreaddevelopment's public Raptor [training notebook](https://www.kaggle.com/code/dreaddevelopment/knee-mri-training-the-twelve-finding-model?scriptVersionId=347608187) (V8) and [inference notebook](https://www.kaggle.com/code/dreaddevelopment/knee-mri-twelve-findings-from-a-single-model?scriptVersionId=344173275) (V1) | Image preparation and attention head, adapted | Free, Apache-2.0 |
 | Python packages shipped as offline wheels in our Kaggle bundle (the dataset that holds our weights, code and install files), including the JPEG decoders pylibjpeg, pylibjpeg-openjpeg and pyjpegls (MIT) and pylibjpeg-libjpeg (GPL-3.0) | Inference | Free, open source |
-| The teammates' labels and models | Our labels (S2, S3 and half of the OAI labels) and 0.5 of the blend. So any outside data, weights or AI services behind those labels and models also reach our four models | See the teammates' write-up and their branch |
+| The teammates' labels and models | Our labels (S2, S3 and half of the OAI labels) and 0.5 of the blend. So any outside data, weights or AI services behind those labels and models also reach our four models | See Section 2 ("Path One") of the team write-up and their branch |
 
 We also sent the 58 expert studies' images to Gemini 4 Argon, Claude Opus 5.5 and Claude Fable 5.1, scoring them on 57. None of these trial readings went into our labels.
 
@@ -251,7 +251,8 @@ OAI acknowledgement: Data and/or research tools used in the preparation of this 
 
 - **Training and inference code:** [this branch](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/tree/coatnet-pipeline), under CC BY-NC 4.0; parts adapted from the Raptor notebooks keep their Apache-2.0 licence
 - **Weights:** [a public Kaggle dataset](https://www.kaggle.com/datasets/max6296/knee-coatnet-consensus-all-ftall-w56-bundle) of the four fine-tuned seeds, with the inference code the team blend submission used
-- **Inference notebook:** a public version of the final team notebook (submission 57456685), to be added
+- **Inference notebooks:** the team's selected submission (57490913) came from [Version 5 of the teammates' public Kaggle notebook](https://www.kaggle.com/code/lihu6666/rsna-knee-10th-place-inference-final-selected-team?scriptVersionId=360860299), which also runs our four models; later versions of that notebook are follow-up experiments. A teammate's [GitHub repository](https://github.com/lihu-1/rsna-knee-abnormality-detection) holds a copy of Version 5. Version 5 reads the teammates' weights from their private Kaggle datasets. Our own 50/30/20 notebook (submission 57456685) is private; `scripts/build_team_combined_notebook.py` builds it, but needs the teammates' notebooks and weights
+- **The teammates' weights:** the weights of their four model sets in the team blend (DINOv2-Small, EfficientNetV2-S, ConvNeXt-Tiny and DINOv3 ConvNeXt-Tiny) are in [a public Kaggle dataset](https://www.kaggle.com/datasets/lihu6666/rsna-knee-model-10th-multi-seed-team); its licence is shown on the dataset page
 
 The final configs read a training folder that is not in git. It holds the final labels, the 2,398 OAI knees, the 58 expert studies and the splits. To rebuild it:
 

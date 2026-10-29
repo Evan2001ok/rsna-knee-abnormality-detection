@@ -43,6 +43,8 @@ COMPETITION_PATH = "Path('/kaggle/input/competitions/rsna-knee-abnormality-detec
 SETS = ("dino", "eff", "dino3")  # run order: if the time limit cuts stage 1, the cheaper sets have finished
 # The teammates' newconv weights are in their private Kaggle dataset, so its name is a placeholder here. To build a
 # notebook with newconv (--their-sets ...,newconv), put the "owner/name" of a Kaggle dataset holding those weights.
+# Their public weights dataset (lihu6666/rsna-knee-model-10th-multi-seed-team) has this run's checkpoints one folder
+# deeper than _link_newconv below looks; we have not tried building from it.
 NEWCONV_DATASET = "<owner>/<newconv-dataset>"
 THEIR_DATASETS = {"eff": "minminandy/distillstage1effs384", "dino": "zhuyifanss/distillstage1dinov2s384",
                   "conv": "minminandy/distillstage1conv384",

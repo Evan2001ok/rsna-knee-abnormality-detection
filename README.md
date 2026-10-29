@@ -24,7 +24,17 @@ of this repository.
 - Our detailed write-up of this half: [docs/WRITEUP.md](docs/WRITEUP.md)
 - Weights of our four final models, with their inference code: [Kaggle dataset](https://www.kaggle.com/datasets/max6296/knee-coatnet-consensus-all-ftall-w56-bundle)
   (CC BY-NC 4.0). It is the exact version the team blend submission used.
-- Public Kaggle notebook of the final team blend: to be added.
+- The team's selected submission (57490913, 0.967 public / 0.957 private) came from Version 5 of the teammates'
+  public Kaggle notebook, which also runs our four models:
+  [RSNA Knee 10th place inference-Final selected team, Version 5](https://www.kaggle.com/code/lihu6666/rsna-knee-10th-place-inference-final-selected-team?scriptVersionId=360860299).
+  Later versions of that notebook are follow-up experiments. A teammate's GitHub repository holds a copy of
+  Version 5, with notes on its inputs: [lihu-1/rsna-knee-abnormality-detection](https://github.com/lihu-1/rsna-knee-abnormality-detection).
+  Version 5 reads the teammates' weights from their private Kaggle datasets.
+- Weights of the teammates' four model sets in the team blend (DINOv2-Small, EfficientNetV2-S, ConvNeXt-Tiny and
+  DINOv3 ConvNeXt-Tiny): [public Kaggle dataset](https://www.kaggle.com/datasets/lihu6666/rsna-knee-model-10th-multi-seed-team).
+  Its licence is shown on the dataset page.
+- Our own 50/30/20 team notebook (submission 57456685) is private. `scripts/build_team_combined_notebook.py` builds
+  it, but needs the teammates' notebooks and weights (see "Kaggle prediction and the team blend" below).
 
 ## Words used in this README
 
@@ -161,7 +171,7 @@ fixed near the top of a script instead; the script's opening lines say which.
 | Model weights | Too large for git | [Public Kaggle dataset](https://www.kaggle.com/datasets/max6296/knee-coatnet-consensus-all-ftall-w56-bundle) |
 | Image caches and training run folders (`data/`, `runs/`) | Made by the scripts; hundreds of GB | Run the scripts |
 | Experiment records, working notes and logs | They hold study IDs, details of our computers and team discussions. A few scripts still write the name of such a record (`experiments/<name>.json`) into their output | The main numbers are in the write-up |
-| The teammates' models, labels and inference code | Their work | Their branch, linked above |
+| The teammates' models, labels and inference code | Their work | Their branch and their public weights dataset, both linked above |
 | R7 code and weights | heliosli's work, not ours to share | heliosli's Kaggle pages (see Credits) |
 | Keys and passwords | Never stored | See the GPT and OAI steps below |
 
@@ -176,7 +186,12 @@ uv run pytest -q      # CPU only, about 6 minutes
 ```
 
 Put the competition download, unchanged, in `data/rsna-knee-abnormality-detection/`. We trained on
-RTX 5090 cards (32 GB each) and checked things on an RTX 3090. Kaggle prediction ran on 2 × T4.
+RTX 5090 cards (32 GB each) and checked things on an RTX 3090. Kaggle prediction ran on 2 × T4 with internet off,
+in the Kaggle image (Python 3.13) that Kaggle recorded for our team notebook:
+`gcr.io/kaggle-gpu-images/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f`
+(Kaggle lists it under its private `kaggle-private-byod` path; this public path holds the same image).
+`scripts/build_team_combined_notebook.py` asks for a different image (its `DOCKER` line), but Kaggle ran the
+notebook on this one.
 
 ## Train the four final models
 
@@ -273,13 +288,20 @@ export code that did not skip unreadable series; this code does.
   with one difference: there the EfficientNet set reads `'eff': (0.0,),` (original view only), while the notebook
   we built from had `'eff': (0.0, 12.0),` (plus a view turned by 12°). The builder looks for that line, so set it
   back, and save the code as a one-cell notebook with Unix line endings (the file on their branch has Windows ones);
-- the teammates' trained weights, which are in their Kaggle datasets (their README lists them as private);
+- the teammates' trained weights. The script names their private Kaggle datasets (the `THEIR_DATASETS` line near
+  the top). Their public weights dataset (linked at the top of this README) has folders for the four sets the
+  submitted notebook ran (`dino`, `eff`, `dino3`, `newconv`), laid out differently, so to use it, change those names
+  and the folder paths their code reads (we have not tried this);
 - a base notebook with our stage and R7's stage (`--base-notebook`), made from the notebook that `knee export` writes
   and heliosli's public R7 notebook: `uv run python scripts/build_s6_blend_notebook.py --model r7 --public-notebook
   <heliosli's notebook .ipynb> --our-notebook bundle/inference.ipynb --output base/inference.ipynb`;
 - for the teammates' fourth model set (`newconv`), a teammate's notebook, which the script reads from a fixed path
   (the `NEWCONV_NOTEBOOK` line near the top), and its weights dataset, for which the `NEWCONV_DATASET` line next to
-  it is a placeholder;
+  it is a placeholder. `newconv` is the teammates' ConvNeXt-Tiny that copies each grayscale slice into three
+  channels. Its run folder, `rsna_convnext_tiny_384_oai8649_mix58_42_seven_graycopy24`, is the one that
+  [`code/train/conv_gray384.py`](https://github.com/Evan2001ok/rsna-knee-abnormality-detection/blob/multibackbone-pipeline/code/train/conv_gray384.py)
+  on their branch writes (we have not checked that these weights came from that file). It is not their `conv_new`
+  model, which has a different label source and input;
 - your own Kaggle dataset and notebook names (`--bundle-dataset`, `--kernel-id`; the defaults are our private ones).
 
 The command below uses the options of the submitted team notebook. With the same inputs, our original builder
