@@ -10,6 +10,13 @@ This public edition contains essential source and model configuration; seven fro
 
 ## Start here: public source reproduction
 
+Following the Kaggle winning-solution guidelines, three files at the repository root describe the rebuild:
+- [`entry_points.md`](entry_points.md) gives the commands in order: cache, labels, OAI, training the four final model families, prediction.
+- [`SETTINGS.json`](SETTINGS.json) lists where each kind of file lives.
+- [`directory_structure.txt`](directory_structure.txt) lists the folders.
+
+The exact training code of the selected submission's models is in [`code/train/final_blend/`](code/train/final_blend/README.md).
+
 ```bash
 git clone --branch multibackbone-pipeline --single-branch https://github.com/Evan2001ok/rsna-knee-abnormality-detection.git
 cd rsna-knee-abnormality-detection

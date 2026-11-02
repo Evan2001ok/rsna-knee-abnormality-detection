@@ -21,6 +21,30 @@ All five ran as Kaggle notebooks in the same environment:
 - Run dates (UTC), from the notebook metadata: DINOv3 on 14 October 2026, ConvNeXt on 15–16 October, DINOv2 and EfficientNetV2 on 20–21 October.
 - Kaggle image: **TBD**. The image digest appears only on the owner's run page, so each notebook owner should fill in their runs.
 
+### Hardware and software
+
+| | Training the four final families | Kaggle prediction (Version 5) |
+|---|---|---|
+| Machine | Kaggle notebooks, one per run | Kaggle notebook, internet off |
+| Operating system, CPU, RAM, disk | Not recorded | See the CoAtNet branch README, "Hardware and software" |
+| GPU | 1 × NVIDIA RTX Pro 6000 per run | 2 × NVIDIA Tesla T4 |
+| Python | 3.12.13 | 3.13.15 |
+| PyTorch, torchvision, NumPy | Not recorded; they come with the Kaggle image | 2.11.0, 0.26.0; NumPy 2.1.3 (part of the image) |
+| timm | 1.0.26 | 1.0.26 |
+| Numbers | bf16 autocast for most of the math; batch 4 × 4 accumulation steps = 16 | fp16 |
+| Kaggle image | TBD: visible to each notebook owner | `gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f` |
+| DataLoader | 12 worker processes | |
+
+The prediction column comes from the CoAtNet branch README, which records Version 5's environment.
+
+Training is not bit-for-bit repeatable, even with this exact code:
+- the scripts set `torch.backends.cudnn.benchmark = True`;
+- they use bf16 autocast;
+- the OAI sample and the augmentations are random draws;
+- the results also depend on the GPU type and the library versions.
+
+A rerun gives slightly different weights, and on other GPUs the differences can be larger.
+
 The full-data runs use all 4,407 RSNA studies with no validation split and keep the last epoch. The fold runs use the 4-fold split (3,305 or 3,306 training studies). For each fold they save the EMA weights of the epoch with the best derived AUC on that fold's held-out studies, and the log names that epoch: for example, ConvNeXt fold 2 kept epoch 9 and fold 3 kept epoch 8.
 
 ## Settings shared by all five

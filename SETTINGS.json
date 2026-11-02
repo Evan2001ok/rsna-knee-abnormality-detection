@@ -1,0 +1,35 @@
+{
+  "RAW_DATA_DIR": "data/rsna/",
+  "TRAIN_DATA_CLEAN_PATH": "work/",
+  "TEST_DATA_CLEAN_PATH": "/kaggle/temp/",
+  "MODEL_CHECKPOINT_DIR": "work/",
+  "LOGS_DIR": "work/",
+  "SUBMISSION_DIR": "/kaggle/working/",
+
+  "RSNA_LABELS_DIR": "labels/rsna/",
+  "OAI_IMAGES_DIR": "data/oai/",
+  "OAI_LABELS_DIR": "labels/oai/",
+  "INIT_WEIGHTS_DIR": "data/notebooks/",
+  "FINAL_TRAINING_CODE_DIR": "code/train/final_blend/",
+  "LOCAL_PATHS_FILE": "config/paths.json",
+
+  "KAGGLE_RAW_DATA_DIR": "/kaggle/input/competitions/rsna-knee-abnormality-detection/",
+  "KAGGLE_SUBMISSION_PATH": "/kaggle/working/submission.csv",
+
+  "NOTES": {
+    "how_this_file_is_used": "This file lists where each kind of file lives. The code does not read it. The training scripts keep their original Kaggle paths (/kaggle/input/..., /kaggle/working/...), and tools/run_pipeline.py maps each of those paths to a local one through config/paths.json, which tools/init_workspace.py --layout local creates from config/paths.example.json. The guidelines allow such a documented variation. Paths here are relative to the repository root, except the /kaggle/ ones, which are paths inside a Kaggle notebook.",
+    "RAW_DATA_DIR": "The competition download, unchanged. The training scripts read train.csv from here (data/rsna/train.csv): the 58 official Gold rows in it override the placeholder rows of the label files. On Kaggle the original runs read a team-private copy of the same train.csv (/kaggle/input/datasets/minminandy/rsna-file/train.csv).",
+    "TRAIN_DATA_CLEAN_PATH": "The 384 px RSNA training cache: four shards named knee_v5_384px_24sl_central80_crop130_physicalsort_part0 to part3, made by code/rsna/cache384.py (entry_points.md, step 1). Each shard holds image arrays, slot masks, study ids and a manifest; shards are joined by study id.",
+    "TEST_DATA_CLEAN_PATH": "The final Kaggle notebook builds its own test cache from the test DICOMs under /kaggle/temp/ and /kaggle/working/ while it runs; nothing has to be prepared for prediction.",
+    "MODEL_CHECKPOINT_DIR": "Each training script writes one run folder here, named as in its Cfg: rsna_dinov2s_392_oai_mix_unfreeze9/seed42/ etc. for the full-data seeds, and rsna_..._seven_graycopy24/fold0/ etc. for the fold runs. The file the final notebook loads is fold0_final.pt in each seed or fold folder.",
+    "LOGS_DIR": "Each seed or fold folder also holds history.csv (one row per epoch) and fusion_weights_final.csv; fold folders also hold fold0_best.pt and fold0_val_predictions.csv, fold-run folders get oof_predictions.csv, and every run folder gets the OAI-mix audit oai_mixed_audit.json. The printed logs of the original final runs are the outputs of the notebooks in code/train/final_blend/kaggle_notebooks/.",
+    "SUBMISSION_DIR": "The final team notebook writes /kaggle/working/submission.csv (entry_points.md, step 5). This branch has no local prediction step for the 70/21/9 blend.",
+    "RSNA_LABELS_DIR": "The seven frozen RSNA label files. The final models read rsna_vlm_original.csv (VLM), rsna_llm_v1_original.csv (V1) and rsna_llm_v2_original.csv (V2) and blend them as 0.7 x VLM + 0.21 x V1 + 0.09 x V2. Their 58 Gold rows hold placeholders; training replaces them with the official labels from RAW_DATA_DIR/train.csv.",
+    "OAI_IMAGES_DIR": "Not public: needs your own OAI access through the NIMH Data Archive. kaggle_upload_384/ holds the baseline 384 px images and kaggle_upload_followup6250_384/ the follow-up ones, built by the steps in REPRODUCE.md section 4.",
+    "OAI_LABELS_DIR": "Not public. OAI_soft_labels_2399_v3.csv and OAI_soft_followup6250_v3.csv, the seven soft OAI targets with validity masks (REPRODUCE.md, section 4.5).",
+    "INIT_WEIGHTS_DIR": "The public timm initialisation weights, at the paths the scripts expect after mapping, for example data/notebooks/minminandy/dinov2s/vit_small_patch14_dinov2.lvd142m/pytorch_model.bin. README section 'Initial backbone weights for training' lists the source of each.",
+    "FINAL_TRAINING_CODE_DIR": "The exact training programs of the four multi-backbone families in the selected submission, with their original Kaggle notebooks and logs.",
+    "LOCAL_PATHS_FILE": "Not committed. Made by python tools/init_workspace.py --layout local; edit it to point at your folders.",
+    "KAGGLE_RAW_DATA_DIR": "Where a Kaggle notebook mounts the competition data."
+  }
+}

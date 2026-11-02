@@ -34,7 +34,8 @@ def eligible(path):
     if parts[0]=='requirements':return path.suffix=='.txt'
     return len(parts)==1 and path.name in {'README.md','REPRODUCE.md','ENVIRONMENT.md','AI_USAGE.md',
         'PUBLIC_RELEASE.md','REPRODUCIBILITY_AUDIT.md','.gitignore','.gitattributes','our_pipeline.ipynb',
-        'requirements_reference.txt','source_supplement_validation.json','verification.json','manifest.json'}
+        'requirements_reference.txt','source_supplement_validation.json','verification.json','manifest.json',
+        'SETTINGS.json','entry_points.md','directory_structure.txt'}
 
 
 def main():
@@ -86,7 +87,7 @@ def main():
     original = json.loads((ROOT / 'manifest.json').read_text(encoding='utf-8'))
     old = {r['file']: r for r in original['files']}
     supplements = json.loads((ROOT / 'config/training_source_provenance.json').read_text(encoding='utf-8'))
-    new_sources = {r['file']: r for r in supplements['files'] + supplements.get('final_blend', {}).get('files', [])}
+    new_sources = {r['file']: r for r in supplements['files'] + supplements.get('final_blend', {}).get('files', []) + supplements.get('final_blend', {}).get('guideline_files', [])}
     records = []
     for p in sorted(ROOT.rglob('*')):
         if not eligible(p) or p == ROOT / 'manifest.json':

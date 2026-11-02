@@ -114,8 +114,8 @@
         "file": "code/train/final_blend/README.md",
         "source": "Training record for the final-blend multi-backbone models",
         "change": "Added with the final-blend training code",
-        "sha256": "092e374a4268c59a4cebd5d92806c7410bbf363429bd4af17097edd09ec4c2ad",
-        "bytes": 7290
+        "sha256": "86648eae703cf4bb8115b168bd936dc9ee2bd4ac5d5c19ade9b92c5f68be7117",
+        "bytes": 8610
       },
       {
         "file": "code/train/final_blend/sha256.txt",
@@ -123,6 +123,29 @@
         "change": "Added with the final-blend training code",
         "sha256": "e64987de616cb2abd493ecadc50c469d7794b51b2a9b765e338a75fe97d6a36b",
         "bytes": 1044
+      }
+    ],
+    "guideline_files": [
+      {
+        "file": "SETTINGS.json",
+        "source": "Kaggle-guideline settings file: where each kind of file lives",
+        "change": "Added with the final-blend training code",
+        "sha256": "29954c11762f48af0f1e635ff7797f4e0f4c9d51009b5bc51110cd1f88ca9fac",
+        "bytes": 4380
+      },
+      {
+        "file": "entry_points.md",
+        "source": "Kaggle-guideline entry points: rebuild commands in order",
+        "change": "Added with the final-blend training code",
+        "sha256": "763fa657ba94fa1b42953bcd3a66831aefde1795a8dd1e6eaee082f0f884f39b",
+        "bytes": 6998
+      },
+      {
+        "file": "directory_structure.txt",
+        "source": "Kaggle-guideline folder list of a fresh clone",
+        "change": "Added with the final-blend training code",
+        "sha256": "6a36220c0da2d79351d706e8d24172fbc4edc1691fe7b68eb02bdee12d664148",
+        "bytes": 250
       }
     ]
   }

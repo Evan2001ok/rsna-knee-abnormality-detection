@@ -402,9 +402,9 @@
     {
       "file": "code/train/final_blend/README.md",
       "source": "Training record for the final-blend multi-backbone models",
-      "change": "Added with the final-blend training code",
-      "sha256": "092e374a4268c59a4cebd5d92806c7410bbf363429bd4af17097edd09ec4c2ad",
-      "bytes": 7290
+      "change": "Added with the final-blend training code; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "86648eae703cf4bb8115b168bd936dc9ee2bd4ac5d5c19ade9b92c5f68be7117",
+      "bytes": 8610
     },
     {
       "file": "code/train/final_blend/sha256.txt",
@@ -480,8 +480,15 @@
       "file": "config/training_source_provenance.json",
       "source": "October25 source supplement / package support",
       "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "d04b96d18ea316690a202505a36b3b376f626010671f1a9041f6823ec3540add",
-      "bytes": 6820
+      "sha256": "0f329829f422fcbc3ec86b3344477c4bef7cd5a4faeee3f9785fd6c6ab786fa8",
+      "bytes": 7775
+    },
+    {
+      "file": "directory_structure.txt",
+      "source": "Kaggle-guideline folder list of a fresh clone",
+      "change": "Added with the final-blend training code",
+      "sha256": "6a36220c0da2d79351d706e8d24172fbc4edc1691fe7b68eb02bdee12d664148",
+      "bytes": 250
     },
     {
       "file": "docs/OAI_PROMPT_ENGLISH_REFERENCE.md",
@@ -489,6 +496,13 @@
       "change": "none",
       "sha256": "57e45c7d78bf7b700cd400a41151db06387083872eff3e19436289fd4ad849ca",
       "bytes": 10310
+    },
+    {
+      "file": "entry_points.md",
+      "source": "Kaggle-guideline entry points: rebuild commands in order",
+      "change": "Added with the final-blend training code",
+      "sha256": "763fa657ba94fa1b42953bcd3a66831aefde1795a8dd1e6eaee082f0f884f39b",
+      "bytes": 6998
     },
     {
       "file": "ENVIRONMENT.md",
@@ -564,8 +578,8 @@
       "file": "our_pipeline.ipynb",
       "source": "Essential code files in this package",
       "change": "writefile restoration cells only; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "8215b08a4328e1d6223edb1f9b2a2463fb15d9edb6a7aacae5a8d08eae4266e9",
-      "bytes": 2894899
+      "sha256": "7e619f6dddc46901119d9a1d8063bb31090e7bd407b581436df1d00ffb7583fd",
+      "bytes": 2896604
     },
     {
       "file": "PUBLIC_RELEASE.md",
@@ -578,8 +592,8 @@
       "file": "README.md",
       "source": "Reviewed detailed trick explanations with concise package navigation",
       "change": "Full improvement/labeling explanations retained; code package remains minimal; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "bc16ee4a3e303b90e1b105b289c7dab60694387137746669f69d2dc795f311c5",
-      "bytes": 54921
+      "sha256": "1edd1a652e2d616dacd1c8c933b8a41e0c3d1e6e6222c78bac7104d118052198",
+      "bytes": 55452
     },
     {
       "file": "REPRODUCE.md",
@@ -615,6 +629,13 @@
       "change": "none",
       "sha256": "fce0621229739fcee3355b57595597d692a9b4ad04c48e77ac3b38b8d965c54e",
       "bytes": 179
+    },
+    {
+      "file": "SETTINGS.json",
+      "source": "Kaggle-guideline settings file: where each kind of file lives",
+      "change": "Added with the final-blend training code",
+      "sha256": "29954c11762f48af0f1e635ff7797f4e0f4c9d51009b5bc51110cd1f88ca9fac",
+      "bytes": 4380
     },
     {
       "file": "source_supplement_validation.json",
@@ -683,8 +704,8 @@
       "file": "tools/refresh_bundle.py",
       "source": "October25 source supplement / package support",
       "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "083a96312ab905eba185a662781daba1809adbe47609a9fdfce2eb39e5bd2bee",
-      "bytes": 8465
+      "sha256": "b817d497c27e6db9014d04f0570134924d72126473945c4e3ff60981803d5481",
+      "bytes": 8599
     },
     {
       "file": "tools/run_pipeline.py",
