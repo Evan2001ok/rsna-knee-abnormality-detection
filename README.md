@@ -29,7 +29,9 @@ of this repository.
   [RSNA Knee 10th place inference-Final selected team, Version 5](https://www.kaggle.com/code/lihu6666/rsna-knee-10th-place-inference-final-selected-team?scriptVersionId=360860299).
   Later versions of that notebook are follow-up work, not the selected submission. A teammate's GitHub repository
   holds a copy of Version 5, with notes on its inputs: [lihu-1/rsna-knee-abnormality-detection](https://github.com/lihu-1/rsna-knee-abnormality-detection).
-  Version 5 reads the teammates' weights from their private Kaggle datasets.
+  Version 5 reads the teammates' weights from their private Kaggle datasets. Version 17 of the same notebook runs
+  Version 5's code from public inputs only (the teammates' public weights dataset below), checked to match Version 5:
+  [Version 17](https://www.kaggle.com/code/lihu6666/rsna-knee-10th-place-inference-final-selected-team?scriptVersionId=364782508).
 - Weights of the teammates' four model sets in the team blend (DINOv2-Small, EfficientNetV2-S, ConvNeXt-Tiny and
   DINOv3 ConvNeXt-Tiny): [public Kaggle dataset](https://www.kaggle.com/datasets/lihu6666/rsna-knee-model-10th-multi-seed-team).
   Its licence is shown on the dataset page.
@@ -369,8 +371,8 @@ bundle was made with older export code that did not skip unreadable series; this
   back, and save the code as a one-cell notebook with Unix line endings (the file on their branch has Windows ones);
 - the teammates' trained weights. The script names their private Kaggle datasets (the `THEIR_DATASETS` line near
   the top). Their public weights dataset (linked at the top of this README) has folders for the four sets the
-  submitted notebook ran (`dino`, `eff`, `dino3`, `newconv`), laid out differently, so to use it, change those names
-  and the folder paths their code reads (we have not tried this);
+  submitted notebook ran (`dino`, `eff`, `dino3`, `newconv`), laid out differently. Version 17 of the team notebook
+  (linked at the top) already reads that public dataset, so the simplest path is to run it ([Version 17](https://www.kaggle.com/code/lihu6666/rsna-knee-10th-place-inference-final-selected-team?scriptVersionId=364782508));
 - a base notebook with our stage and R7's stage (`--base-notebook`), made from the notebook that `knee export` writes
   and heliosli's public R7 notebook: `uv run python scripts/build_s6_blend_notebook.py --model r7 --public-notebook
   <heliosli's notebook .ipynb> --our-notebook bundle/inference.ipynb --output base/inference.ipynb`;

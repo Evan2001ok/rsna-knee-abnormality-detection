@@ -213,9 +213,15 @@ on 2 x T4 with internet off. It reads the competition data, our bundle (above), 
 two R7 datasets, runs the three groups one after another and writes `/kaggle/working/submission.csv`. Version 5 reads
 the teammates' weights from their private datasets. Their public dataset
 [lihu6666/rsna-knee-model-10th-multi-seed-team](https://www.kaggle.com/datasets/lihu6666/rsna-knee-model-10th-multi-seed-team)
-holds files with the same names and sizes, but no version of the notebook that reads it has passed a check run yet.
+holds files with the same names and sizes. [Version 17](https://www.kaggle.com/code/lihu6666/rsna-knee-10th-place-inference-final-selected-team?scriptVersionId=364782508) of the same notebook runs Version 5's code from
+public inputs only: its first cell waits until every input is attached and links `/kaggle/temp/team_weights` to
+wherever Kaggle mounted that dataset (`/kaggle/input/rsna-knee-model-10th-multi-seed-team` in the owner's notebook,
+`/kaggle/input/datasets/lihu6666/rsna-knee-model-10th-multi-seed-team` in anyone else's copy), and the team code reads
+its weights through that link. Version 17 and a copy under another account both passed the checks below, and their
+submission files were identical. To rerun it, open Version 17 and choose Copy & Edit; keep 2 x T4, internet off and
+the original environment.
 A missing input does not stop the notebook: it leaves that group out and still writes `submission.csv`. So check the
-log for `THEIRS_STAGE_DONE {"ok": true, ...}`, `OURS_STAGE_DONE {"ok": true, ...}`, `R7_STAGE_DONE {"ok": true, ...}`
+log for `INPUTS_READY {... 'missing': []}` (Version 17 only), `THEIRS_STAGE_DONE {"ok": true, ...}`, `OURS_STAGE_DONE {"ok": true, ...}`, `R7_STAGE_DONE {"ok": true, ...}`
 and, in the last line (`NOTEBOOK_COMPLETE`), `"weights_used": {"theirs": 0.7, "ours": 0.21, "r7": 0.09}`.
 
 **Our four models alone.** Either attach the bundle to a Kaggle notebook and run the bundle's own `inference.ipynb`,
