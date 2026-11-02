@@ -19,7 +19,7 @@ All five ran as Kaggle notebooks in the same environment:
 - GPU: NVIDIA RTX Pro 6000 (Kaggle accelerator `nvidiaRtxPro6000`).
 - Software: Python 3.12.13 (notebook metadata) and `timm 1.0.26` (training logs).
 - Run dates (UTC), from the notebook metadata: DINOv3 on 14 October 2026, ConvNeXt on 15–16 October, DINOv2 and EfficientNetV2 on 20–21 October.
-- Kaggle image: **TBD**. The image digest appears only on the owner's run page, so each notebook owner should fill in their runs.
+- Kaggle image: `gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461`. Each of the five runs recorded this same digest, which is also at the public path `gcr.io/kaggle-gpu-images/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461`.
 
 ### Hardware and software
 
@@ -32,7 +32,7 @@ All five ran as Kaggle notebooks in the same environment:
 | PyTorch, torchvision, NumPy | Not recorded; they come with the Kaggle image | 2.11.0, 0.26.0; NumPy 2.1.3 (part of the image) |
 | timm | 1.0.26 | 1.0.26 |
 | Numbers | bf16 autocast for most of the math; batch 4 × 4 accumulation steps = 16 | fp16 |
-| Kaggle image | TBD: visible to each notebook owner | `gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f` |
+| Kaggle image | `gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461` (all five runs) | `gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f` |
 | DataLoader | 12 worker processes | |
 
 The prediction column comes from the CoAtNet branch README, which records Version 5's environment.
@@ -81,11 +81,11 @@ The full-data runs use all 4,407 RSNA studies with no validation split and keep 
 
 The weights come from two nested 70 / 30 splits. Each step is recorded in the team's Kaggle submission history:
 
-1. **CoAtNet-2 0.7 : R7 0.3 (chosen by Max).** Max's own CoAtNet + R7 submissions blended the two branches at 0.7 / 0.3. The first of them notes "weight chosen on 4,296 out-of-fold studies" (submission "Knee OAI5 R7 LB": public 0.961, private 0.949). The later CoAtNet + R7 submissions kept the same ratio.
-2. **Multi-backbone 0.7 : (CoAtNet-2 + R7) 0.3 (set by LP).** LP's submission "Knee Team Dhcons Newconv LB — 0.7 rank(our sets) + 0.3 rank(Max)" introduced the outer split. "Knee Team Dhcons All Newconv LB -7:3" (public 0.966, private 0.955) then ran it.
+1. **CoAtNet-2 0.7 : R7 0.3 (chosen by Max).** Max's own CoAtNet + R7 submissions blended the two branches at 0.7 / 0.3. The first of them notes "weight chosen on 4,296 out-of-fold studies" (submission "Knee OAI5 R7 LB", public 0.961). The later CoAtNet + R7 submissions kept the same ratio.
+2. **Multi-backbone 0.7 : (CoAtNet-2 + R7) 0.3 (set by LP).** LP's submission "Knee Team Dhcons Newconv LB — 0.7 rank(our sets) + 0.3 rank(Max)" introduced the outer split. "Knee Team Dhcons All Newconv LB -7:3" (public 0.966) then ran it.
 3. **Together:** 0.7, 0.3 × 0.7 = 0.21 and 0.3 × 0.3 = 0.09. Before the deadline, the selected submission ("Knee Team -all-LB — Version 5", 0.967 / 0.957) added Max's stage-4 final step to this blend:
    - convert each branch's predictions to percentile ranks;
    - combine the ranks with a weighted noisy-OR;
    - apply the sibling corrections: Lateral OA − 0.10 × Medial OA, PF OA − 0.10 × Medial OA, Synovitis − 0.20 × Effusion.
 
-**Why this candidate was selected:** TBD by LP / Max. Public scores could not separate it from the 50 / 30 / 20 and 30 / 45 / 25 blends, which also scored 0.967 public.
+**Why this candidate was selected:** The multi-backbone group was the strongest branch on its own, so we gave it the largest share. The 50 / 30 / 20 and 30 / 45 / 25 blends also scored 0.967 public, so the public leaderboard alone could not separate the candidates. Private scores were not visible when the weights were chosen; all scores above are public, except the 0.957 of the final pick, which is its final result.

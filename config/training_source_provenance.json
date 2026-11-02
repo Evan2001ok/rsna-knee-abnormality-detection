@@ -114,8 +114,8 @@
         "file": "code/train/final_blend/README.md",
         "source": "Training record for the final-blend multi-backbone models",
         "change": "Added with the final-blend training code",
-        "sha256": "86648eae703cf4bb8115b168bd936dc9ee2bd4ac5d5c19ade9b92c5f68be7117",
-        "bytes": 8610
+        "sha256": "a3dee1f9f7a3d40f0f4906a6e309874005509a443bead6b6d79b3ad320f6010c",
+        "bytes": 9103
       },
       {
         "file": "code/train/final_blend/sha256.txt",
