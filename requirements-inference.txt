@@ -1,0 +1,35 @@
+# Exact packages that OUR STAGE of the Kaggle prediction notebook asks pip for (pip installed six of them; see
+# below). They come, offline, from the "wheelhouse" folder of our public bundle (Kaggle dataset
+# max6296/knee-coatnet-consensus-all-ftall-w56-bundle, version 1; its wheelhouse/wheelhouse.json and bundle.json
+# list them).
+#
+# Environment this describes: the Kaggle notebook that made the team's selected submission (57490913, Version 5 of
+# lihu6666/rsna-knee-10th-place-inference-final-selected-team), with internet off, on 2 x NVIDIA T4:
+#   Kaggle image  gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f
+#                 (Kaggle's image version 31481; the same digest is also at the public path
+#                 gcr.io/kaggle-gpu-images/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f)
+#   Python        3.13 (3.13.15 in the notebook's record)
+#   PyTorch       2.11.0+cu128 and torchvision 0.26.0+cu128: part of the image, NOT installed by us.
+#                 The same goes for NumPy (2.1.3 in that run), pandas, SciPy, scikit-learn and Pillow.
+#
+# What the notebook runs (our stage):
+#   pip install --no-index --find-links <bundle>/wheelhouse pydicom pylibjpeg pylibjpeg-libjpeg pylibjpeg-openjpeg \
+#       pyjpegls PyYAML timm==1.0.26 opencv-python-headless==4.12.0.88
+# The same with this file:  pip install --no-index --find-links <bundle>/wheelhouse -r requirements-inference.txt
+# In Version 5's run, pip found pydicom 3.0.2 and PyYAML 6.0.3 already in the image and kept them; it installed the
+# other six from the wheelhouse.
+# The wheelhouse also holds numpy 2.2.6, huggingface_hub 2.1.1, hf_xet 1.6.0 and safetensors 0.8.0 as spares; pip did
+# not need them, because the image already had a suitable NumPy, huggingface_hub (1.29.0), hf-xet (1.6.0) and
+# safetensors (0.8.0).
+# Later in the same notebook, heliosli's R7 stage installs its own timm 1.0.25 and pydicom 3.0.1. Our stage has
+# finished by then.
+# Training uses a different, longer list: requirements-train.txt.
+
+pydicom==3.0.2
+pylibjpeg==2.1.0
+pylibjpeg-libjpeg==2.4.0
+pylibjpeg-openjpeg==2.6.0
+pyjpegls==1.5.1
+PyYAML==6.0.3
+opencv-python-headless==4.12.0.88
+timm==1.0.26

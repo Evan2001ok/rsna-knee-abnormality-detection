@@ -1,0 +1,16 @@
+.
+./configs
+./configs/backbones
+./configs/final
+./configs/followup
+./configs/llm
+./configs/teachers
+./docs
+./docs/images
+./scripts
+./scripts/oai
+./src
+./src/rsna_knee_abnormality_detection
+./tests
+./third_party
+./third_party/licenses

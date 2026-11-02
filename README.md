@@ -27,8 +27,8 @@ of this repository.
 - The team's selected submission (57490913, 0.967 public / 0.957 private) came from Version 5 of the teammates'
   public Kaggle notebook, which also runs our four models:
   [RSNA Knee 10th place inference-Final selected team, Version 5](https://www.kaggle.com/code/lihu6666/rsna-knee-10th-place-inference-final-selected-team?scriptVersionId=360860299).
-  Later versions of that notebook are follow-up experiments. A teammate's GitHub repository holds a copy of
-  Version 5, with notes on its inputs: [lihu-1/rsna-knee-abnormality-detection](https://github.com/lihu-1/rsna-knee-abnormality-detection).
+  Later versions of that notebook are follow-up work, not the selected submission. A teammate's GitHub repository
+  holds a copy of Version 5, with notes on its inputs: [lihu-1/rsna-knee-abnormality-detection](https://github.com/lihu-1/rsna-knee-abnormality-detection).
   Version 5 reads the teammates' weights from their private Kaggle datasets.
 - Weights of the teammates' four model sets in the team blend (DINOv2-Small, EfficientNetV2-S, ConvNeXt-Tiny and
   DINOv3 ConvNeXt-Tiny): [public Kaggle dataset](https://www.kaggle.com/datasets/lihu6666/rsna-knee-model-10th-multi-seed-team).
@@ -132,11 +132,22 @@ sources had seen the checking studies, so the leaderboard decided label changes.
 | `third_party/` | `NOTICE` for the code adapted from the Raptor notebooks, and a copy of the Apache-2.0 licence |
 | `LICENSE` | The licence of our code (CC BY-NC 4.0) |
 | `pyproject.toml`, `uv.lock`, `.python-version` | Python package list with exact versions; Python 3.12 |
+| `requirements-train.txt` | The same exact versions as a pip list (made from `uv.lock`), for training and the checks |
+| `requirements-inference.txt` | The exact packages our Kaggle stage installs from the bundle, with the Kaggle image they ran in |
+| `SETTINGS.json` | Where each kind of file lives: raw data, training folder, models, logs, submission and more |
+| `entry_points.md` | The commands in order: prepare data, build labels and splits, train, fine-tune, export, predict |
+| `directory_structure.txt` | The list of folders in this repository, made on a fresh clone with `find . -type d -not -path './.git*' -not -path './.venv*' \| sort`. The folders the commands create (`data/`, `runs/`, `wheels/`, `bundle/`; see `SETTINGS.json`) appear once you run them |
 | `.gitignore` | Keeps data, training runs, work files under `artifacts/`, weights and the `.env` key file out of git |
 
 File paths inside the scripts and configs are the local defaults we used (mostly under `data/`, `runs/` and
 `artifacts/`), not files in this folder. Pass your own paths with the options listed by `--help`. A few inputs are
 fixed near the top of a script instead; the script's opening lines say which.
+
+`SETTINGS.json` lists these folders in one place, with the names the Kaggle guidelines use (`RAW_DATA_DIR`,
+`TRAIN_DATA_CLEAN_PATH`, `MODEL_CHECKPOINT_DIR` and so on). The code does not read it: the YAML files in `configs/`
+and each command's options remain the source the code reads, and `SETTINGS.json` documents where each one points.
+The guidelines allow such a documented variation. `entry_points.md` gives the commands in order, with what each
+reads and writes.
 
 ### Names you will meet in file names and scripts
 
@@ -185,13 +196,54 @@ uv run knee --help
 uv run pytest -q      # CPU only, about 6 minutes
 ```
 
-Put the competition download, unchanged, in `data/rsna-knee-abnormality-detection/`. We trained on
-RTX 5090 cards (32 GB each) and checked things on an RTX 3090. Kaggle prediction ran on 2 × T4 with internet off,
-in the Kaggle image (Python 3.13) that Kaggle recorded for our team notebook:
-`gcr.io/kaggle-gpu-images/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f`
-(Kaggle lists it under its private `kaggle-private-byod` path; this public path holds the same image).
-`scripts/build_team_combined_notebook.py` asks for a different image (its `DOCKER` line), but Kaggle ran the
-notebook on this one.
+Without uv: `python3.12 -m venv .venv && . .venv/bin/activate && pip install -r requirements-train.txt` installs the
+same versions and the `knee` command. Keep the folder name `.venv`, because `scripts/oai/prepare_oai_cache.sh` runs
+`.venv/bin/python` unless the `PYTHON` variable names another Python.
+Put the competition download, unchanged, in `data/rsna-knee-abnormality-detection/`.
+
+## Hardware and software
+
+| | Training the four final models | Our local computer (checks, tests, bundle builds) | Kaggle prediction (Version 5) |
+| --- | --- | --- | --- |
+| Machine | A rented cloud machine | Our own computer, measured on Nov 2, 2026 | Kaggle notebook, internet off |
+| Operating system | Not recorded | Ubuntu 24.04.5 LTS (Linux kernel 7.0.0-42) | Linux inside the Kaggle image below |
+| CPU | Not recorded | AMD Ryzen 7 5800X3D | Not recorded |
+| CPU cores | Not recorded | 8 cores, 16 threads | 4 (as Kaggle reported to our timing notebooks) |
+| RAM | Not recorded | 125 GiB | Not recorded |
+| Disk | Not recorded | 1.8 TB | 20 GB working folder (`/kaggle/working`) |
+| GPU | 4 × NVIDIA GeForce RTX 5090, 32 GB each; each run used one GPU | 1 × NVIDIA GeForce RTX 3090, 24 GB | 2 × NVIDIA Tesla T4, 15 GiB each (15,360 MiB, as Kaggle reports it) |
+| GPU driver | Not recorded | 615.71.09 | Not recorded |
+| Python | 3.12.3 | 3.12 (3.12.14) | 3.13.15 |
+| PyTorch, torchvision | 2.8.0, 0.23.0 (CUDA 12.8 builds) | the same | 2.11.0, 0.26.0 (CUDA 12.8 builds), part of the image |
+| timm, NumPy | 1.0.26, 2.2.6 | the same | 1.0.26 (installed from our bundle), 2.1.3 (part of the image) |
+| Numbers | 16-bit numbers (bf16) for most of the math | 32-bit on the CPU | 16-bit (fp16) on the GPUs |
+| Package list | `uv.lock`, `requirements-train.txt` | the same | `requirements-inference.txt` |
+
+- The training column comes from each final run's own record (`provenance.json`: Python, PyTorch, NumPy and GPU
+  name), from `uv.lock` (torchvision and timm) and from our notes on the cloud machine. That machine is gone, and
+  we did not record its operating system, CPU, RAM, disk or GPU driver.
+- Kaggle image: `gcr.io/kaggle-private-byod/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f`
+  (Kaggle's image version 31481 in Version 5's record; Kaggle recorded the same digest for our 50/30/20 team
+  notebook). The same digest is also at the public path `gcr.io/kaggle-gpu-images/python@sha256:2757e0c7d1e0a9cb43da657b97e223c321a98f5014bdf64f44f2f6b083ad2b2f`.
+  `scripts/build_team_combined_notebook.py` asks for a different image (its `DOCKER` line), but Kaggle ran the
+  notebook on this one.
+- Kaggle runs offline, so our stage installs its few extra packages from the bundle's `wheelhouse/` folder
+  (`requirements-inference.txt`). PyTorch comes with the image; we do not install it there.
+
+## Run time
+
+| Step | Hardware | Time | Source |
+| --- | --- | --- | --- |
+| Image cache, 336 px, all training studies | Not recorded | Not recorded | |
+| Base training, one seed (24 epochs) | 1 × RTX 5090 | 2.86 h (10,281 to 10,319 s): epoch 1 about 8.5 min, later epochs about 7 min, epochs 22 to 24 (with the check on the 100 held-out studies) about 7.7 min | Run records |
+| All-window fine-tune, one seed (4 epochs) | 1 × RTX 5090 | 6.65 to 6.68 h (23,923 to 24,033 s): epoch 1 about 2.0 h (we did not record why the first epoch is slower); epochs 2 to 4 about 1.55 h each | Run records |
+| Peak GPU memory, as PyTorch counts it | 1 × RTX 5090 | Base training about 24 GiB; fine-tune 18.2 to 18.9 GiB | Run records |
+| All four seeds | 4 × RTX 5090 | The four base runs ran side by side, one per GPU, in about 2.9 h of clock time. The fine-tunes also used one GPU each | Our notes |
+| Kaggle: our four models on the hidden test set, 56 windows | 2 × T4 | About 0.93 h, estimated from timed runs on 320 training studies. The hidden-test run's own time was not recorded | Our notes |
+| Kaggle: the whole team notebook (Version 5) on the 3 public test studies | 2 × T4 | 1,017 s from the first cell to the last. Counted from the notebook's start, the teammates' stage ended at 438 s, ours at 615 s and R7's at 1,011 s | Version 5 record and log |
+| Kaggle: the whole team notebook on the hidden test set | 2 × T4 | Not recorded. It finished within Kaggle's 9-hour limit, since the submission was scored | |
+
+The epoch times include the data loading on the machine's CPU (4 loader processes per run).
 
 ## Train the four final models
 
@@ -208,12 +260,36 @@ Then, once per seed (42 to 45):
 
 ```bash
 uv run knee train --config configs/final/coatnet_384_consensus58_all_s42.yaml        # about 2.9 h on one RTX 5090
-uv run knee train --config configs/final/coatnet_384_consensus58_all_ftall_s42.yaml  # about 6.5 h, up to 14 GB GPU memory
+uv run knee train --config configs/final/coatnet_384_consensus58_all_ftall_s42.yaml  # about 6.7 h, up to 19 GiB GPU memory
 ```
 
 The fine-tune starts from the base run's `averaged-model.pt`. The seed files differ only in `seed` and `output_dir`
 (and, in the fine-tune files, `init_checkpoint`, which points to the same seed's base run).
-The final models were trained with an earlier copy of this code; this version has the same fine-tune options.
+
+### Exact training code
+
+The final models were not trained with the code in this folder, but with two earlier copies of it. Each training
+run records a fingerprint of its code (`code_sha256` in its `provenance.json`: one SHA-256 over every `.py` file of
+the package, in name order). Its first 8 characters:
+
+| Step | Code fingerprint | Where that exact code is |
+| --- | --- | --- |
+| Base training, seeds 42 to 45 | `33ea7db7` | Kept by us; not in this repository |
+| All-window fine-tune, seeds 42 to 45 | `4ef09757`: `33ea7db7` plus the all-window change (in `config.py`, `raptor_data.py` and `train.py`) | Kept by us, and given to the teammates in our handover of Oct 19, 2026; not in this repository |
+| Kaggle prediction (the submitted bundle) | `1cd05b65` | Public: the `src/` folder of the [bundle dataset](https://www.kaggle.com/datasets/max6296/knee-coatnet-consensus-all-ftall-w56-bundle) |
+| This folder | `39918ea8` | `src/` here |
+
+- `uv run python -c "from rsna_knee_abnormality_detection.utils import code_hash; print(code_hash()[:8])"` prints
+  the fingerprint of the installed copy.
+- This folder's code is a later copy. It has the options the final configs use (`raptor_train_all_windows`,
+  `init_checkpoint`, `freeze_batchnorm`) and adds options that those configs leave off (for example a fresh draw
+  of OAI knees each epoch, an extra loss on each series alone and rotated test views). Its export also skips a
+  series it cannot read instead of failing the whole study. We have not retrained the final models with this copy,
+  so we have not checked that it gives the same weights.
+- Training is not bit-for-bit repeatable, even with the exact code: the configs set `deterministic: false`, base
+  training compiles the image model (`compile: true`), the numbers are 16-bit (bf16), and the results also depend
+  on the GPU type and library versions. A rerun gives slightly different weights, and on other GPUs than the
+  RTX 5090 the differences can be larger.
 
 ## Rebuild the training data
 
@@ -235,8 +311,10 @@ needs `artifacts/teacher-recipe-decision.json` (written by `choose_teacher_recip
    → `prepare_packed_labels.py --mode r7mix` (round 6) → `prepare_consensus_labels.py` (final labels).
 5. **Training folder:** `scripts/make_consensus_combined.py <final labels> <4-fold splits> --with-experts` (it starts
    from an earlier training folder that already holds the OAI knees with their final labels,
-   `oai_v00_336_v7oaihybrid`, made by `scripts/oai/build_combined_inputs.py` and `scripts/oai/swap_oai_labels.py`), then `scripts/make_all_studies_split.py`
-   (moves 100 studies into the held-out fold 6).
+   `oai_v00_336_v7oaihybrid`, made by `scripts/oai/build_combined_inputs.py` and `scripts/oai/swap_oai_labels.py`).
+   Then its `splits_all.csv` puts the 100 held-out studies in fold 6: `scripts/make_all_studies_split.py ... --minimum 2`
+   rebuilds our list of them byte for byte, and `scripts/make_fulldata.py` (kept exactly as it ran) wrote the final
+   folder's file. `entry_points.md` (step 2.6) gives the commands.
 
 Most rounds need out-of-fold predictions from models trained in an earlier round, so an exact rebuild means training
 every round again. The final labels also need the teammates' and R7's out-of-fold predictions and our GPT readings, which
@@ -254,7 +332,8 @@ are not on their branch as a file; the code that made them is there, under `code
 
 **GPT image readings.** `scripts/gpt_image_labels.py` has four main steps: `prepare` (save every slice as an 8-bit
 PNG, at most 512 px), `estimate` (count images before sending), `run` (needs `--yes`) and `parse`. We used
-`--provider openai --effort medium`. Only images were sent, never reports. The key is read from an
+`--provider openai --effort medium --service-tier flex` (the flex tier is half price, slower and sometimes busy; the
+script retries). Only images were sent, never reports. The key is read from an
 `OPENAI_API_KEY=...` line in a `.env` file in this folder; `.gitignore` keeps that file out of git.
 
 **OAI knees.** Request OAI access at the [NIMH Data Archive](https://nda.nih.gov/oai) and create an image package
@@ -277,8 +356,8 @@ uv run knee export --checkpoints runs/coatnet_384_consensus58_all_ftall_s4{2,3,4
 `export` builds a bundle: weights, code, offline install files (wheels) and a notebook. It copies the wheels in
 `wheels` when it runs, so the timm 1.0.26 wheel the bundle needs is downloaded first (second line above). Attach the
 bundle to a Kaggle notebook as a dataset. Our part of the team notebook predicts with 56 evenly spaced windows per
-study, in 16-bit numbers on the T4s, in about 0.93 h for the test set. The submitted bundle was made with older
-export code that did not skip unreadable series; this code does.
+study, in 16-bit numbers on the T4s, in about 0.93 h for the test set (an estimate; see "Run time"). The submitted
+bundle was made with older export code that did not skip unreadable series; this code does.
 
 `scripts/build_team_combined_notebook.py` builds the team notebook. It needs:
 
@@ -333,7 +412,35 @@ Out of fold, steps 2 to 4 gained about +0.0004 over a plain rank blend, with the
 of the studies and scored on the other. The gain was positive in all 10 halves of 5 random 50/50 splits.
 
 Each stage has a hard stop (3.5 h for the teammates' stage from its own start, then 5.75 h for ours and 8.5 h for
-R7 on the notebook clock), so the notebook always writes `submission.csv` within Kaggle's 9-hour limit.
+R7 on the notebook clock), so the notebook always writes `submission.csv` within Kaggle's 9-hour limit. Version 5 of
+the teammates' notebook, which made the selected submission, turns these stops off (its first cell says so).
+
+## Side effects and key assumptions
+
+Side effects:
+
+- `knee train` writes its outputs into its run folder (`runs/<run name>/`) and refuses to start in a folder that
+  is not empty (use `--resume runs/<run name>/last.pt` to continue a stopped run). `knee export` refuses a `bundle/`
+  folder that is not empty.
+- The first training run downloads the public ImageNet starting weights through timm (internet needed once). They
+  are kept in the Hugging Face download cache in your home folder.
+- The GPT step sends study images (never reports) to OpenAI and costs money; it needs `--yes`. The OAI download
+  needs your own NDA access.
+- On Kaggle, our stage installs six packages into the notebook's Python (`requirements-inference.txt`). Later in
+  the same notebook, R7's stage replaces timm 1.0.26 with 1.0.25, and the image's pydicom 3.0.2 with 3.0.1. Each
+  stage installs what it needs just before it runs.
+- Prediction prepares test images in temporary folders inside its work folder and deletes each one after use. It
+  keeps the predictions and quality records in `prediction-parts/`.
+
+Key assumptions:
+
+- The test data has the same layout as the training data: `test.csv`, `test_series.csv` and the DICOM files in
+  `test_series/<study>/<series>/`.
+- A series that cannot be read: this folder's code drops it, and its slot takes the next series of the same plane
+  or stays empty. The submitted bundle's code instead fails the study in our stage, and the team notebook then
+  scores that study from the other groups only.
+- Kaggle's image provides PyTorch with CUDA, NumPy 2, pandas, SciPy, scikit-learn and Pillow. Our stage stops if
+  the Python version does not match its wheels (3.13) or NumPy is not version 2.
 
 ## Credits, data terms and licence
 

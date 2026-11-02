@@ -1,0 +1,43 @@
+{
+  "RAW_DATA_DIR": "data/rsna-knee-abnormality-detection/",
+  "TRAIN_DATA_CLEAN_PATH": "data/combined/oai_v00_336_consensus58_4f/",
+  "TEST_DATA_CLEAN_PATH": "data/processed/raptor-dense/test/",
+  "MODEL_CHECKPOINT_DIR": "runs/",
+  "LOGS_DIR": "runs/",
+  "SUBMISSION_DIR": "./",
+
+  "TRAIN_IMAGE_CACHE_DIR": "data/processed/raptor-dense/train/",
+  "LABELS_DIR": "data/labels/",
+  "SPLITS_DIR": "data/splits/",
+  "GPT_IMAGE_READINGS_DIR": "artifacts/gpt-image-labels/v1/",
+  "TEAMMATES_LABELS_FILE": "data/teammates/labels/rsna/conv_labels_used.csv",
+  "OAI_DIR": "data/oai/",
+  "OAI_RAW_DIR": "data/oai/raw/",
+  "FINAL_CONFIGS_DIR": "configs/final/",
+  "WHEELHOUSE_DIR": "wheels/",
+  "BUNDLE_DIR": "bundle/",
+
+  "KAGGLE_RAW_DATA_DIR": "/kaggle/input/competitions/rsna-knee-abnormality-detection/",
+  "KAGGLE_BUNDLE_DIR": "/kaggle/input/datasets/max6296/knee-coatnet-consensus-all-ftall-w56-bundle/",
+  "KAGGLE_SUBMISSION_PATH": "/kaggle/working/submission.csv",
+
+  "NOTES": {
+    "how_this_file_is_used": "This file lists where each kind of file lives. The code does not read it: the training settings in configs/*.yaml and the options and defaults of each command remain the source the code reads. This is a documented variation, as the Kaggle guidelines allow. Paths are relative to this folder, except the KAGGLE_ ones, which are the paths inside the Kaggle notebook. To use other folders, change the YAML files or pass the command options listed by --help.",
+    "RAW_DATA_DIR": "The competition download, unchanged (train.csv, train_series.csv, train_series/, test.csv, test_series.csv, test_series/). Default --data-root of scripts/prepare_raptor.py and knee prepare.",
+    "TRAIN_DATA_CLEAN_PATH": "The training folder that all eight files in configs/final/ read: manifest.csv (where each study's image cache is), labels.csv (final labels), validation_labels.csv (yes/no checking labels) and splits_all.csv (fold 6 = the 100 held-out studies). Built by scripts/make_consensus_combined.py and the held-out split step in entry_points.md.",
+    "TEST_DATA_CLEAN_PATH": "Only for local prediction with knee predict: the test image cache made by scripts/prepare_raptor.py --variant raptor-dense-distinct-v1 --split test. The Kaggle bundle does not use it: it prepares the test images itself, in a temporary folder inside its work folder for each group of studies, and deletes each folder after use.",
+    "MODEL_CHECKPOINT_DIR": "Each training run writes runs/<run name>/ (the output_dir in its config). The model used later is runs/<run name>/averaged-model.pt; last.pt lets a stopped run resume. Each fine-tune config reads its seed's base model from here (init_checkpoint).",
+    "LOGS_DIR": "Logs sit in the same run folders: history.json and training-history.json (per epoch), metrics-*.json, validation-*.csv, status.json, provenance.json (versions, GPU name, code and input fingerprints) and tensorboard/ (charts).",
+    "SUBMISSION_DIR": "knee predict writes submission.csv in the folder it is run from, unless --output names another file. The bundle's run_inference.py writes <--work-dir>/submission.csv. On Kaggle the notebook writes KAGGLE_SUBMISSION_PATH.",
+    "TRAIN_IMAGE_CACHE_DIR": "Default output of scripts/prepare_raptor.py --variant raptor-dense-distinct-v1: the 336 px image cache of the competition training studies, the kind the final models read. scripts/oai/build_combined_inputs.py takes its manifest.csv as --manifest when it builds a training folder.",
+    "LABELS_DIR": "Labels of every round, checking labels and report readings, one subfolder each (for example data/labels/baseline/, data/labels/baseline_severity/, data/labels/avg_v2/, data/labels/source_choice_v7_own_coatnet/). None are included in the repository.",
+    "SPLITS_DIR": "data/splits/baseline/ (5 folds), data/splits/four_fold/ (4 folds, final rounds) and data/splits/all_studies/ (its fold 6 holds the 100 held-out studies of the final runs).",
+    "GPT_IMAGE_READINGS_DIR": "Default --out of scripts/gpt_image_labels.py (images sent, replies and parsed readings).",
+    "TEAMMATES_LABELS_FILE": "Where scripts/prepare_consensus_labels.py expects the teammates' labels (its THEIR_LABELS line). The file is public on the multibackbone-pipeline branch as labels/rsna/conv_labels_used.csv.",
+    "OAI_DIR": "OAI work folder: assessments/ (the MOAKS grade tables), packages/<package id>/ (selection lists), raw/ (downloads) and the temporary unpack folders of scripts/oai/prepare_oai_cache.sh. The OAI image cache folder is chosen on that script's command line.",
+    "FINAL_CONFIGS_DIR": "The eight settings files of the four final models (base and fine-tune, seeds 42 to 45).",
+    "WHEELHOUSE_DIR": "Offline install files for Kaggle, made by scripts/download_inference_wheels.py --output-dir wheels and pip download timm==1.0.26 --no-deps -d wheels.",
+    "BUNDLE_DIR": "Output of knee export --output-dir bundle: the four models, the code, the wheels and a notebook. Uploaded as the Kaggle dataset in KAGGLE_BUNDLE_DIR.",
+    "KAGGLE_RAW_DATA_DIR": "Our stage of the notebook looks here first, then at /kaggle/input/rsna-knee-abnormality-detection/."
+  }
+}

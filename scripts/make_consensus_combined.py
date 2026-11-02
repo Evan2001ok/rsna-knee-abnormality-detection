@@ -13,7 +13,7 @@ fold configs are not included, so without them the configs step is skipped with 
 Run from the repo root: .venv/bin/python scripts/make_consensus_combined.py LABELS SPLITS [--with-experts]   (or --configs-only)
 --with-experts (Oct 16): the 58 expert studies join fold 5 with their gold labels (label_source gold), into
 data/combined/oai_v00_336_consensus58_4f and configs coatnet_384_consensus58_fold0-3. The final configs (configs/final)
-read this folder, with splits_all.csv from scripts/make_all_studies_split.py.
+read this folder, with splits_all.csv from scripts/make_fulldata.py (entry_points.md, step 2.6).
 --theirs (Oct 17): LABELS is data/labels/theirs_v1/labels.csv (the teammates' readings alone), into
 data/combined/oai_v00_336_theirs_4f and configs coatnet_384_theirs_fold0-3; the 58 expert studies stay out of training.
 """
