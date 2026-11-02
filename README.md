@@ -123,7 +123,9 @@ The machine-readable [external resource catalog](config/external_resources.json)
 
 ### Final team inference and public trained weights
 
-These are separate from this branch and were not part of the October 25 check above. Their access was checked on October 30, 2026.
+**Exact training code for the selected submission:** [`code/train/final_blend/`](code/train/final_blend/README.md) holds the five unedited training programs behind the four multi-backbone families in the 70/21/9 blend. These are DINOv2-S with full-data seeds 42–44, EfficientNetV2-S with full-data seeds 42–45, DINOv3 ConvNeXt-Tiny with 4 folds, and ConvNeXt-Tiny graycopy24 with 4 folds. Its README lists the original Kaggle notebooks with their logs, the GPU, the training times and the environment for each, and how the 70/21/9 weights were chosen.
+
+The resources below are separate from this branch and were not part of the October 25 check above. Their access was checked on October 30, 2026.
 
 | Resource and link | Access | What it holds |
 |---|---|---|

@@ -69,6 +69,13 @@ def main():
     check("convnext_tiny.dinov3_lvd1689m" in files['dino3.py'] and 'epochs: int = 16' in files['dino3.py'], 'DINOv3 model and duration retained')
     check('backbone_lr: float = 2e-5' in files['dino3.py'], 'DINOv3 split learning rate retained')
 
+    # Final-blend training programs: every file must still match its recorded hash.
+    final_dir = ROOT / 'code/train/final_blend'
+    listed = dict(line.split()[::-1] for line in (final_dir / 'sha256.txt').read_text(encoding='utf-8').splitlines() if line.strip())
+    for name, digest in listed.items():
+        check(hashlib.sha256((final_dir / name).read_bytes()).hexdigest() == digest, 'Final-blend file unchanged: ' + name)
+    check(len(listed) == 10, 'Final-blend hash list covers five scripts and five notebooks')
+
     paths = json.loads((ROOT / 'config/paths.example.json').read_text(encoding='utf-8'))['prefix_map']
     check(paths['/kaggle/input/datasets/minminandy/oai-baseline-2399-224px-images'].endswith('/kaggle_upload_224'), 'Exact224 OAI image mapping')
 

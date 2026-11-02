@@ -330,6 +330,90 @@
       "bytes": 106472
     },
     {
+      "file": "code/train/final_blend/convnext_graycopy24_folds01.py",
+      "source": "Team-private Kaggle notebook version 358835560; code cells joined with newlines",
+      "change": "Exact training code of a final-blend model family; no edits",
+      "sha256": "526fa763e6aef25a9bc2619b9976752bce13a95e653fee4f05170f18f15cfb8f",
+      "bytes": 103895
+    },
+    {
+      "file": "code/train/final_blend/convnext_graycopy24_folds23.py",
+      "source": "Team-private Kaggle notebook version 358835914; code cells joined with newlines",
+      "change": "Exact training code of a final-blend model family; no edits",
+      "sha256": "db6be748b38f389e9639b1f0e44bbb9b16e6edce2f5cfa3ca57b4d1f2bf61467",
+      "bytes": 103895
+    },
+    {
+      "file": "code/train/final_blend/dinov2s_fullseed.py",
+      "source": "Team-private Kaggle notebook version 360446358; code cells joined with newlines",
+      "change": "Exact training code of a final-blend model family; no edits",
+      "sha256": "596cfbda8b6a15823388f73284de3e03e7ee11ee77b0612041635e33edb8d8f4",
+      "bytes": 99800
+    },
+    {
+      "file": "code/train/final_blend/dinov3_convnext_4fold.py",
+      "source": "Team-private Kaggle notebook version 358232793; code cells joined with newlines",
+      "change": "Exact training code of a final-blend model family; no edits",
+      "sha256": "6ba00957a6d377e8c4a3ccf0aeb6054289a6d2194d4637e7f356b766a9e2e956",
+      "bytes": 103345
+    },
+    {
+      "file": "code/train/final_blend/effv2s_fullseed.py",
+      "source": "Team-private Kaggle notebook version 360444710; code cells joined with newlines",
+      "change": "Exact training code of a final-blend model family; no edits",
+      "sha256": "c72061463b0b80a74d5459609fcd6fbcfc9ad95e373aee62efea18619cd7c33f",
+      "bytes": 98873
+    },
+    {
+      "file": "code/train/final_blend/kaggle_notebooks/conv_graycopy24_fold01_v358835560.ipynb",
+      "source": "Team-private Kaggle notebook version 358835560, as saved by Kaggle with its outputs",
+      "change": "Unedited original notebook; its outputs are the training log",
+      "sha256": "d5dd4ad7ebb5138651eba60304449bcc8fb647f8fef5e0560c7d720eeb60e64b",
+      "bytes": 580975
+    },
+    {
+      "file": "code/train/final_blend/kaggle_notebooks/conv_graycopy24_fold23_v358835914.ipynb",
+      "source": "Team-private Kaggle notebook version 358835914, as saved by Kaggle with its outputs",
+      "change": "Unedited original notebook; its outputs are the training log",
+      "sha256": "0d0f933611a64d73c8cfcb329b7374937a1308206f6b655b7ac9b5f66d905cfb",
+      "bytes": 580977
+    },
+    {
+      "file": "code/train/final_blend/kaggle_notebooks/dinov2_fullseed_v360446358.ipynb",
+      "source": "Team-private Kaggle notebook version 360446358, as saved by Kaggle with its outputs",
+      "change": "Unedited original notebook; its outputs are the training log",
+      "sha256": "3309a67377b5119c7087f27c22aa3d38cb16b1011fa7f4c5231b9a67faefff8f",
+      "bytes": 177888
+    },
+    {
+      "file": "code/train/final_blend/kaggle_notebooks/dinov3_4fold_v358232793.ipynb",
+      "source": "Team-private Kaggle notebook version 358232793, as saved by Kaggle with its outputs",
+      "change": "Unedited original notebook; its outputs are the training log",
+      "sha256": "ed8bafbf6b767d50b160cbf3c6d0acd7d9051d21ab1348115bbd843c12fbe3bb",
+      "bytes": 1314541
+    },
+    {
+      "file": "code/train/final_blend/kaggle_notebooks/eff_fullseed_v360444710.ipynb",
+      "source": "Team-private Kaggle notebook version 360444710, as saved by Kaggle with its outputs",
+      "change": "Unedited original notebook; its outputs are the training log",
+      "sha256": "e8c756cb3895518bce239721b093434d2652a090ab7abd95ebfeb9e3deb21c98",
+      "bytes": 584160
+    },
+    {
+      "file": "code/train/final_blend/README.md",
+      "source": "Training record for the final-blend multi-backbone models",
+      "change": "Added with the final-blend training code",
+      "sha256": "092e374a4268c59a4cebd5d92806c7410bbf363429bd4af17097edd09ec4c2ad",
+      "bytes": 7290
+    },
+    {
+      "file": "code/train/final_blend/sha256.txt",
+      "source": "SHA-256 list of the final-blend scripts and notebooks",
+      "change": "Added with the final-blend training code",
+      "sha256": "e64987de616cb2abd493ecadc50c469d7794b51b2a9b765e338a75fe97d6a36b",
+      "bytes": 1044
+    },
+    {
       "file": "code/train/rad.py",
       "source": "<original working folder>/oai/inference_config_audit/rad_train.py",
       "change": "Restored original Notebook leaderboard-score comment; executable code unchanged",
@@ -396,8 +480,8 @@
       "file": "config/training_source_provenance.json",
       "source": "October25 source supplement / package support",
       "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "54b08d7af65bc92acd1137d6cba3021d22a7bccfe075f97015011776276794a0",
-      "bytes": 1874
+      "sha256": "d04b96d18ea316690a202505a36b3b376f626010671f1a9041f6823ec3540add",
+      "bytes": 6820
     },
     {
       "file": "docs/OAI_PROMPT_ENGLISH_REFERENCE.md",
@@ -480,8 +564,8 @@
       "file": "our_pipeline.ipynb",
       "source": "Essential code files in this package",
       "change": "writefile restoration cells only; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "7da7474970f0676ad12e3fb0d3f6a7c67228d480796952d2b1db35ca68f6e97d",
-      "bytes": 2249974
+      "sha256": "8215b08a4328e1d6223edb1f9b2a2463fb15d9edb6a7aacae5a8d08eae4266e9",
+      "bytes": 2894899
     },
     {
       "file": "PUBLIC_RELEASE.md",
@@ -494,8 +578,8 @@
       "file": "README.md",
       "source": "Reviewed detailed trick explanations with concise package navigation",
       "change": "Full improvement/labeling explanations retained; code package remains minimal; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "2c2eac230510aaca77f15db512fe76a9953db25cd3fa259c0fe859df143c6b23",
-      "bytes": 54348
+      "sha256": "bc16ee4a3e303b90e1b105b289c7dab60694387137746669f69d2dc795f311c5",
+      "bytes": 54921
     },
     {
       "file": "REPRODUCE.md",
@@ -599,8 +683,8 @@
       "file": "tools/refresh_bundle.py",
       "source": "October25 source supplement / package support",
       "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "0e6cc613e603c8d7b1f513b0792b4ff0c55d33fc7b713c84261a1fa914c20bed",
-      "bytes": 8119
+      "sha256": "083a96312ab905eba185a662781daba1809adbe47609a9fdfce2eb39e5bd2bee",
+      "bytes": 8465
     },
     {
       "file": "tools/run_pipeline.py",
@@ -619,15 +703,15 @@
     {
       "file": "tools/validate_training_sources.py",
       "source": "October25 source supplement / package support",
-      "change": "Added operational documentation, validation or source provenance",
-      "sha256": "9ad3b4bf21d96abdb8efad4b561f37f6102f75709b4e184e143359e86f0abc3a",
-      "bytes": 5425
+      "change": "Added operational documentation, validation or source provenance; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
+      "sha256": "ac64f450eacebaab66dc8549966b8595dbe72ed23757ae2f72b70e3fac1534ac",
+      "bytes": 5949
     },
     {
       "file": "verification.json",
       "source": "Static source checks; no pipeline execution",
       "change": "none; October25 supplement: entry points, source recovery, fold adapter or regenerated support metadata",
-      "sha256": "951663deb4c2410fc316138f6284cafe32f9e8f34b0549080d5ead934e8a633f",
+      "sha256": "f5f971150ea195097437430998f53b58d84cc22b0ee3a0a41b8495d123d34845",
       "bytes": 801
     }
   ],

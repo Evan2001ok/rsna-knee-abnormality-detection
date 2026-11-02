@@ -20,8 +20,10 @@ def eligible(path):
         return False
     # Allowlist publication material. A local data restore must not enter a new ZIP.
     if parts[0]=='code':
-        source_location=(len(parts)==2 and path.name=='oai_manifest.py') or (len(parts)==3 and parts[1] in {'train','inference','rsna','oai'}) or (len(parts)==4 and tuple(parts[1:3]) in {('labeling','rsna'),('oai','transforms')})
-        return (source_location and path.suffix=='.py') or path.relative_to(ROOT).as_posix() in {
+        source_location=(len(parts)==2 and path.name=='oai_manifest.py') or (len(parts)==3 and parts[1] in {'train','inference','rsna','oai'}) or (len(parts)==4 and tuple(parts[1:3]) in {('labeling','rsna'),('oai','transforms'),('train','final_blend')})
+        final_blend_record=(tuple(parts[1:3])==('train','final_blend') and
+            ((len(parts)==4 and path.name in {'README.md','sha256.txt'}) or (len(parts)==5 and parts[3]=='kaggle_notebooks' and path.suffix=='.ipynb')))
+        return (source_location and path.suffix=='.py') or final_blend_record or path.relative_to(ROOT).as_posix() in {
             'code/oai/score_dictionary.csv','code/oai/oai_vlm_soft_mapping_prompt_v3_seven_targets.txt',
             'code/labeling/rsna/report_v1_prompt.txt','code/labeling/rsna/report_v2_prompt.txt',
             'code/labeling/rsna/vlm_image_report_prompt.txt'}
@@ -40,7 +42,7 @@ def main():
     ap.add_argument('--zip', help='Optional output archive path, outside package')
     a = ap.parse_args()
     codepaths = sorted(p for folder in ['code', 'tools'] for p in (ROOT / folder).rglob('*')
-                       if eligible(p) and p.suffix != '.csv' and 'score_audit' not in p.parts)
+                       if eligible(p) and p.suffix not in {'.csv', '.ipynb'} and 'score_audit' not in p.parts)
     cells = []
     def md(text):
         cells.append(dict(cell_type='markdown', metadata={}, source=text.splitlines(True)))
@@ -84,7 +86,7 @@ def main():
     original = json.loads((ROOT / 'manifest.json').read_text(encoding='utf-8'))
     old = {r['file']: r for r in original['files']}
     supplements = json.loads((ROOT / 'config/training_source_provenance.json').read_text(encoding='utf-8'))
-    new_sources = {r['file']: r for r in supplements['files']}
+    new_sources = {r['file']: r for r in supplements['files'] + supplements.get('final_blend', {}).get('files', [])}
     records = []
     for p in sorted(ROOT.rglob('*')):
         if not eligible(p) or p == ROOT / 'manifest.json':
